@@ -1,0 +1,27 @@
+<import src="../../../common/head.wxml" />
+<import src="../../../common/foot.wxml" />
+<import src="../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <template is="head" />
+  <view class="page-body">
+    <view class="jump-input-wrap">
+      <input bindinput="formInputChange" class="jump-weui-input" placeholder="{{t['jump6']}}"/>
+    </view>
+
+    <!-- <view class="btn-area">
+      <button type="primary" data-mode="fingerPrint" bindtap="openhalfscreenminiprogram">{{t['jump7']}}</button>
+    </view> -->
+    <view class="btn-area">
+      <button type="primary" data-mode="fingerPrint" bindtap="openanotherminiprogram">{{t['jump8']}}</button>
+    </view>
+    <view class="btn-area">
+      <button type="primary" data-mode="fingerPrint" bindtap="returnminiprogram">{{t['jump9']}}</button>
+    </view>
+    <view class="btn-area">
+      <button type="primary" data-mode="fingerPrint" bindtap="exitminiprogram">{{t['jump10']}}</button>
+    </view>
+  </view>
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

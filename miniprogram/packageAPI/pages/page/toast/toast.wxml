@@ -1,0 +1,23 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <template is="head" data="{{title: 'toast'}}"/>
+
+  <view class="page-body">
+    <view class="btn-area">
+      <button type="default" bindtap="showToast" style="margin-top: 20px;">wx.showToast</button>
+      <button type="default" bindtap="hideToast" style="margin-top: 20px;">wx.hideToast</button>
+      <button type="default" bindtap="showLoading" style="margin-top: 20px;">wx.showLoading</button>
+      <button type="default" bindtap="hideLoading" style="margin-top: 20px;">wx.hideLoading</button>
+      <button type="default" bindtap="showModal" style="margin-top: 20px;">wx.showModal</button>
+      <button type="default" bindtap="showActionSheet" style="margin-top: 20px;">wx.showActionSheet</button>
+      <button type="default" bindtap="enableAlertBeforeUnload" style="margin-top: 20px;">enableAlertBeforeUnload</button>
+      <button type="default" bindtap="disableAlertBeforeUnload" style="margin-top: 20px;">disableAlertBeforeUnload</button>
+    </view>
+  </view>
+
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

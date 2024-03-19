@@ -1,0 +1,14 @@
+<view class="page" data-weui-theme="{{theme}}">
+    <view class="page-title">独立分包页面</view>
+    <view bind:tap="handleTap">
+      <view class="demo-block">
+        <block wx:for="{{arr}}" wx:key="placement">
+          <view class="kind-list-item">
+            <view class="kind-list-item-hd" bindtap="toggle" id="{{item.path}}">
+                <view class="kind-list-text">{{item.name}}</view>
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+</view>

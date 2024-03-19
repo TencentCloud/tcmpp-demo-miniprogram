@@ -1,0 +1,24 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <template is="head" data="{{title: 'device-motion'}}"/>
+  <view class="page-body">
+    <view class="page-section">
+      <view class="page-body-info">
+        <view class="result">
+          <view>alpha: {{alpha}}</view>
+          <view>beta: {{beta}}</view>
+          <view>gamma: {{gamma}}</view>
+        </view>
+        <button bindtap="startDeviceMotionListening" type="primary">{{t['device-motion1']}}</button>
+        <button bindtap="stopDeviceMotionListening">{{t['device-motion2']}}</button>
+        <button disabled="{{disabled}}" type="primary" bindtap="onDeviceMotionChange">{{t['device-motion3']}}</button>
+        <button bindtap="offDeviceMotionChange">{{t['device-motion4']}}</button>
+      </view>
+    </view>
+  </view>
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

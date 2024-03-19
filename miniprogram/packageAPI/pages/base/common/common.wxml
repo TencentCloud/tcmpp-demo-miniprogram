@@ -1,0 +1,26 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <template is="head" data="{{title: t['common0']}}"/>
+
+  <view class="page-body">
+  <view class="page-section">
+    <view>env: {{ envInfo }}</view>
+    <button type="primary" bindtap="check">{{t['common1']}}</button>
+
+    <view>canIUseInfo: {{ canIUseInfo }}</view>
+    <button type="primary" bindtap="canIUse">canIUse</button>
+
+    <view>base64: {{ base64 }}</view>
+    <view>base64ToArrayBuffer: {{ base64ToArrayBuffer }}</view>
+    <view>arrayBufferToBase64: {{ arrayBufferToBase64 }}</view>
+
+    <button type="primary" bindtap="getArrayBuffer">base64ToArrayBuffer</button>
+    <button type="primary" bindtap="getBase64">arrayBufferToBase64</button>
+  </view>
+  </view>
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

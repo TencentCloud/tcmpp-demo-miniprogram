@@ -1,0 +1,96 @@
+<!--packageAPI/pages/device/bluetooth-beacon/bluetooth-beacon.wxml-->
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+<view class="container page">
+  <template is="head" data="{{title: 'bluetoothBeacon'}}"/>
+  <view class="devices_summary">{{t['bluetooth-peripheral28']}} {{devices.length}} {{t['bluetooth-peripheral29']}}：</view>
+  <view class="page-body">
+    <view class="page-section">
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">{{t['bluetooth22']}}</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" type="text" disabled="{{true}}" placeholder="{{t['bluetooth31']}}" value="{{isAvailable}}"></input>
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">{{t['bluetooth23']}}</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" type="text" disabled="{{true}}" placeholder="{{t['bluetooth31']}}" value="{{isDiscovering}}"></input>
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">{{t['bluetooth-peripheral34']}}</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" type="text" placeholder="characteristic" value="{{characteristicValue}}" bindinput="bindKeyCharacteristic"></input>
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">{{t['bluetooth-peripheral35']}}</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" type="text" placeholder="descriptor" value="{{descriptorValue}}" bindinput="bindKeyDescriptor"></input>
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">{{t['bluetooth-peripheral36']}}</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" type="text" placeholder="service UUID" value="{{serviceId}}" bindinput="bindKeyServiceId"></input>
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">{{t['bluetooth-peripheral37']}}</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" type="text" placeholder="characteristic UUID" value="{{characteristicId}}" bindinput="bindKeyCharacteristicId"></input>
+          </view>
+        </view>
+      </view>
+      <view class="page-body-info">
+        <view class="beacons_summary">{{t['bluetooth-beacon3']}} {{beacons.length}} {{t['bluetooth-beacon4']}}Beacon：</view>
+        <scroll-view class="beacon_list" scroll-y scroll-with-animation>
+          <view wx:for="{{beacons}}" wx:key="index"
+           data-beacon-id="{{item.uuid}}"
+           class="beacon_item"
+           hover-class="beacon_item_hover">
+            <view style="font-size: 10px">UUID: {{item.uuid}}</view>
+            <view style="font-size: 10px">{{t['bluetooth-beacon5']}}ID: {{item.major}}</view>
+            <view style="font-size: 10px">{{t['bluetooth-beacon6']}}ID: {{item.minor}}</view>
+            <view style="font-size: 10px">{{t['bluetooth-beacon7']}}: {{item.proximity}}</view>
+            <view style="font-size: 10px">{{t['bluetooth-beacon8']}}: {{item.accuracy}}</view>
+            <view style="font-size: 10px">{{t['bluetooth-beacon9']}}: {{item.rssi}}</view>
+          </view>
+        </scroll-view>
+      </view>
+
+      <view class="btn-area">
+        <button type="primary" bindtap="createBLEPeripheralServer" wx:if="{{!server}}">{{t['bluetooth-beacon10']}}</button>
+        <view wx:if="{{server}}">
+            <button type="primary" bindtap="close">{{t['bluetooth-beacon11']}}</button>
+            <button bindtap="addService">{{t['bluetooth-beacon12']}}</button>
+            <button bindtap="startAdvertising">{{t['bluetooth-beacon13']}}</button>
+            <button bindtap="stopAdvertising">{{t['bluetooth-beacon14']}}</button>
+        </view>
+        <button type="primary" bindtap="startBeaconDiscovery">{{t['bluetooth-beacon15']}}</button>
+        <button type="primary" bindtap="stopBeaconDiscovery">{{t['bluetooth-beacon16']}}</button>
+        <button type="primary" bindtap="getBeacons">{{t['bluetooth-beacon17']}}</button>
+        <button type="primary" bindtap="offBeaconUpdate">{{t['bluetooth-beacon18']}}</button>
+        <button type="primary" bindtap="offBeaconServiceChange">{{t['bluetooth-beacon19']}}</button>
+      </view>
+    </view>
+  </view>
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>
+

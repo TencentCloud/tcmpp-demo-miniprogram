@@ -1,0 +1,23 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <template is="head" data="{{title: 'loadFontFace'}}"/>
+
+  <view class="page-body">
+    <view class="page-section">
+      <view class="page-body-info display-area {{ loaded ? 'font-loaded' : '' }}">
+        <text wx:if="{{!loaded}}">Load {{ fontFamily }}</text>
+        <text wx:else>{{ fontFamily }} is loaded</text>
+      </view>
+      <view class="btn-area">
+        <button type="primary" bindtap="loadFontFace">{{t['loadFontFace1']}}</button>
+        <button type="default" bindtap="clear">{{t['loadFontFace2']}}</button>
+      </view>
+    </view>
+  </view>
+
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

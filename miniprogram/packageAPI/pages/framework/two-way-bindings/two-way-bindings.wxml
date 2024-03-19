@@ -1,0 +1,18 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <template is="head" data="{{title: 'Two -way binding'}}"/>
+
+  <view class="page-body">
+    <view class="page-section">
+      <input class="input" model:value="{{value}}" placeholder="please enter"/>
+      <view class="text">This is the data you entered：{{value}}</view>
+    </view>
+   
+  </view>
+
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

@@ -1,0 +1,43 @@
+<import src="../../../../../common/head.wxml" />
+<import src="../../../../../common/foot.wxml" />
+<import src="../../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <template is="head" data="{{title: 'bluetooth'}}"/>
+  <view class="page-body" style="display: flex; flex-direction: column">
+    <text style="text-align: center; margin: 16px">current serverId {{serverId}}</text>
+    <view class="action-area">
+      <button type="primary" bindtap="openBluetoothAdapter">createserver</button>
+      <button type="primary" bindtap="closeServer">close server</button>
+    </view>
+    <view class="action-area">
+      <button type="primary" bindtap="addService">Create service</button>
+      <button type="primary" bindtap="removeService">Turn off service</button>
+    </view>
+    <view class="action-area">
+      <button type="primary" bindtap="startAdvertising">Start broadcasting</button>
+      <button type="primary" bindtap="stopAdvertising">Turn off the broadcast</button>
+    </view>
+    <view class="action-area">
+      <button type="primary" bindtap="showInput">Write data</button>
+      <button type="primary" bindtap="closeBluetoothAdapter">Ending process</button>
+    </view>
+    <button type="primary" bindtap="chaneMode">Return to the host mode</button>
+    <block wx:if="{{input}}">
+      <input style="width: 200px;margin: 0 auto;background: var(--weui-BG-2);padding: 5px;" 
+        placeholder="Write a number" 
+        bindconfirm="onConfirm"
+      ></input>
+    </block>
+    <view>
+      <view wx:for="{{connects}}" wx:if="{{connects.length > 0}}" wx:key="{{item}}">
+        <view>
+          <text>{{item.deviceId}} : {{item.serverId}}</text>
+          <text>{{item.connected ? "connected" : "disconnect"}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

@@ -1,0 +1,52 @@
+<!--packageAPI/pages/media/audio-add/audio-add.wxml-->
+<view>
+  audioSources: <text>{{audioSources}}</text>
+  <button type="primary" bindtap="getAvailableAudioSources">getAvailableAudioSources</button>
+  <button type="primary" bindtap="createMediaAudioPlayer">createMediaAudioPlayer</button>
+  <button bindtap="startMediaAudioPlayer">start</button>
+  <button bindtap="stopMediaAudioPlayer">stop</button>
+  <button bindtap="removeAudioSource">removeAudioSource</button>
+  <button bindtap="destroyMediaAudioPlayer">destroy</button>
+  <view>
+    state: <text>{{state || "--"}}</text>
+  </view>
+  <view>
+    sampleRate: <text>{{sampleRate || "--"}}</text>
+  </view>
+  <view>
+    AudioListener:
+    <view>【positionX】{{positionX}}</view>
+    <view>【positionY】{{positionY}}</view>
+    <view>【positionZ】{{positionZ}}</view>
+    <view>【forwardX】{{forwardX}}</view>
+    <view>【forwardY】{{forwardY}}</view>
+    <view>【forwardZ】{{forwardZ}}</view>
+    <view>【upX】{{upX}}</view>
+    <view>【upY】{{upY}}</view>
+    <view>【upZ】{{upZ}}</view>
+  </view>
+  <button type="primary" bindtap="createWebAudioContext">createWebAudioContext</button>
+  <button bindtap="suspend">suspend</button>
+  <button bindtap="resume">resume</button>
+  <button bindtap="close">close</button>
+  <button bindtap="fast">加速</button>
+  <button bindtap="slow">减速</button>
+  <button bindtap="stop">BufferSourceNode.stop</button>
+  <view>
+    currentTime: <text>{{currentTime || "--"}}</text>
+  </view>
+  <button bindtap="getCurrentTime">获取当前时间戳</button>
+  <canvas type="2d" id="mycanvas" class="canvas"></canvas>
+  <button type="primary" bindtap="createAnalyser">createAnalyser</button>
+  <button bindtap="cancelRequestId">cancelAnimationFrame</button>
+  <button type="primary" bindtap="createBiquadFilter">createBiquadFilter</button>
+  <view>
+    AudioBuffer:
+    <view>【sampleRate】{{sampleRate}}</view>
+    <view>【length】{{length}}</view>
+    <view>【duration】{{duration}}</view>
+    <view>【numberOfChannels】{{numberOfChannels}}</view>
+  </view>
+  <button type="primary" bindtap="createBuffer">createBuffer</button>
+  <button bindtap="copyFromToChannel">copy[From/To]Channel</button>
+</view>

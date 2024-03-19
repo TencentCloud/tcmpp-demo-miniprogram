@@ -1,0 +1,36 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <template is="head" data="{{title: t['animation11']}}"/>
+
+  <view class="page-body">
+  <view class="page-section" style="perspective: 800px">
+    <!-- <view class="page-section-title">
+      <text>{{t['animation0']}}\n\n{{t['animation1']}} wx.createAnimation</text>
+    </view>  
+    <view id="container1" style="{{containerStyle1}}">
+      <button class="block1" style="width: 150px; margin: 50px auto;">{{t['animation2']}}</button>
+      <a class="block1" style="display: block; margin: 50px auto; width: 150px; text-align: center;">{{t['animation3']}}</a>
+      <text class="block1" style="display: block; margin: 50px auto; width: 150px; text-align: center;">{{t['animation4']}}</text>
+    </view> -->
+
+    <view animation="{{animationData}}" style="background:red;height:50px;width:50px;margin-left:100px"></view>
+
+    <view style="margin-top: 150px;height: 300px;overflow-y: scroll;">
+      <button type="primary" bindtap="translate">{{t['animation5']}}translate3d & translateX & translateY & translateZ</button>
+      <button type="primary" bindtap="matrix">matrix & backgroundColor & opacity & skew</button>
+      <button type="primary" bindtap="matrix3d">matrix3d & skewX & skewY</button>
+      <button type="primary" bindtap="rotateThenScale">{{t['animation6']}}rotate & scale</button>
+      <button type="primary" bindtap="rotate3dAndScale3d">{{t['animation7']}}rotate3d & scale3d</button>
+      <button type="primary" bindtap="rotateXrotateYrotateZ">{{t['animation8']}}rotateX & rotateY & rotateZ & scaleX & scaleY & scaleZ</button>
+      <button type="primary" bindtap="rotateAndScaleThenTranslate">{{t['animation9']}}rotate & scale & translate</button>
+      <button type="primary" bindtap="sizeAndPostion">{{t['animation10']}}width & height & left & right & top & bottom</button>
+    </view>
+    
+  </view>
+  </view>
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

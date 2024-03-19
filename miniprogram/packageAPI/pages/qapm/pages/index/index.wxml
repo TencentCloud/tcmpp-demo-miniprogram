@@ -1,0 +1,23 @@
+<!--index.wxml-->
+<view class="container">
+  <view>
+    <button bindtap="gotoPage" data-pagename="../jserror/index">js-error</button>
+  </view>
+
+  <view>
+    <button bindtap="gotoPage" data-pagename="../request/index">wx.request</button>
+  </view>
+
+  <view>
+    <button bindtap="gotoPage" data-pagename="../setData/index">setData</button>
+  </view>
+
+  <view>
+    <button bindtap="gotoPage" data-pagename="../pageTime/index">page load cost time</button>
+  </view>
+
+  <view>
+    <button bindtap="cleanLoaclStorage" >clean cache</button>
+  </view>
+
+</view>

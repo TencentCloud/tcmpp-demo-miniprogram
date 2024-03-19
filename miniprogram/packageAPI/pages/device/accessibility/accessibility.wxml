@@ -1,0 +1,28 @@
+<!--packageAPI/pages/device/accessibility/accessibility.wxml-->
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <template is="head" data="{{title: 'checkIsOpenAccessibility'}}"/>
+
+  <view class="page-body">
+  	<view class="page-section">
+    <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">{{t['accessibility4']}}</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" type="text" disabled="{{true}}" placeholder="{{t['accessibility5']}}" value="{{isOpen}}"></input>
+          </view>
+        </view>
+      </view>
+      <button type="primary" bind:tap="checkIsOpenAccessibility" >
+        {{t['accessibility0']}}
+      </button>
+    </view>
+  </view>
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

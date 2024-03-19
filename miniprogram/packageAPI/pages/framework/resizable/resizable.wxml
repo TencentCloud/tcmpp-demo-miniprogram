@@ -1,0 +1,22 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+<wxs src="./resizable.wxs" module="resizable" />
+<view class="container page">
+  <template is="head" data="{{title: 'Screen rotation'}}"/>
+
+  <view class="page-body">
+    <view class="page-section">
+      <view style="text-align:center">
+        <!-- Current screen status：{{resizable.renderResizable(status)}} -->
+        Rotating screen
+      </view>
+      <image src="http://mmbiz.qpic.cn/sz_mmbiz_png/GEWVeJPFkSHALb0g5rCc4Jf5IqDfdwhWJ43I1IvriaV5uFr9fLAuv3uxHR7DQstbIxhNXFoQEcxGzWwzQUDBd6Q/0?wx_fmt=png" mode="aspectFit" style="width: 100%"></image>
+      <!-- <button type="primary" data-status="unlock" bind:tap="handleStatusChange">Open the screen and rotate</button>
+      <button type="primary" data-status="lock" bind:tap="handleStatusChange">Lock screen</button> -->
+    </view>
+  </view>
+
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

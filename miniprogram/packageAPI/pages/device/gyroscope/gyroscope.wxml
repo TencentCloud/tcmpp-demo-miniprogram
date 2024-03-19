@@ -1,0 +1,24 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <template is="head" data="{{title: 'getSystemInfo'}}"/>
+
+  <view class="page-body">
+    <view class="page-section">
+      <view class="controls">
+        <view>x: {{x}}</view>
+        <view>y: {{y}}</view>
+        <view>z: {{z}}</view>
+        <button type="primary" bindtap="startGyroscope" disabled="{{enabled}}">{{t['gyroscope3']}}</button>
+        <button bindtap="stopGyroscope" disabled="{{!enabled}}">{{t['gyroscope4']}}</button>
+        <button type="primary" bindtap="onGyroscopeChange" disabled="{{onDisabled}}">onGyroscopeChange</button>
+        <button bindtap="offGyroscopeChange">offGyroscopeChange</button>
+      </view>
+    </view>
+  </view>
+
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

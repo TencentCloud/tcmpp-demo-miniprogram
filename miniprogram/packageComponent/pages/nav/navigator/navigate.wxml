@@ -1,0 +1,9 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<scroll-view class="page-scroll-view" scroll-y type="list">
+  <view class="container page">
+    <template is="head" data="{{title: t['navigator3']}}" />
+  </view>
+</scroll-view>

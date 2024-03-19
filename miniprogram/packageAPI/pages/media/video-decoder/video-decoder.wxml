@@ -1,0 +1,8 @@
+<!--packageAPI/pages/media/video-decoder/video-decoder.wxml-->
+<view>
+  <button type="primary" bind:tap="off">VideoDecoder.off bufferchange</button>
+  <button type="primary" bind:tap="stop">VideoDecoder.stop</button>
+  <button type="primary" bind:tap="seek">VideoDecoder.seek</button>
+  <button type="primary" bind:tap="play">{{t['videoDecoder2']}}</button>
+  <canvas type="2d" id="target1" style="width:100vw;height:{{height}}px;"></canvas>
+</view>

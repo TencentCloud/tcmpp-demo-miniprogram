@@ -1,0 +1,29 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <template is="head" data="{{title: t['aria0']}}"/>
+  <view class="page-body">
+   <view class="page-section">
+      <view class="page-section-title">
+        <text>{{t['aria1']}}</text>
+      </view>
+      <view class="page-section-spacing">
+        <view class="text-box">
+          <text>{{t['aria2']}}\n{{t['aria3']}}\n{{t['aria4']}}\n{{t['aria5']}}</text>
+        </view>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="page-section-title">
+        <text>{{t['aria6']}}</text>
+      </view>
+      <view class="page-section-spacing">
+        <view aria-role="button" aria-label="{{t['aria7']}}" style="text-align: center">{{t['aria8']}}</view>
+      </view>
+    </view>
+  </view>
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

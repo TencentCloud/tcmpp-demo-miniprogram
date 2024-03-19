@@ -1,0 +1,29 @@
+@keyframes Login-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.index-logo {
+  animation: Login-spin infinite 11s linear;
+}
+
+.index-hd {
+  text-align: center;
+}
+
+.index-logo {
+  width: 43px;
+  height: 43px;
+  padding: 60rpx 10rpx;
+}
+
+.index-desc {
+  margin: 10rpx 20rpx;
+  text-align: center;
+  font-size: 14px;
+}

@@ -1,0 +1,15 @@
+<view class="dialog-mask" wx:if="{{show}}">
+  <view class="dialog-container">
+    <view class="dialog-container-item">
+      <view class="dialog-title" wx:if="{{title.length !== 0}}" >{{title}}</view>
+      <view class="dialog-input-item" wx:for="{{inputs}}" wx:key="index" >
+        <text class="dialog-input-name">{{item.name}}:</text>
+        <input class="dialog-input" type="text" placeholder="{{item.placeholder}}" value="{{inputValues[item.key]}}" bindinput="onInput" data-name="{{item.key}}"/>
+      </view>
+    </view>
+    <view class="dialog-buttons">
+      <view hover-class="dialog-button-hover" class="dialog-button" wx:if="{{cancelText.length !== 0 && showCancel }}" bindtap="onCancel">{{cancelText}}</view>
+      <view hover-class="dialog-button-hover" class="dialog-button" wx:if="{{confirmText.length !== 0}}" bindtap="onConfirm">{{confirmText}}</view>
+    </view>
+  </view>
+</view>

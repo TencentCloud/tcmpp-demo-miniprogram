@@ -1,0 +1,20 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <template is="head" data="{{title: t['share-button0']}}"/>
+
+  <view class="page-body">
+    <view class="page-section">
+      <view class="image-preview">
+        <image show-menu-by-longpress src="{{url}}"/>
+      </view>
+      <view class="btn-area">
+        <button type="primary" bindtap="shareAction">{{t['share-button1']}}</button>
+      </view>
+    </view>
+  </view>
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

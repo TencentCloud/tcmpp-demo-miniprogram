@@ -1,0 +1,17 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <template is="head" data="{{title: t['updateManager0']}}"/>
+
+  <view class="page-body">
+  <view class="page-section">
+    <view>{{ updateInfo }}</view>
+
+    <button type="primary" bindtap="check">{{t['updateManager1']}}</button>
+  </view>
+  </view>
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

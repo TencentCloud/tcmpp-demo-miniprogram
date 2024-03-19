@@ -1,0 +1,131 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <!-- <view class="page-body">
+    <view class="page-section">
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">key</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" type="text" placeholder="please enter key" name="key" value="{{key}}" bindinput="keyChange"></input>
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">value</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" type="text" placeholder="please enter value" name="data" value="{{data}}" bindinput="dataChange"></input>
+          </view>
+        </view>
+      </view>
+      <view class="btn-area">
+        <button type="primary" bindtap="setStorage">Storing data</button>
+        <button bindtap="getStorage">Read data</button>
+        <button bindtap="clearStorage">Clean data</button>
+      </view>
+    </view>
+  </view> -->
+  <view class="page-body">
+    <view class="page-section">
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">key</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" type="text" placeholder="{{t['storage42']}}" name="key" value="{{key}}" bindinput="keyChange"></input>
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">value</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" type="text" placeholder="{{t['storage43']}}" name="data" value="{{data}}" bindinput="dataChange"></input>
+          </view>
+        </view>
+      </view>
+      <view class="btn-area">
+        <button type="primary" bindtap="setStorage">setStorageSync</button>
+        <button type="primary" bindtap="getStorage">getStorageSync</button>
+        <button type="primary" bindtap="clearStorage">clearStorageSync</button>
+      </view>
+    </view>
+    <view>{{t['storage12']}}</view>
+    <view>TMF1:{version:'1.0.1',developer:'TMF1'}</view>
+    <view>TMF2:{version:'1.0.2',developer:'TMF2'}</view>
+    <view>TMF3:{version:'1.0.3',developer:'TMF3'}</view>
+    <button type="primary" bindtap="batchSetStorage">batchSetStorage</button>
+    <view>{{t['storage13']}}</view>
+    <view>TMF3:{version:'1.0.3',developer:'TMF3_Sync'}</view>
+    <view>TMF4:{version:'1.0.4',developer:'TMF4'}</view>
+    <button type="primary" bindtap="batchSetStorageSync">batchSetStorageSync</button>
+    <view>{{t['storage14']}}</view>
+    <button type="primary" bindtap="batchGetStorage">batchGetStorage</button>
+    <button type="primary" bindtap="batchGetStorageSync">batchGetStorageSync</button>
+    <view>{{t['storage15']}}</view>
+    <view class="batchResult">{{batchResult}}</view>
+    <view>{{t['storage16']}}</view>
+    <view>TMF:{version:'1.0.0',developer:'lfw'}</view>
+    <button type="primary" bindtap="saveObject">{{t['storage26']}}</button>
+    <view>caniuse:true</view>
+    <button type="primary" bindtap="saveBoolean">{{t['storage27']}}</button>
+    <view>num:10</view>
+    <button type="primary" bindtap="saveNumber">{{t['storage28']}}</button>
+    <view>text:'TMF'</view>
+    <button type="primary" bindtap="saveString">{{t['storage29']}}</button>
+    <view>arr:[1,'2', { a: '1' }, false]</view>
+    <button type="primary" bindtap="saveArray">{{t['storage30']}}</button>
+    <view>{{t['storage17']}}</view>
+    <view>TMFSync:{version:'1.1.1',developer:'lfwlfw'}</view>
+    <button type="primary" bindtap="syncSaveObject">{{t['storage16']}}</button>
+    <view>caniuseSync:true</view>
+    <button type="primary" bindtap="syncSaveBoolean">{{t['storage26']}}</button>
+    <view>numSync:10</view>
+    <button type="primary" bindtap="syncSaveNumber">{{t['storage28']}}</button>
+    <view>textSync:'TMF'</view>
+    <button type="primary" bindtap="syncSaveString">{{t['storage29']}}</button>
+    <view>arrSync:[1,'2',{a: '1'},false]</view>
+    <button type="primary" bindtap="syncSaveArray">{{t['storage30']}}</button>
+    <view>{{t['storage18']}}</view>
+    <view class="result">{{result}}</view>
+    <view>{{t['storage19']}}</view>
+    <button type="primary" bindtap="getStorageInfo">{{t['storage31']}}</button>
+    <button type="primary" bindtap="getObject">{{t['storage32']}}</button>
+    <button type="primary" bindtap="getBoolean">{{t['storage33']}}</button>
+    <button type="primary" bindtap="getNumber">{{t['storage34']}}</button>
+    <button type="primary" bindtap="getString">{{t['storage35']}}</button>
+    <button type="primary" bindtap="getArray">{{t['storage36']}}</button>
+    <view>{{t['storage20']}}</view>
+    <button type="primary" bindtap="getStorageInfoSync">{{t['storage31']}}</button>
+    <button type="primary" bindtap="syncGetObject">{{t['storage32']}}</button>
+    <button type="primary" bindtap="syncGetBoolean">{{t['storage33']}}</button>
+    <button type="primary" bindtap="syncGetNumber">{{t['storage34']}}</button>
+    <button type="primary" bindtap="syncGetString">{{t['storage35']}}</button>
+    <button type="primary" bindtap="syncGetArray">{{t['storage36']}}</button>
+    <view>{{t['storage21']}}</view>
+    <button type="primary" bindtap="delObject">{{t['storage37']}}</button>
+    <button type="primary" bindtap="delBoolean">{{t['storage38']}}</button>
+    <button type="primary" bindtap="delNumber">{{t['storage39']}}</button>
+    <button type="primary" bindtap="delString">{{t['storage40']}}</button>
+    <button type="primary" bindtap="delArray">{{t['storage41']}}</button>
+    <view>{{t['storage22']}}</view>
+    <button type="primary" bindtap="syncDelObject">{{t['storage37']}}</button>
+    <button type="primary" bindtap="syncDelBoolean">{{t['storage38']}}</button>
+    <button type="primary" bindtap="syncDelNumber">{{t['storage39']}}</button>
+    <button type="primary" bindtap="syncDelString">{{t['storage40']}}</button>
+    <button type="primary" bindtap="syncDelArray">{{t['storage41']}}</button>
+    <view>{{t['storage23']}}</view>
+    <view class="flex-row">
+      <button type="primary" bindtap="remove">{{t['storage24']}}</button>
+      <button type="primary" bindtap="syncRemove">{{t['storage25']}}</button>
+    </view>
+  </view>
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

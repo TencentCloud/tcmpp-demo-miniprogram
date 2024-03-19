@@ -1,0 +1,20 @@
+<import src="../../../common/head.wxml" />
+<import src="../../../common/foot.wxml" />
+<import src="../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <view class="page-body">
+    <view class="page-section">
+      <button type="primary" bindtap="navigateTo">navigateTo</button>
+      <button type="primary" bindtap="navigateToEventChannelOn">navigateTo（EventChannel-On）</button>
+      <button type="primary" bindtap="navigateToEventChannelOnce">navigateTo（EventChannel-Once）</button>
+      <button type="primary" bindtap="navigateBack">navigateBack</button>
+      <button type="primary" bindtap="switchTab">switchTab</button>
+      <button type="primary" bindtap="reLaunch">reLaunch({{t['route1']}})</button>
+      <button type="primary" bindtap="reLaunchTo">reLaunch({{t['route2']}})</button>
+      <button type="primary" bindtap="redirectTo">redirectTo({{t['route3']}})</button>
+    </view>
+  </view>
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

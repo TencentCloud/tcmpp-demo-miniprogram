@@ -1,0 +1,65 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+<view class="container page">
+		<template is="head" data="{{title: 'live-pusher'}}" />
+		<view class="page-body">
+				<view class="page-section">
+						<live-pusher id="pusher" url="{{ videoSrc }}" mode="RTC" autopush bindstatechange="handleLivePusherStateChange" binderror="handleLivePusherError"></live-pusher>
+				</view>
+				<view class="page-section">
+						<view class="page-url">{{t['live-pusher0']}}:</view>
+						<input name="input" placeholder="{{t['live-pusher1']}}" value="{{ inputVideoSrc }}" bindblur="handleVideoSrcChange" />
+						<button type="primary" bindtap="handleScanQRCode">{{t['live-pusher2']}}</button>
+				</view>
+				<view class="page-section">
+						<button bindtap="handleStart" class="page-body-button" type="primary">
+								{{t['live-pusher3']}}
+						</button>
+						<button bindtap="toogleSetKeepScreenOn" class="page-body-button" type="primary">
+								{{t['live-pusher4']}}{{screenOn ? t['live-pusher5'] : t['live-pusher6']}}
+						</button>
+						<button bindtap="handlePause" class="page-body-button" type="primary">
+								{{t['live-pusher7']}}
+						</button>
+						<button bindtap="handleStop" class="page-body-button" type="primary">
+								{{t['live-pusher8']}}
+						</button>
+						<button bindtap="handleResume" class="page-body-button" type="primary">
+								{{t['live-pusher9']}}
+						</button>
+						<button bindtap="handleSwitchCamera" class="page-body-button" type="primary">
+								{{t['live-pusher10']}}
+						</button>
+						<button bindtap="handlePlayBGM" class="page-body-button" type="primary">
+								{{t['live-pusher11']}}
+						</button>
+						<button bindtap="handlePauseBGM" class="page-body-button" type="primary">
+								{{t['live-pusher12']}}
+						</button>
+						<button bindtap="handleStopBGM" class="page-body-button" type="primary">
+								{{t['live-pusher13']}}
+						</button>
+						<button bindtap="handleSetBGMVolume" class="page-body-button" type="primary">
+								{{t['live-pusher14']}}
+						</button>
+						<button bindtap="handleSetMICVolume" class="page-body-button" type="primary">
+								{{t['live-pusher15']}}
+						</button>
+						<button bindtap="handleSnapshot" class="page-body-button" type="primary">
+								{{t['live-pusher16']}}
+						</button>
+						<button bindtap="handleStartPreview" class="page-body-button" type="primary">
+								{{t['live-pusher17']}}
+						</button>
+						<button bindtap="handleStopPreview" class="page-body-button" type="primary">
+								{{t['live-pusher18']}}
+						</button>
+						<button bindtap="handleToggleTorch" class="page-body-button" type="primary">
+								{{t['live-pusher19']}}
+						</button>
+				</view>
+		</view>
+		<template is="foot" wx:if="{{lang==='zh_CN'}}" />
+		<template is="foot_en" wx:else />
+</view>

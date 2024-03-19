@@ -1,0 +1,4 @@
+.buffer-url {
+  text-align: center;
+  color: #999;
+}

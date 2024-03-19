@@ -1,0 +1,58 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <template is="head" data="{{title: 'camera'}}"/>
+
+  <view class="page-body">
+    <view class="page-body-wrapper">
+    <view style="margin-bottom: 10px"> {{t['cameraComponent0']}} </view>
+      <camera
+        flash="off"
+        device-position="{{position}}"
+        binderror="error"
+      >
+      </camera>
+       <view wx:if="{{showCanvas}}" class="info-container">
+          <view style="margin: 10px 0">{{t['cameraComponent1']}}</view>
+          <view>
+            {{t['cameraComponent3']}}：{{ frameHeight }}  {{t['cameraComponent2']}}：{{ frameWidth }}
+          </view>
+          <canvas
+            id="webgl"
+            type="webgl"
+            canvas-id="canvas"
+            style="width: {{width}}px; height: {{height}}px;"
+          >
+          </canvas>
+        </view>
+      <view class="btn-area first-btn">
+        <button bindtap="handleShowCanvas" type="primary">{{showCanvas ? t['camera4']: t['camera5']}}</button>
+      </view>
+      <view class="btn-area">
+      <button type="primary" bindtap="togglePosition">{{t['cameraComponent6']}}</button>
+      </view>
+      <view class="btn-area">
+        <button type="primary" bindtap="takePhoto">{{t['cameraComponent7']}}</button>
+      </view>
+      <view class="btn-area">
+        <button type="primary" bindtap="startRecord">{{t['cameraComponent8']}}</button>
+      </view>
+      <view class="btn-area">
+        <button type="primary" bindtap="stopRecord">{{t['cameraComponent9']}}</button>
+      </view>
+      <view class="btn-area">
+        <navigator url="/packageComponent/pages/media/camera-scan-code/camera-scan-code" hover-class="none">
+          <button type="primary">{{t['cameraComponent10']}}</button>
+        </navigator>
+      </view>
+      <view class="preview-tips">{{t['cameraComponent11']}}</view>
+      <image wx:if="{{src}}" mode="widthFix" class="photo" src="{{src}}"></image>
+      <video wx:if="{{videoSrc}}" class="video" src="{{videoSrc}}"></video>
+    </view>
+  </view>
+
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

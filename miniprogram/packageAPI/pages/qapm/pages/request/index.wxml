@@ -1,0 +1,12 @@
+<!--pages/request/index.wxml-->
+<view>
+  <text>Reqeust Page</text>
+
+  <view>
+    <button bindtap="slowRequest">slow request</button>
+  </view>
+
+  <view>
+    <button bindtap="requestError">error request</button>
+  </view>
+</view>

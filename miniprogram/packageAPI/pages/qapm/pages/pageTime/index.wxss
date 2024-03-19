@@ -1,0 +1,12 @@
+/* pages/PageTime/index.wxss */
+.articleJson {
+  margin: 25px 25px;
+  word-wrap: break-word;
+}
+/* text {
+  font-size: 16px;
+  margin: 25px 0 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */

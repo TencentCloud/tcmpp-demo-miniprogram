@@ -1,0 +1,31 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <template is="head" data="{{title: 'getLocation'}}"/>
+
+  <view class="page-body">
+    <view class="page-section">
+      <view class="page-body-info">
+        <text class="page-body-text-small">{{t['getLocation3']}}</text>
+        <block wx:if="{{hasLocation === false}}">
+          <text class="page-body-text">{{t['getLocation4']}}</text>
+        </block>
+        <block wx:if="{{hasLocation === true}}">
+          <view class="page-body-text-location">
+            <text>E: {{location.longitude[0]}}°{{location.longitude[1]}}′</text>
+            <text>N: {{location.latitude[0]}}°{{location.latitude[1]}}′</text>
+          </view>
+        </block>
+      </view>
+      <view class="btn-area">
+        <button type="primary" bindtap="getLocation">{{t['getLocation5']}}</button>
+        <button bindtap="clear">{{t['getLocation6']}}</button>
+      </view>
+    </view>
+  </view>
+
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

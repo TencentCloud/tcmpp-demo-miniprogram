@@ -1,0 +1,30 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+<view class="container page">
+  <template is="head" data="{{title: 'rich-text'}}" />
+  <view class="page-body">
+    <view class="page-section">
+      <view class="page-section-title">{{t['rich-text1']}}</view>
+      <view class="page-content">
+        <scroll-view scroll-y>{{htmlSnip}}</scroll-view>
+        <button type="primary" bindtap="renderHtml">{{t['rich-text2']}}</button>
+        <block wx:if="{{renderedByHtml}}">
+          <rich-text nodes="{{htmlSnip}}"></rich-text>
+        </block>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="page-section-title">{{t['rich-text3']}}</view>
+      <view class="page-content">
+        <scroll-view scroll-y>{{nodeSnip}}</scroll-view>
+        <button type="primary" bindtap="renderNode">{{t['rich-text4']}}</button>
+        <block wx:if="{{renderedByNode}}">
+          <rich-text nodes="{{nodes}}"></rich-text>
+        </block>
+      </view>
+    </view>
+  </view>
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

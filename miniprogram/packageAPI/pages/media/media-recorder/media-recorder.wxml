@@ -1,0 +1,7 @@
+<view>
+  <video autoplay src="{{videoSrc1}}" bind:error="videoError"></video>
+  <canvas type="webgl" id="target1" style="bordesr:1px solid blue;box-sizing: content-box;width:300px;height:150px;"></canvas>
+  <button type="primary" bind:tap="testMediaRecorderWithCanvas">mediaRecorder with canvas</button>
+  <button type="primary" bind:tap="testMediaRecorderPause">mediaRecorder Pause</button>
+  <button type="primary" bind:tap="testMediaRecorderResume">mediaRecorder Resume</button>
+</view>

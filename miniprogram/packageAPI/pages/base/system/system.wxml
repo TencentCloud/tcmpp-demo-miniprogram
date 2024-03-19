@@ -1,0 +1,36 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <template is="head" data="{{title: t['system0']}}"/>
+
+  <view class="page-body">
+  <view class="page-section">
+    <button type="primary" bindtap="openSystemBluetoothSetting">{{t['system1']}}</button>
+    <button type="primary" bindtap="openAppAuthorizeSetting">{{t['system2']}}</button>
+    <button type="primary" bindtap="getWindowInfo">{{t['system12']}}</button>
+    <view class="view-content">{{windowInfo}}</view>
+    <button type="primary" bindtap="getSystemSetting">{{t['system13']}}</button>
+    <view class="view-content">{{systemSetting}}</view>
+    <button type="primary" bindtap="getSystemInfo">{{t['system3']}}</button>
+    <view class="view-content">{{ systemInfo }}</view>
+    <button type="primary" bindtap="getSystemInfoSync">{{t['system4']}}</button>
+    <view class="view-content">{{ systemInfoSync }}</view>
+    <button type="primary" bindtap="getSystemInfoAsync">{{t['system5']}}</button>
+    <view class="view-content">{{ systemInfoAsync }}</view>
+    <button type="primary" bindtap="getRendererUserAgentPromise">{{t['system6']}}</button>
+    <view class="view-content">{{ rendererUserAgentPromise }}</view>
+    <button type="primary" bindtap="getRendererUserAgentInvoke">{{t['system7']}}</button>
+    <view class="view-content">{{ rendererUserAgentInvoke }}</view>
+    <button type="primary" bindtap="getDeviceInfo">{{t['system8']}}</button>
+    <view class="view-content">{{ deviceInfo }}</view>
+    <button type="primary" bindtap="getAppBaseInfo">{{t['system9']}}</button>
+    <view class="view-content">{{ appBaseInfo }}</view>
+    <button type="primary" bindtap="getAppAuthorizeSetting">{{t['system10']}}</button>
+    <view class="view-content">{{ appAuthorizeSetting }}</view>
+  </view>
+  </view>
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

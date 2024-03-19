@@ -1,0 +1,5 @@
+<view class="demo" id="demo2">demo2</view>
+<view class="desc">createSelectorQuery in {{t['wxml24']}}：{{elementIn}}</view>
+<button type="primary" bindtap="selectQueryInComp">{{t['wxml25']}}</button>
+<view class="desc">createSelectorQuery {{t['wxml26']}}：{{element}}</view>
+<button type="primary" bindtap="selectQuery">{{t['wxml27']}}</button>

@@ -1,0 +1,20 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+<view class="container page">
+  <template is="head" data="{{title: 'canvas 2d'}}" />
+  <view class="page-body">
+    <block wx:if="{{canIUse}}">
+      <view class="page-section">
+        <view class="page-section-spacing">
+          <view class="page-body-wrapper">
+            <canvas type="2d" canvas-id="canvas2D" class="canvas" style="width: 400px; height: 500px;"></canvas>
+          </view>
+        </view>
+      </view>
+    </block>
+    <view wx:else style="margin: 15px; text-align:center">{{t['canvasComponent0']}}</view>
+  </view>
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

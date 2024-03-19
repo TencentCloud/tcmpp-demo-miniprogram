@@ -1,0 +1,22 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <template is="head" data="{{title: 'scanCode'}}"/>
+
+  <view class="page-body">
+    <view class="weui-cells__title">{{t['scan1']}}</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell">
+        <view class="weui-cell__bd">{{result}}</view>
+      </view>
+    </view>
+    <view class="btn-area">
+      <button type="primary" bindtap="scanCode">{{t['scan2']}}</button>
+    </view>
+  </view>
+
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

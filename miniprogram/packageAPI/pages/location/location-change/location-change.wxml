@@ -1,0 +1,29 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <template is="head" data="{{title: 'getLocation'}}"/>
+
+  <view class="page-body">
+    <view class="page-body-location">
+      <view>{{t['locationChange9']}}: </view>
+      <view>cb1: {{cb1Result}}</view>
+      <view>cb2: {{cb2Result}}</view>
+      <view>cb3: {{cb3Result}}</view>
+    </view>
+
+    <button bindtap="startLocationUpdate">startLocationUpdate</button>
+    <button bindtap="stopLocationUpdate">stopLocationUpdate</button>
+    <button bindtap="onLocationChange">onLocationChange</button>
+    <button bindtap="offLocationChange">offLocationChange</button>
+    <button bindtap="choosePoi">choosePoi</button>
+    <button bindtap="getFuzzyLocation">getFuzzyLocation</button>
+    <button bindtap="onLocationChangeError">onLocationChangeError</button>
+    <button bindtap="offLocationChangeError">offLocationChangeError</button>
+    <button bindtap="startLocationUpdateBackground">startLocationUpdateBackground</button>
+  </view>
+
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

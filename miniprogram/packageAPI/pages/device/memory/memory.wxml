@@ -1,0 +1,17 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <template is="head" data="{{title: 'memory'}}"/>
+  <view class="page-body">
+    <view class="page-section">
+      <view class="page-body-info">
+        <button bindtap="onMemoryWarning" type="primary">{{t['memory1']}}</button>
+        <button bindtap="offMemoryWarning">{{t['memory2']}}</button>
+      </view>
+    </view>
+  </view>
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

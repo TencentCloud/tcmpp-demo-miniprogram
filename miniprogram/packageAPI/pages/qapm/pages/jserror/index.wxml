@@ -1,0 +1,28 @@
+<!--pages/jserror/index.wxml-->
+<view class="jserror_container">
+  <text>JSerror Page</text>
+  <view >
+    <button bindtap="SyntaxErrorFunc">SyntaxError</button>
+  </view>
+  <view >
+    <button bindtap="ReferenceErrorFunc">Uncaught ReferenceError</button>
+  </view>
+  <view >
+    <button bindtap="RangeErrorFunc">RangeError</button>
+  </view>
+  <view >
+    <button bindtap="TypeErrorFunc">TypeError</button>
+  </view>
+  <view >
+    <button bindtap="URIErrorFunc">URIError</button>
+  </view>
+  <view >
+    <button bindtap="EvalErrorFunc">EvalError</button>
+  </view>  
+  <view >
+    <button bindtap="UnhandleRejection">UnhandleRejection</button>
+  </view>  
+  <view>
+    <button bindtap="GoBack">go back</button>
+  </view>
+</view>

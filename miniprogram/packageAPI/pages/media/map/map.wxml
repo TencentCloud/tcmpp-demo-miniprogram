@@ -1,0 +1,75 @@
+<!-- packageAPI/pages/media/map/map.wxml -->
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+<view class="container page">
+  <input-dialog show="{{inputOptions.show}}" inputs="{{inputOptions.inputs}}" title="{{inputOptions.title}}" cancelText="{{inputOptions.cancelText}}" showCancel="{{inputOptions.showCancel}}" confirmText="{{inputOptions.confirmText}}" bindcancel="onInutCancel" bindconfirm="onInputConfirm"></input-dialog>
+  <template is="head" data="{{title: 'map'}}" />
+  <view class="page-body">
+    <view class="page-section-title">
+      {{t['map36']}}
+      <navigator class="navigator" url="/packageComponent/pages/map-styles/map-styles">
+        {{t['map37']}}
+      </navigator>
+      。
+    </view>
+    <view class="page-section page-section-gap">
+      <map id="myMap" type="google" subkey="{{subKey}}" style="width: 100%; height: 300px;" latitude="{{latitude}}" longitude="{{longitude}}" scale="{{18}}" markers="{{markers}}" show-compass="{{showCompass}}" enable-zoom="{{enableZoom}}" enable-rotate="{{enableRotate}}" enable-satellite="{{enableSatellite}}" enable-traffic="{{enableTraffic}}" enable-overlooking="{{enableOverlooking}}" enable-scroll="{{enableScroll}}" polygons="{{drawPolygon ? polygons : []}}" polyline="{{drawPolyline ? polyline : []}}" circles="{{ drawCircle ? circle : []}}" setting="{{setting}}" bindtap="onTap" bindmarkertap="onMarkerTap" bindupdated="onUpdated" bindregionchange="onRegionChange" bindanchorpointtap="onAnchorpointTap" bindpoitap="onPoiTap" show-location>
+        <cover-view slot="callout">
+          <cover-view marker-id="103">33333</cover-view>
+          <cover-view marker-id="101">44444</cover-view>
+        </cover-view>
+      </map>
+    </view>
+  </view>
+  <view class="page-section">
+    <view class="btn-area">
+      <button type="default" bindtap="createMapContext">createMapContext</button>
+      <button type="default" bindtap="toggleArc">{{ !drawArc ? 'add' : 'remove'}}Arc</button>
+      <button type="default" bindtap="setCenterOffset">setCenterOffset</button>
+      <button type="default" bindtap="toggleCustomLayer">
+        {{ !drawCustomLayer ? 'add' : 'remove'}}CustomLayer
+      </button>
+      <button type="default" bindtap="toggleGroundOverlay">
+        {{ !drawGroundOverlay ? 'add' : 'remove'}}GroundOverlay
+      </button>
+      <button type="default" bindtap="updateGroundOverlay" wx:if="{{ drawGroundOverlay }}">
+        updateGroundOverlay
+      </button>
+      <button type="default" bindtap="toggleMarkers">
+        {{ !drawMarkers ? 'add' : 'remove'}}Markers
+      </button>
+      <button type="default" bindtap="toggleVisualLayer">
+        {{ !drawVisualLayer ? 'add' : 'remove'}}VisualLayer
+      </button>
+      <button type="default" bindtap="eraseLines">eraseLines</button>
+      <button type="default" bindtap="executeVisualLayerCommand">executeVisualLayerCommand</button>
+      <button type="default" bindtap="moveAlong">moveAlong</button>
+      <button type="default" bindtap="moveToLocation">moveToLocation</button>
+      <button type="default" bindtap="translateMarker">translateMarker</button>
+      <button type="default" bindtap="includePoints">includePoints</button>
+      <button type="default" bindtap="fromScreenLocation">fromScreenLocation</button>
+      <button type="default" bindtap="getCenterLocation">getCenterLocation</button>
+      <button type="default" bindtap="getRegion">getRegion</button>
+      <button type="default" bindtap="getRotate">getRotate</button>
+      <button type="default" bindtap="getScale">getScale</button>
+      <button type="default" bindtap="getSkew">getSkew</button>
+      <button type="default" bindtap="openMapApp">openMapApp</button>
+      <button type="default" bindtap="setBoundary">setBoundary</button>
+      <button type="default" bindtap="setLocMarkerIcon">setLocMarkerIcon</button>
+      <button type="default" bindtap="toScreenLocation">toScreenLocation</button>
+      <!-- <button type="default" bindtap="mapOn" data-event="visualLayerEvent" disabled="{{ visualLayerEventHasOn }}">
+        on-visualLayerEvent
+      </button> -->
+      <button type="default" bindtap="mapOn" data-event="markerClusterCreate" disabled="{{ markerClusterCreateHasOn }}">
+        on-markerClusterCreate
+      </button>
+      <button type="default" bindtap="mapOn" data-event="markerClusterClick" disabled="{{ markerClusterClickHasOn }}">
+        on-markerClusterClick
+      </button>
+      <button type="default" bindtap="initMarkerCluster">initMarkerCluster</button>
+    </view>
+  </view>
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

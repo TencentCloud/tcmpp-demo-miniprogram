@@ -1,0 +1,7 @@
+.page-body-info {
+  background-color: transparent;
+}
+
+.btn-area {
+  margin-top: 150px;
+}

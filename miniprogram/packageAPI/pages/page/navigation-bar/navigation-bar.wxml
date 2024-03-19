@@ -1,0 +1,32 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <template is="head" data="{{title: 'setNaivgationBarTitle'}}"/>
+
+  <form class="page-body" bindsubmit="setNaivgationBarTitle">
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">{{t['navigation0']}}</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input" type="text" placeholder="{{t['navigation1']}}" name="title"></input>
+        </view>
+      </view>
+    </view>
+    <view class="btn-area">
+      <button type="primary" formType="submit">{{t['navigation2']}}</button>
+    </view>
+
+    <view class="btn-area">
+      <button type="primary" bindtap="showNavigationBarLoading">{{t['navigation3']}}</button>
+      <button bindtap="hideNavigationBarLoading">{{t['navigation4']}}</button>
+      <button bindtap="setNavigationBarColor">{{t['navigation5']}}</button>
+    </view>
+  </form>
+
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

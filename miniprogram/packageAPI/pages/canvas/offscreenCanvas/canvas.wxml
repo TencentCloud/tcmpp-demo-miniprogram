@@ -1,0 +1,26 @@
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<scroll-view class="page-scroll-view" scroll-y type="list">
+<view class="container page">
+
+  <view class="page-body">
+    <block wx:if="{{canIUse}}">
+      <view class="page-section">
+        <view class="page-section-spacing">
+          <view class="page-body-wrapper">
+            <view>
+              <canvas type="2d" id="canvas2D" class="canvas"></canvas>
+            </view>   
+          </view>
+        </view>
+      </view>
+    </block>
+    <view wx:else style="margin: 15px; text-align:center">
+      {{t['canvas0']}}
+    </view>
+  </view>
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>
+</scroll-view>

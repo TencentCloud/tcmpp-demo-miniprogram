@@ -1,0 +1,39 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <template is="head" data="{{title: 'get/set/ScreenBrightness'}}" />
+
+  <view class="page-body">
+    <view class="page-body-info">
+      <view class="page-body-title">{{t['screen5']}}</view>
+      <text class="page-body-text-screen-brightness">{{screenBrightness}}</text>
+    </view>
+    <view class="page-section page-section-gap">
+      <view class="page-section-title">{{t['screen6']}}</view>
+      <view class="body-view">
+        <slider bindchange="changeBrightness" value="{{screenBrightness}}" min="0" max="1" step="0.1" />
+      </view>
+
+      <text class="page-body-text">{{t['screen7']}}: {{ keepScreenOn }}</text>
+    </view>
+
+    <view class="page-body-info">
+      <view class="page-body-title">{{t['screen8']}}</view>
+      <text class="page-body-text">{{t['screen9']}}{{ captured ? t['screen10'] : t['screen11'] }}{{t['screen12']}}</text>
+      <text class="page-body-text">{{t['screen13']}}{{ recorded ? t['screen14'] : t['screen15'] }}{{t['screen16']}}</text>
+    </view>
+    <button type="primary" bindtap="onUserCaptureScreen" disabled="{{onCaptureDisabled}}">{{t['screen21']}}</button>
+    <button type="primary" bindtap="offUserCaptureScreen">{{t['screen22']}}</button>
+    <button type="primary" bindtap="setKeepScreenOn">{{t['screen23']}}</button>
+    <button type="primary" bindtap="getScreenBrightness">{{t['screen24']}}</button>
+    <button type="primary" bindtap="getScreenRecordingState">{{t['screen25']}}</button>
+    <button type="primary" bindtap="onScreenRecordingStateChanged" disabled="{{onScreenRecordingDisabled}}">{{t['screen26']}}</button>
+    <button type="primary" bindtap="offScreenRecordingStateChanged">{{t['screen27']}}</button>
+    <button type="primary" bindtap="setVisualEffectOnCapture">{{t['screen17']}}{{visualEffect === 'hidden' ? t['screen18'] : t['screen19']}}{{t['screen20']}}</button>
+  </view>
+
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

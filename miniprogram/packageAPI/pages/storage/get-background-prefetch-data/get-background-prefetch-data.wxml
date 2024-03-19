@@ -1,0 +1,36 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <template is="head" data="{{title: 'getBackgroundFetchData'}}"/>
+
+  <view class="page-body">
+    <view class="page-section">
+      <view wx:if="{{canIUse}}" class="page-body-info">
+        <view class="page-body-title">Pre -pulling</view>
+        <block wx:if="{{appid}}">
+          <block>
+            <text class="page-body-text">OpenID</text>
+            <text class="context-value">{{openid}}</text>
+          </block>
+          <block>
+            <text class="page-body-text">AppID</text>
+            <text class="context-value">{{appid}}</text>
+          </block>
+          <block>
+            <text class="page-body-text">Data cache time</text>
+            <text class="context-value">{{getDataTime}}</text>
+          </block>
+        </block>
+        <block>
+          <text class="page-body-text">When the user starts the applet, call wx.getbackgroundFetchdata() to get the cache to the local data。
+          </text>
+        </block>
+        
+      </view>
+    </view>
+  </view>
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

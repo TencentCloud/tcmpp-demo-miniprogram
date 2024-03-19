@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "map",
+  "usingComponents": {
+    "input-dialog": "../../base/dialog/input-dialog"
+  }
+}

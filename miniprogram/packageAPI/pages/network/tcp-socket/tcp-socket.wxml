@@ -1,0 +1,71 @@
+<import src="../../../../common/head.wxml"/>
+<import src="../../../../common/foot.wxml"/>
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <template is="head" data="{{title: 'TCPSocket'}}"/>
+
+  <view class="page-body">
+    <view wx:if="{{!startTCP}}" class="btn-area">
+      <button type="primary" 
+        disabled="{{!canIUse}}"
+      bind:tap="handleCreateTCPTap">
+        {{t['tcp3']}} TCPSocket
+      </button>
+    </view>
+    <block wx:else>
+      <view class="btn-area">
+        <input bindinput="ipChange" value="{{ip}}" placeholder="{{t['tcp4']}}" />
+        <input bindinput="portChange" value="{{port}}" placeholder="{{t['tcp5']}}"/>
+      </view>
+      <view class="btn-area">
+        <button type="primary" bind:tap="handleConnect" disabled="{{hasConnected}}">
+          {{t['tcp6']}}
+        </button>
+      </view>
+      <view class="btn-area">
+        <button type="primary" bind:tap="handleWrite">
+          {{t['tcp7']}}
+        </button>
+      </view>
+      <view class="btn-area">
+        <button type="primary" bind:tap="handleBindWifi" disabled="{{hasbound || !isAndroid}}">
+          bind Wi-Fi{{t['tcp8']}}
+        </button>
+      </view>
+      <view class="btn-area">
+        <button type="primary" bind:tap="handleClose" disabled="{{!hasConnected}}">
+          {{t['tcp9']}}
+        </button>
+      </view>
+      <view class="btn-area">
+        <button bind:tap="toggleMessage" type="{{isOnMessage ? 'default' : 'primary'}}">
+          {{isOnMessage ? t['tcp15'] : t['tcp16']}}{{t['tcp10']}}
+        </button>
+      </view>
+      <view class="btn-area">
+        <button bind:tap="toggleError" type="{{isOnError ? 'default' : 'primary'}}">
+          {{isOnError ? t['tcp15'] : t['tcp16']}}{{t['tcp11']}}
+        </button>
+      </view>
+      <view class="btn-area">
+        <button bind:tap="toggleConnecting" type="{{isOnConnecting ? 'default' : 'primary'}}">
+          {{isOnConnecting ? t['tcp15'] : t['tcp16']}}{{t['tcp12']}}
+        </button>
+      </view>
+      <view class="btn-area">
+        <button bind:tap="toggleClose" type="{{isOnClose ? 'default' : 'primary'}}">
+          {{isOnClose ? t['tcp15'] : t['tcp16']}}{{t['tcp13']}}
+        </button>
+      </view>
+      <view class="btn-area">
+        <button bind:tap="toggleBoundWifi" type="{{isOnBound ? 'default' : 'primary'}}" disabled="{{!isAndroid}}">
+          {{isOnBound ? t['tcp15'] : t['tcp16']}}{{t['tcp14']}}
+        </button>
+      </view>
+    </block>
+  </view>
+
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

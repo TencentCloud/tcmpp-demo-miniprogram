@@ -1,0 +1,70 @@
+<import src="../../../../common/head.wxml"/>
+<import src="../../../../common/foot.wxml"/>
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <template is="head" data="{{title: 'UDPSocket'}}"/>
+
+  <view class="page-body">
+    <view wx:if="{{startUDP}}" style="text-align: center">
+        {{t['udp10']}}port: {{port}} {{t['udp11']}}port: {{remote_port}}
+    </view>
+    <view wx:if="{{!startUDP}}" class="btn-area">
+      <input placeholder="{{t['udp12']}}" bindinput="handlePortChange"></input>
+      <input placeholder="{{t['udp13']}}" bindinput="handleRemotePortChange"></input>
+      <button type="primary" 
+        disabled="{{!canIUse}}"
+      bind:tap="handleCreateUDPTap">
+        {{t['udp14']}} UDPSocket
+      </button>
+    </view>
+    <block wx:else>
+      <view class="btn-area">
+        <button type="primary" bind:tap="handleSendMessage">
+          {{t['udp15']}}
+        </button>
+      </view>
+      <view class="btn-area">
+        <button type="primary" bind:tap="changeMode">
+          {{t['udp18']}}
+        </button>
+      </view>
+      <block wx:if="{{mode === 'remote'}}">
+        <input placeholder="{{t['udp19']}}: 127.0.0.1" bindinput="handleInputChange"></input>
+        <view class="btn-area">
+          <button type="primary" bind:tap="handleSendRemoteMessage">
+            {{t['udp20']}}
+          </button>
+        </view>
+      </block>
+      <view class="btn-area">
+        <button bind:tap="toggleMessage" type="{{isOnMessage ? 'default' : 'primary'}}">
+          {{isOnMessage ? t['udp26'] : t['udp27']}}{{t['udp28']}}
+        </button>
+      </view>
+      <view class="btn-area">
+        <button bind:tap="toggleError" type="{{isOnError ? 'default' : 'primary'}}">
+          {{isOnError ? t['udp29'] : t['udp30']}}{{t['udp31']}}
+        </button>
+      </view>
+      <view class="btn-area">
+        <button bind:tap="toggleListening" type="{{isOnListening ? 'default' : 'primary'}}">
+          {{isOnListening ? t['udp32'] : t['udp33']}}{{t['udp34']}}
+        </button>
+      </view>
+      <view class="btn-area">
+        <button bind:tap="toggleClose" type="{{isOnClose ? 'default' : 'primary'}}">
+          {{isOnClose ? t['udp35'] : t['udp36']}}{{t['udp37']}}
+        </button>
+      </view>
+      <view class="btn-area">
+        <button bind:tap="handleCloseUDPTap" type="default">
+          {{t['udp38']}}
+        </button>
+      </view>
+    </block>
+  </view>
+
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

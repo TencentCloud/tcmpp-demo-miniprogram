@@ -1,0 +1,23 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <template is="head" data="{{title: 'Login'}}"/>
+
+  <view class="page-body">
+    <view class="page-section">
+      <block wx:if="{{hasLogin === true}}">
+        <text class="page-body-title">{{t['login0']}}</text>
+        <text class="page-body-text">{{t['login1']}}</text>
+      </block>
+      <block wx:if="{{hasLogin === false}}">
+        <text class="page-body-text">{{t['login2']}}</text>
+        <button class="page-body-button" type="primary" bindtap="login">{{t['login3']}}</button>
+      </block>
+    </view>
+  </view>
+
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

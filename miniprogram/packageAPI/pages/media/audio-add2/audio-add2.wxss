@@ -1,0 +1,4 @@
+/* packageAPI/pages/media/audio-add2/audio-add2.wxss */
+button {
+  padding: 8px 12px;
+}

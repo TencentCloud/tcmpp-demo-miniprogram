@@ -1,0 +1,38 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <template is="head" data="{{title: 'switch'}}"/>
+
+  <view class="page-body">
+    <view class="page-section page-section-gap">
+      <view class="page-section-title">{{t['switch0']}}</view>
+      <view class="body-view">
+        <switch checked bindchange="switch1Change"/>
+        <switch bindchange="switch2Change"/>
+      </view>
+    </view>
+
+    <view class="page-section">
+      <view class="page-section-title">{{t['switch1']}}</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_switch">
+          <view class="weui-cell__bd">{{t['switch2']}}</view>
+          <view class="weui-cell__ft">
+            <switch checked />
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_switch">
+          <view class="weui-cell__bd">{{t['switch3']}}</view>
+          <view class="weui-cell__ft">
+            <switch />
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

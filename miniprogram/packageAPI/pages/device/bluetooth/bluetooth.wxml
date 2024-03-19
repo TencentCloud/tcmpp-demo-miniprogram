@@ -1,0 +1,129 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<wxs module="utils">
+module.exports.max = function(n1, n2) {
+  return Math.max(n1, n2)
+}
+module.exports.len = function(arr) {
+  arr = arr || []
+  return arr.length
+}
+</wxs>
+<view class="container page">
+  <template is="head" data="{{title: 'bluetooth'}}"/>
+  <view class="page-body">
+    <view class="page-section">
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">{{t['bluetooth22']}}</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" type="text" disabled="{{true}}" placeholder="{{t['bluetooth54']}}" value="{{isAvailable}}"></input>
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">{{t['bluetooth23']}}</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" type="text" disabled="{{true}}" placeholder="{{t['bluetooth54']}}" value="{{isDiscovering}}"></input>
+          </view>
+        </view>
+      </view>
+      <view class="page-body-info">
+        <view class="devices_summary">{{t['bluetooth24']}} {{totalDevices.length}} {{t['bluetooth25']}}：</view>
+        <scroll-view class="device_list" scroll-y scroll-with-animation>
+          {{JSON.stringify(totalDevices)}}
+          <view wx:for="{{totalDevices}}" wx:key="index"
+           data-device-id="{{item.deviceId}}"
+           data-name="{{item.name || item.localName}}"
+           bindtap="makeBluetoothPair"
+           class="device_item"
+           hover-class="device_item_hover">
+            <view style="font-size: 16px;">{{item.name}}</view>
+            <view style="font-size: 10px">{{t['bluetooth26']}}: {{item.RSSI}}dBm ({{utils.max(0, item.RSSI + 100)}}%)</view>
+            <view style="font-size: 10px">UUID: {{item.deviceId}}</view>
+            <view style="font-size: 10px">Service{{t['bluetooth27']}}: {{utils.len(item.advertisServiceUUIDs)}}</view>
+          </view>
+        </scroll-view>
+        <view class="devices_summary">{{t['bluetooth28']}} {{connDevices.length}} {{t['bluetooth29']}}：</view>
+        <scroll-view class="device_list" scroll-y scroll-with-animation>
+          <view wx:for="{{connDevices}}" wx:key="index"
+           data-device-id="{{item.deviceId}}"
+           data-name="{{item.name || item.localName}}"
+           class="device_item"
+           hover-class="device_item_hover">
+            <view style="font-size: 16px;">{{item.name}}</view>
+            <view style="font-size: 10px">{{t['bluetooth30']}}: {{item.RSSI}}dBm ({{utils.max(0, item.RSSI + 100)}}%)</view>
+            <view style="font-size: 10px">UUID: {{item.deviceId}}</view>
+            <view style="font-size: 10px">Service{{t['bluetooth31']}}: {{utils.len(item.advertisServiceUUIDs)}}</view>
+          </view>
+        </scroll-view>
+        <view class="devices_summary">{{t['bluetooth32']}} {{devices.length}} {{t['bluetooth33']}}：</view>
+        <scroll-view class="device_list" scroll-y scroll-with-animation>
+          <view wx:for="{{devices}}" wx:key="index"
+           data-device-id="{{item.deviceId}}"
+           data-name="{{item.name || item.localName || item.deviceId}}"
+           bindtap="createBLEConnection"
+           class="device_item"
+           hover-class="device_item_hover">
+            <view style="font-size: 16px;">{{item.name}}</view>
+            <view style="font-size: 10px">{{t['bluetooth34']}}: {{item.RSSI}}dBm ({{utils.max(0, item.RSSI + 100)}}%)</view>
+            <view style="font-size: 10px">UUID: {{item.deviceId}}</view>
+            <view style="font-size: 10px">Service{{t['bluetooth35']}}: {{utils.len(item.advertisServiceUUIDs)}}</view>
+          </view>
+        </scroll-view>
+      </view>
+
+      <view class="btn-area">
+        <button type="primary" bindtap="openBluetoothAdapter1">{{t['bluetooth51']}}</button>
+        <button bindtap="closeBluetoothAdapter">{{t['bluetooth52']}}</button>
+        <button bindtap="offBluetoothAdapterStateChange">{{t['bluetooth53']}}</button>
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">UUID</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" type="text" placeholder="{{t['bluetooth55']}}" value="{{discoveryId}}" bindinput="bindKeyDiscovery"></input>
+          </view>
+        </view>
+        <button type="primary" bindtap="startBluetoothDevicesDiscovery">{{t['bluetooth42']}}</button>
+        <button bindtap="stopBluetoothDevicesDiscovery">{{t['bluetooth43']}}</button>
+        <button bindtap="offBluetoothDeviceFound">{{t['bluetooth44']}}</button>
+        <button type="primary" bindtap="getBluetoothDevices">{{t['bluetooth45']}}</button>
+        <button type="primary" bindtap="getConnectedBluetoothDevices">{{t['bluetooth46']}}</button>
+        <button type="primary" wx:if="{{isShowGetBLEMTU}}" bindtap="getBLEMTU">{{t['bluetooth47']}}</button>
+        <button type="primary" bindtap="getBluetoothAdapterState1">{{t['bluetooth48']}}</button>
+        <view>{{state}}</view>
+        <button type="primary" bindtap="offBLEConnectionStateChange">{{t['bluetooth49']}}</button>
+        <button type="primary" bindtap="offBLEMTUChange">{{t['bluetooth50']}}</button>
+      </view>
+       <!-- <view class="btn-area">
+        <button type="primary"
+        bind:tap="changeMode">
+          Go in from the machine mode
+        </button>
+       </view> -->
+    </view>
+  </view>
+
+  <view class="connected_info" wx:if="{{connected}}">
+    <view>
+      <text>{{t['bluetooth36']}} {{name}}</text>
+      <view class="operation">
+      <button wx:if="{{canWrite}}" size="mini" class="mini-button" bindtap="writeBLECharacteristicValue">{{t['bluetooth37']}}</button>
+      <button size="mini" class="mini-button" bindtap="closeBLEConnection">{{t['bluetooth38']}}</button>
+      <button size="mini"  class="mini-button" bindtap="getBLEDeviceRSSI">{{t['bluetooth39']}}</button>
+      </view>
+    </view>
+    <view wx:for="{{chs}}" wx:key="index" style="font-size: 12px; margin-top: 10px;">
+      <view>{{t['bluetooth40']}}UUID: {{item.uuid}}</view>
+      <view>{{t['bluetooth41']}}: {{item.value}}</view>
+    </view>
+  </view>
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

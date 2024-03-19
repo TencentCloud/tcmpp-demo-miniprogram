@@ -1,0 +1,22 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+<view class="container page">
+  <template is="head" data="{{title: 'image'}}" />
+  <view class="page-body">
+    <view class="page-section page-section-gap">
+      <view class="page-section-title">Local Image</view>
+      <view class="page-section-ctn">
+        <image show-menu-by-longpress class="image" src="../../../resources/pic/1.jpg" />
+      </view>
+    </view>
+    <view class="page-section page-section-gap">
+      <view class="page-section-title">Internet Image</view>
+      <view class="page-section-ctn">
+        <image show-menu-by-longpress class="image" src="https://res.wx.qq.com/op_res/gNITiJpSsxIqUDS1yDf91HzMi82cW3Ty5yfvLu_NIkWH3P0vsKDmtdAcpIWMfAJN" />
+      </view>
+    </view>
+  </view>
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

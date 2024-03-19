@@ -1,0 +1,33 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <template is="head" data="{{title: 'uploadFile'}}"/>
+
+  <view class="page-body">
+    <view class="page-section">
+      <view class="page-body-info">
+
+        <block wx:if="{{imageSrc}}">
+          <image src="{{imageSrc}}" class="image" mode="aspectFit"></image>
+        </block>
+
+        <view wx:else>
+          <view class="image-plus image-plus-nb">
+            <view class="image-plus-horizontal"></view>
+            <view class="image-plus-vertical"></view>
+          </view>
+          <view class="text">{{t['uploadFile8']}}: {{progress}}</view>
+          <button type="primary" bindtap="chooseVideo">{{t['uploadFile9']}}</button>
+          <button plain="true" type="primary" bindtap="abortUpload" style="margin-top:20rpx">{{t['uploadFile10']}}</button>
+          <button plain="true" type="primary" bindtap="offProgess" style="margin-top:20rpx">{{t['uploadFile11']}}</button>
+          <button plain="true" type="primary" bindtap="offHeadersReceived" style="margin-top:20rpx">{{t['uploadFile12']}}</button>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

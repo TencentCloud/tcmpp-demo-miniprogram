@@ -1,0 +1,30 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <template is="head" data="{{title: 'getNetworkType'}}"/>
+
+  <view class="page-body">
+    <view class="page-section">
+      <view class="page-body-info">
+        <view class="page-body-title">{{t['getNetwork1']}}</view>
+        <block wx:if="{{hasNetworkType === false}}">
+          <text class="page-body-text">{{t['getNetwork2']}}</text>
+          <text class="page-body-text">{{t['getNetwork3']}}</text>
+        </block>
+        <block wx:if="{{hasNetworkType === true}}">
+          <text class="page-body-text-network-type">{{networkType}}</text>
+        </block>
+      </view>
+      
+      <view class="btn-area">
+        <button type="primary" bindtap="getNetworkType">{{t['getNetwork4']}}</button>
+        <button bindtap="clear">{{t['getNetwork5']}}</button>
+      </view>
+    </view>
+  </view>
+
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

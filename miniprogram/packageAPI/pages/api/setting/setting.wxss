@@ -1,0 +1,16 @@
+form {
+  margin-top: 15px;
+}
+
+.weui-cell__bd {
+  display: flex;
+  justify-content: center;
+}
+
+.scope-picker {
+  text-align: center;
+}
+
+.scope-setting button {
+  width: 300px;
+}

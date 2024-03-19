@@ -1,0 +1,28 @@
+{
+  "name": "miniprogram-demo",
+  "version": "1.0.1",
+  "description": "WeChat miniprogram demo",
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "author": "TCMPP-miniprogram",
+  "license": "MIT",
+  "private": true,
+  "bugs": {
+    "url": "https://github.com/TencentCloud/tcmpp-demo-miniprogram/issues"
+  },
+  "homepage": "https://github.com/TencentCloud/tcmpp-demo-miniprogram#readme",
+  "devDependencies": {
+    "eslint": "^5.5.0",
+    "eslint-config-airbnb-base": "13.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^7.0.1",
+    "eslint-plugin-promise": "^4.0.0"
+  },
+  "dependencies": {
+    "miniprogram-barrage": "^1.1.0",
+    "miniprogram-recycle-view": "^0.1.5",
+    "threejs-miniprogram": "0.0.8",
+    "wxml-to-canvas": "^1.1.1"
+  }
+}

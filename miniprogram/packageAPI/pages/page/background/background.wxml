@@ -1,0 +1,30 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <template is="head" data="{{title: 'navigationBarLoading'}}"/>
+
+  <view class="page-body">
+    <view class="btn-area">
+      <button type="primary" bindtap="setBackgroundTextStyle">wx.setBackgroundTextStyle</button>
+      <button bindtap="setBackgroundColor">wx.setBackgroundColor</button>
+      <button bindtap="">test</button>
+      <button bindtap="">test</button>
+      <button bindtap="">test</button>
+      <button bindtap="">test</button>
+      <button bindtap="">test</button>
+      <button bindtap="">test</button>
+      <button bindtap="">test</button>
+      <button bindtap="">test</button>
+      <button bindtap="">test</button>
+      <button bindtap="">test</button>
+      <button bindtap="">test</button>
+      <button bindtap="">test</button>
+      <button bindtap="">test</button>
+    </view>
+  </view>
+
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

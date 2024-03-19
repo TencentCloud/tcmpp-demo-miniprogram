@@ -1,0 +1,38 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <view style="margin:20rpx auto;">Worker</view>
+  <view class="page-body">
+    <view class="page-body-wrapper">
+      <canvas canvas-id="canvas" class="canvas"></canvas>
+    </view>
+  </view>
+
+  <view class="page-section">
+    <view class="weui-cells__title">{{t['worker2']}}</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <input class="weui-input" type="number" value="{{input}}" bindinput="bindInput" />
+      </view>
+    </view>
+    <view class="weui-cells__title">{{t['worker3']}}</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-input">{{res}}</view>
+        <view class="weui-input">{{t['worker4']}}：{{time}}</view>
+      </view>
+    </view>
+    <button bindtap="compute">{{t['worker5']}}</button>
+    <button type="primary" bindtap="multiThreadCompute">{{t['worker6']}}</button>
+     <view class="page-section-title">{{t['worker7']}}</view>
+    <view class="btn-area">
+      
+      <view>{{t['worker8']}}{"workers": "workers"}</view>
+    </view>
+  </view>
+
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

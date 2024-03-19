@@ -1,0 +1,112 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <view class="page-body">
+    <view class="page-section">
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">{{t['video3']}}:</view>
+          </view>
+          <view class="weui-cell__bd">
+            <picker range="{{sourceType}}" bindchange="sourceTypeChange" value="{{sourceTypeIndex}}">
+              <view class="weui-input">{{sourceType[sourceTypeIndex]}}</view>
+            </picker>
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">{{t['video4']}}:</view>
+          </view>
+          <view class="weui-cell__bd">
+            <picker range="{{camera}}" bindchange="cameraChange" value="{{cameraIndex}}">
+              <view class="weui-input">{{camera[cameraIndex]}}</view>
+            </picker>
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">{{t['video5']}}:</view>
+          </view>
+          <view class="weui-cell__bd">
+            <picker range="{{duration}}" bindchange="durationChange" value="{{durationIndex}}">
+              <view class="weui-input">{{duration[durationIndex]}}</view>
+            </picker>
+          </view>
+        </view>
+      </view>
+
+      <view class="page-body-info">
+        <block wx:if="{{src === ''}}">
+          <view class="image-plus image-plus-nb" bindtap="chooseVideo">
+            <view class="image-plus-horizontal"></view>
+            <view class="image-plus-vertical"></view>
+          </view>
+          <view class="image-plus-text" bindtap="chooseVideo">{{t['video6']}}</view>
+        </block>
+        <block wx:if="{{src != ''}}">
+          <video id="myVideo" src="{{src}}" class="video" danmu-list="{{danmuList}}" enable-danmu danmu-btn></video>
+        </block>
+      </view>
+      <view class="view-flex">
+        <button class="view-button" size="mini" plain="true" bindtap="saveVideoToPhotosAlbum">
+          saveVideoToPhotosAlbum
+        </button>
+        <view class="view-text">{{saveVideoToPhotosAlbumRes}}</view>
+        <button class="view-button" size="mini" plain="true" bindtap="createVideoContext">
+          createVideoContext
+        </button>
+        <button class="view-button" size="mini" plain="true" bindtap="compressVideo">
+          compressVideo
+        </button>
+        <view class="view-text">{{compressVideoRes}}</view>
+        <button class="view-button" size="mini" plain="true" bindtap="chooseVideo">
+          chooseVideo
+        </button>
+        <view class="view-text">{{chooseVideoRes}}</view>
+        <button class="view-button" size="mini" plain="true" bindtap="chooseMediaImage">
+          chooseMedia-{{t['video7']}}
+        </button>
+        <button class="view-button" size="mini" plain="true" bindtap="chooseMediaVideo">
+          chooseMedia-{{t['video8']}}
+        </button>
+        <view class="view-text">{{chooseMediaRes}}</view>
+        <button class="view-button" size="mini" plain="true" bindtap="requestBackgroundPlayback">
+          requestBackgroundPlayback
+        </button>
+        <button class="view-button" size="mini" plain="true" bindtap="exitBackgroundPlayback">
+          exitBackgroundPlayback
+        </button>
+        <button class="view-button" size="mini" plain="true" bindtap="exitFullScreen">
+          exitFullScreen
+        </button>
+        <button class="view-button" size="mini" plain="true" bindtap="exitPictureInPicture">
+          exitPictureInPicture
+        </button>
+        <button class="view-button" size="mini" plain="true" bindtap="pause">
+          pause
+        </button>
+        <button class="view-button" size="mini" plain="true" bindtap="play">
+          play
+        </button>
+        <button class="view-button" size="mini" plain="true" bindtap="changePlaybackRate">
+          changePlaybackRate
+        </button>
+        <button class="view-button" size="mini" plain="true" bindtap="seek">
+          seek
+        </button>
+        <button class="view-button" size="mini" plain="true" bindtap="sendDanmu">
+          sendDanmu
+        </button>
+        <button class="view-button" size="mini" plain="true" bindtap="showStatusBar">
+          showStatusBar
+        </button>
+        <button class="view-button" size="mini" plain="true" bindtap="stop">
+          stop
+        </button>
+      </view>
+    </view>
+  </view>
+</view>

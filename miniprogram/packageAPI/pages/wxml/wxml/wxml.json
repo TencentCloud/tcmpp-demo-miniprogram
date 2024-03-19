@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "wxml",
+  "usingComponents": {
+    "comp": "./comp/comp"
+  }
+}

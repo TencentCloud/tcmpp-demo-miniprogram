@@ -1,0 +1,24 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <template is="head" data="{{title: 'navigator'}}" />
+
+  <view class="page-body">
+    <view class="btn-area">
+      <navigator url="navigate?title=navigate" hover-class="ohter-navigator">
+        <button type="default">{{t['navigator0']}}</button>
+      </navigator>
+      <navigator url="redirect?title=redirect" redirect hover-class="other-navigator-hover">
+        <button type="default">{{t['navigator1']}}</button>
+      </navigator>
+      <!-- <navigator target="miniProgram" hover-class="other-navigator-hover" open-type="navigate" app-id="wx4f1b24bdc99fa23b" version="release">
+        <button type="default">{{t['navigator2']}}</button>
+      </navigator> -->
+    </view>
+  </view>
+
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

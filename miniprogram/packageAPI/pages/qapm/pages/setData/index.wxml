@@ -1,0 +1,9 @@
+<!--pages/setData/index.wxml-->
+<view>
+  <text>SetData Page</text>
+  <button bindtap="getArticleJson">set data</button>
+  <view class="articleJson">
+    <text>"{{articleJson}}"</text>
+  </view>
+</view>
+

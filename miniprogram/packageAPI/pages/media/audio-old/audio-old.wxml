@@ -1,0 +1,6 @@
+<view>
+  <audio id="audio1" />
+  <button type="primary" bindtap="play">{{t['audioOld1']}}</button>
+  <button type="primary" bindtap="pause">{{t['audioOld2']}}</button>
+  <button type="primary" bindtap="seek0">{{t['audioOld3']}}</button>
+</view>

@@ -1,0 +1,115 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <template is="head" data="{{title: 'map'}}"/>
+
+  <view class="page-body">
+    <view class="page-section-title">{{t['mapComponent0']}}<navigator class="navigator" url="/packageComponent/pages/map-styles/map-styles">{{t['mapComponent1']}}</navigator>。</view>
+    <view class="page-section page-section-gap">
+      <map
+        id="mapcontext"
+        type="google"
+        subkey="{{subKey}}"
+        style="width: 100%; height: 300px;"
+        latitude="{{latitude}}"
+        longitude="{{longitude}}"
+        enable-poi="{{enablePoi}}"
+        enable-building="{{enableBuilding}}"
+        scale="{{scale}}"
+        min-scale="{{5}}"
+        max-scale="{{20}}"
+        markers="{{markers}}"
+        enable-3D="{{enable3d}}"
+        show-compass="{{showCompass}}"
+        show-scale="{{showScale}}"
+        enable-zoom="{{enableZoom}}"
+        enable-rotate="{{enableRotate}}"
+        enable-satellite="{{enableSatellite}}"
+        enable-traffic="{{enableTraffic}}"
+        enable-overlooking="{{enableOverlooking}}"
+        enable-scroll="{{enableScroll}}"
+        polygons="{{drawPolygon ? polygons : []}}"
+        polyline="{{drawPolyline ? polyline : []}}"
+        circles="{{ drawCircle ? circle : []}}"
+        include-points="{{ includePoints }}"
+        show-location="{{ showLocation }}"
+        setting="{{setting}}"
+        bindtap="onTap"
+        bindmarkertap="onMarkerTap"
+        bindlabeltap="onLabelTap"
+        bindcontroltap="onControltap"
+        bindcallouttap="onCalloutap"
+        bindanchorpointtap="onAnchorpointtap"
+        bindupdated="onUpdated"
+        bindregionchange="onRegionChange"
+        bindanchorpointtap="onAnchorpointTap"
+        bindpoitap="onPoiTap"
+      >
+      </map>
+    </view>
+  </view>
+
+  <view class="page-section">
+    <view class="btn-area">
+      <button  type="default" bindtap="toggleEnablePoi">
+        {{ !enablePoi ? t['mapComponent20'] : t['mapComponent21']}}{{t['mapComponent2']}}
+      </button>
+      <button  type="default" bindtap="toggleEnableBuilding">
+        {{ !enableBuilding ? t['mapComponent20'] : t['mapComponent21']}}{{t['mapComponent3']}}
+      </button>
+      <button  type="default" bindtap="toggleScale">
+        {{t['mapComponent4']}}
+      </button>
+       <button  type="default" bindtap="togglePosition">
+        {{t['mapComponent5']}}
+      </button>
+      <button  type="default" bindtap="toggle3d">
+        {{ !enable3d ? t['mapComponent22'] : t['mapComponent23']}}{{t['mapComponent6']}}
+      </button>
+      <button type="default" bindtap="toggleShowCompass">
+        {{ !showCompass ? t['mapComponent24'] : t['mapComponent23'] }}{{t['mapComponent7']}}
+      </button>
+      <button type="default" bindtap="toggleShowScale">
+        {{ !showScale ? t['mapComponent24'] : t['mapComponent23'] }}{{t['mapComponent8']}}
+      </button>
+      <button type="default" bindtap="toggleOverlooking">
+        {{ !enableOverlooking ? t['mapComponent25'] : t['mapComponent23'] }}{{t['mapComponent9']}}
+      </button>
+      <button type="default" bindtap="toggleRotate">
+        {{ !enableRotate ? t['mapComponent25'] : t['mapComponent23'] }}{{t['mapComponent10']}}
+      </button>
+      <button type="default" bindtap="togglePolygon">
+        {{ !drawPolygon ? t['mapComponent26'] : t['mapComponent27'] }}{{t['mapComponent11']}}
+      </button>
+      <button type="default" bindtap="togglePolyline">
+        {{ !drawPolyline ? t['mapComponent26'] : t['mapComponent27'] }}{{t['mapComponent12']}}
+      </button>
+      <button type="default" bindtap="toggleCircle">
+        {{ !drawCircle ? t['mapComponent26'] : t['mapComponent27'] }}{{t['mapComponent13']}}
+      </button>
+      <button type="default" bindtap="toggleZoom">
+        {{ !enableZoom ? t['mapComponent25'] : t['mapComponent23'] }}{{t['mapComponent14']}}
+      </button>
+      <button type="default" bindtap="toggleScroll">
+        {{ !enableScroll ? t['mapComponent25'] : t['mapComponent23'] }}{{t['mapComponent15']}}
+      </button>
+       <button type="default" bindtap="toggleSatellite">
+        {{ !enableSatellite ? t['mapComponent25'] : t['mapComponent23'] }}{{t['mapComponent16']}}
+      </button>
+       <button type="default" bindtap="toggleTraffic">
+        {{ !enableTraffic ? t['mapComponent25'] : t['mapComponent23'] }}{{t['mapComponent17']}}
+      </button>
+      <button type="default" bindtap="toggleShowLocation">
+        {{ showLocation ? t['mapComponent28'] : t['mapComponent24'] }}{{t['mapComponent18']}}
+      </button>
+      <button type="default" bindtap="toggleIncludePoints">
+        {{t['mapComponent19']}}
+      </button>
+    </view>
+  </view>
+
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

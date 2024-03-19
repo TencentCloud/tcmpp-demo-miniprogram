@@ -1,0 +1,126 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <template is="head" data="{{title: 'open/get/Setting'}}"/>
+
+  <view class="page-body">
+    <form>
+      <view class="page-section scope-setting">
+        <button type="default" bindtap="login">
+          wx.login
+        </button>
+        <button type="primary" bindtap="checkSession">
+          wx.checkSession
+        </button>
+        <button type="default"  bindtap="getUserProfile">
+          wx.getUserProfile
+        </button>
+        <button type="primary" bindtap="wxGetUserInfo">
+          wx.getUserInfo
+        </button>
+        <button type="default" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+          (open-type=getUserInfo)
+        </button>
+        <button type="primary" bindtap="getAccountInfoSync">
+          wx.getAccountInfoSync
+        </button>
+
+        <view style="text-align:center;">------------------{{t['setting0']}}-----------------</view>
+
+        <button type="primary" bindtap="wxGetLocation">
+          wx.getLocation
+        </button>
+        <!-- <button type="primary" bindtap="wxStartRecord">
+          wx.startRecord
+        </button> -->
+        <button type="primary" bindtap="wxSaveImageToPhotosAlbum">
+          wx.saveImageToPhotosAlbum
+        </button>
+        <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+          <view class="scope-picker">
+            {{t['setting1']}}{{array[index]}}
+          </view>
+        </picker>
+        <button type="primary" bindtap="authorize">
+          wx.authorize
+        </button>
+        <button type="primary" bindtap="getSetting">
+          wx.getSetting
+        </button>
+        <button open-type="openSetting" type="default">
+          {{t['setting2']}}
+        </button>
+        <view class="weui-cells weui-cells_after-title scope-cells">
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+              <view class="weui-label">{{t['setting3']}}</view>
+            </view>
+            <view class="weui-cell__bd">
+              <icon wx:if="{{setting['scope.userInfo']}}" class="icon-small" type="success_no_circle" size="23"></icon>
+            </view>
+          </view>
+
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+              <view class="weui-label">{{t['setting4']}}</view>
+            </view>
+            <view class="weui-cell__bd">
+              <icon wx:if="{{setting['scope.userLocation']}}" class="icon-small" type="success_no_circle" size="23"></icon>
+            </view>
+          </view>
+
+          <view class="weui-cell weui-cell_input region">
+            <view class="weui-cell__hd">
+              <view class="weui-label">{{t['setting5']}}</view>
+            </view>
+            <view class="weui-cell__bd">
+              <icon wx:if="{{setting['scope.address']}}" class="icon-small" type="success_no_circle" size="23"></icon>
+            </view>
+          </view>
+
+
+          <view class="weui-cell weui-cell_input detail">
+            <view class="weui-cell__hd">
+              <view class="weui-label">{{t['setting6']}}</view>
+            </view>
+            <view class="weui-cell__bd">
+              <icon wx:if="{{setting['scope.invoiceTitle']}}" class="icon-small" type="success_no_circle" size="23"></icon>
+            </view>
+          </view>
+
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+              <view class="weui-label">{{t['setting7']}}</view>
+            </view>
+            <view class="weui-cell__bd">
+              <icon wx:if="{{setting['scope.record']}}" class="icon-small" type="success_no_circle" size="23"></icon>
+            </view>
+          </view>
+
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+              <view class="weui-label">{{t['setting8']}}</view>
+            </view>
+            <view class="weui-cell__bd">
+              <icon wx:if="{{setting['scope.writePhotosAlbum']}}" class="icon-small" type="success_no_circle" size="23"></icon>
+            </view>
+          </view>
+
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+              <view class="weui-label">{{t['setting9']}}</view>
+            </view>
+            <view class="weui-cell__bd">
+              <icon wx:if="{{setting['scope.camera']}}" class="icon-small" type="success_no_circle" size="23"></icon>
+            </view>
+          </view>
+
+        </view>
+      </view>
+    </form>
+  </view>
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

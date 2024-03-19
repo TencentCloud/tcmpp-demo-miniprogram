@@ -1,0 +1,75 @@
+{
+	"projectid": "1108100302_88",
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": false,
+		"minified": true,
+		"newFeature": true,
+		"autoAudits": false,
+		"nodeModules": true,
+		"uploadWithSourceMap": true,
+		"uglifyFileName": true,
+		"remoteDebugLogEnable": false,
+		"prefetch": false,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		},
+		"coverView": false,
+		"enhance": false,
+		"showShadowRootInWxmlPanel": false,
+		"packNpmRelationList": [],
+		"ignoreUploadUnusedFiles": true,
+		"condition": false
+	},
+	"compileType": "miniprogram",
+	"createTime": 1679652660742,
+	"accessTime": 1679652660742,
+	"TMFappid": "1108100302",
+	"packOptions": {
+		"ignore": [],
+		"include": []
+	},
+	"projectname": "main-demo",
+	"editorSetting": {
+		"tabIndent": "insertSpaces",
+		"tabSize": 2
+	},
+	"libVersion": "3.0.0",
+	"appid": "wx582fd5a0920beb62",
+	"TCMPPappid": "mpukcz463eb7god2",
+	"scripts": {
+		"beforeCompile": "",
+		"beforePreview": "",
+		"beforeUpload": ""
+	},
+	"TCMPPLibVersion": "1.5.40",
+	"condition": {
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"current": -1,
+			"list": []
+		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": 0,
+					"name": "tab3",
+					"pathName": "page/extend/index",
+					"query": "",
+					"scene": null
+				}
+			]
+		}
+	}
+}

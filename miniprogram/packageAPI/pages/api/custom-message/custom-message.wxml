@@ -1,0 +1,18 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <template is="head" data="{{title: 'customMessage'}}"/>
+
+  <view class="page-body">
+    <view class="page-body-wrapper">
+      <view class="page-body-line">
+        <button type="primary" open-type="contact" bindcontact="handleContact">{{t['Customer service']}}</button>
+      </view>
+    </view>
+  </view>
+
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

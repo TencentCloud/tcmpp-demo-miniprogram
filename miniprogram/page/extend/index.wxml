@@ -1,0 +1,14 @@
+<view class="page">
+    <view class="index-hd">
+        <image class="index-logo" src="/image/icon_component_HL.png"></image>
+        <view class="index-desc">
+            <Text wx:for="{{txt1}}" wx:key="*this">{{item}}</Text>
+        </view>
+        <view class="index-desc">
+            <Text wx:for="{{txt2}}" wx:key="*this">{{item}}</Text>
+        </view>
+        <view class="index-desc">
+            <Text wx:for="{{txt3}}" wx:key="*this">{{item}}</Text>
+        </view>
+    </view>
+</view>

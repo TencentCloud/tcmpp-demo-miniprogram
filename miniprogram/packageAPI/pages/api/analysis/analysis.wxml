@@ -1,0 +1,8 @@
+<view>
+  <text>{{t['analysis0']}}</text>
+  <input type="text" bindinput="getEventName" />
+  <button bindtap="reportEvent" type="primary">{{t['analysis4']}}</button>
+  <text>{{t['analysis1']}}</text>
+  <input type="text" bindinput="getAnalytics" />
+  <button bindtap="reportAnalytics" type="primary">{{t['analysis5']}}</button>
+</view>

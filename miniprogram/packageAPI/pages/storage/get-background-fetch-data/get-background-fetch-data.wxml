@@ -1,0 +1,33 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <template is="head" data="{{title: 'getBackgroundFetchData'}}"/>
+
+  <view class="page-body">
+    <view class="page-section">
+      <block wx:if="{{canIUse}}">
+        <view class="page-body-info">
+          <view class="page-body-title">Periodic cache data</view>
+          <block wx:if="{{appid}}">
+            <block>
+              <text class="page-body-text">OpenID</text>
+              <text class="context-value">{{openid}}</text>
+            </block>
+            <block>
+              <text class="page-body-text">AppID</text>
+              <text class="context-value">{{appid}}</text>
+            </block>
+          </block>
+          <block>
+            <text class="page-body-text">The WeChat client will initiate a request every 12 hours</text>
+            <text class="page-body-text">In order to facilitate debugging cyclical data, you can pull the periodic cache data on the tool-> pull the periodic cache data</text>
+          </block>
+        </view>
+      </block>
+    </view>
+  </view>
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

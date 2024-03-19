@@ -1,0 +1,44 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+<view class="container page">
+  <template is="head" data="{{title: 'button'}}" />
+  <view class="page-body">
+    <view class="btn-area" id="buttonContainer">
+      <button type="primary">{{t['button1']}} Normal</button>
+      <button type="primary" loading="true">{{t['button1']}} Loading</button>
+      <button type="primary" disabled="true">{{t['button1']}} Disabled</button>
+      <button type="default">{{t['button2']}} Normal</button>
+      <button type="default" disabled="true">{{t['button2']}} Disabled</button>
+      <button type="warn">{{t['button3']}} Normal</button>
+      <button type="warn" disabled="true">{{t['button3']}} Disabled</button>
+      <view class="button-sp-area">
+        <button type="primary" plain="true">{{t['button4']}}</button>
+        <button type="primary" disabled="true" plain="true">{{t['button12']}}</button>
+        <button type="default" plain="true">{{t['button4']}}</button>
+        <button type="default" disabled="true" plain="true">{{t['button4']}}</button>
+        <button class="mini-btn" type="primary" size="mini">{{t['button4']}}</button>
+        <button class="mini-btn" type="default" size="mini">{{t['button4']}}</button>
+        <button class="mini-btn" type="warn" size="mini">{{t['button4']}}</button>
+      </view>
+      <button type="primary" open-type="contact" bindcontact="handleContact" show-message-card="{{true}}" send-message-title="{{t['button13']}}">
+        {{t['button6']}}
+      </button>
+      <button type="primary" open-type="share">{{t['button7']}}</button>
+      <button type="primary" open-type="getPhoneNumber" bindgetphonenumber="handleGetPhoneNumber">
+        {{t['button8']}}
+      </button>
+      <button wx:if="{{canIUseGetUserProfile}}" type="primary" lang="zh_CN" bindtap="handleGetUserProfile">
+        {{t['button9']}}
+      </button>
+      <button wx:else type="primary" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="handleGetUserInfo">
+        t{{['button9']}}
+      </button>
+      <button type="primary" open-type="openSetting" bindopensetting="handleOpenSetting">
+        {{t['button10']}}
+      </button>
+    </view>
+  </view>
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

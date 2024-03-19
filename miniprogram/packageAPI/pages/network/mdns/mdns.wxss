@@ -1,0 +1,7 @@
+.service-list {
+  margin-bottom: 40rpx;
+}
+
+.service-list .row {
+  margin-bottom: 20rpx;
+}

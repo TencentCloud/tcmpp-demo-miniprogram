@@ -1,0 +1,33 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <template is="head" data="{{title: 'picker-view'}}"/>
+
+  <view class="page-body">
+    <view class="selected-date">{{year}} {{t['pick-view0']}} {{month}} {{t['pick-view1']}}{{day}} {{t['pick-view2']}} {{isDaytime ? t['pick-view3'] : t['pick-view4']}}</view>
+    <picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" value="{{value}}" bindchange="bindChange">
+      <picker-view-column>
+        <view wx:for="{{years}}" wx:key="{{years}}" style="line-height: 50px; text-align: center;">{{item}}{{t['pick-view0']}}</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view wx:for="{{months}}" wx:key="{{months}}" style="line-height: 50px; text-align: center;">{{item}}{{t['pick-view1']}}</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view wx:for="{{days}}" wx:key="{{days}}" style="line-height: 50px; text-align: center;">{{item}}{{t['pick-view2']}}</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view class="icon-container">
+          <image class="picker-icon" src="../../../resources/kind/daytime.png" />
+        </view>
+        <view class="icon-container">
+          <image class="picker-icon" src="../../../resources/kind/night.png" />
+        </view>
+      </picker-view-column>
+    </picker-view>
+  </view>
+
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

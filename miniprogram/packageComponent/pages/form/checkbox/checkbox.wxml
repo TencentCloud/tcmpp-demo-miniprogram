@@ -1,0 +1,36 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <template is="head" data="{{title: 'checkbox'}}" />
+
+  <view class="page-body">
+    <view class="page-section page-section-gap">
+      <view class="page-section-title">{{t['checkboxComponent1']}}</view>
+      <label class="checkbox">
+        <checkbox value="cb" checked="true" />{{t['checkboxComponent2']}}
+      </label>
+      <label class="checkbox">
+        <checkbox value="cb" />{{t['checkboxComponent3']}}
+      </label>
+    </view>
+
+    <view class="page-section">
+      <view class="page-section-title">{{t['checkboxComponent4']}}</view>
+      <view class="weui-cells weui-cells_after-title">
+        <checkbox-group bindchange="checkboxChange">
+          <label class="weui-cell weui-check__label" wx:for="{{items}}" wx:key="{{item.value}}">
+            <view class="weui-cell__hd">
+              <checkbox value="{{item.value}}" checked="{{item.checked}}" />
+            </view>
+            <view class="weui-cell__bd">{{item.name}}</view>
+          </label>
+        </checkbox-group>
+      </view>
+    </view>
+  </view>
+
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

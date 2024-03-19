@@ -1,0 +1,54 @@
+.demo {
+  width: 250px;
+  height: 80px;
+  border: 1px solid #07c160;
+  margin: 20px auto;
+  line-height: 80px;
+  text-align: center;
+  color: #07c160;
+}
+
+.block {
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.desc {
+  text-align: center;
+}
+
+.desc .red {
+  color: red;
+}
+
+.desc .green {
+  color: green;
+}
+
+.scroll-view {
+  height: 400rpx;
+  background: #fff;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.scroll-area {
+  height: 1300rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: .5s;
+}
+
+.ball {
+  width: 200rpx;
+  height: 200rpx;
+  background: #1AAD19;
+  border-radius: 50%;
+}
+
+.filling {
+  height: 400rpx;
+}

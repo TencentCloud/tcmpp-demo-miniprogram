@@ -1,0 +1,24 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <template is="head" data="{{title: t['forward1']}}"/>
+
+  <view class="page-body">
+  <view class="page-section">
+    <button type="primary" bindtap="showShareMenu">{{t['forward2']}}</button>
+    <button type="default" bindtap="hideShareMenu">{{t['forward3']}}</button>
+    <button type="primary" bindtap="updateShareMenu">{{t['forward4']}}</button>
+    <!-- <button type="default" bindtap="showShareImageMenu">{{t['forward5']}}</button>
+    <button type="primary" bindtap="shareVideoMessage">{{t['forward6']}}</button>
+    <button type="default" bindtap="shareFileMessage">{{t['forward7']}}</button>
+    <button type="primary" bindtap="onCopyUrl">{{t['forward8']}}</button>
+    <button type="default" bindtap="offCopyUrl">{{t['forward9']}}</button>
+    <button type="primary" bindtap="getShareInfo">{{t['forward10']}}</button>
+    <button type="default" bindtap="authPrivateMessage">{{t['forward11']}}</button> -->
+  </view>
+  </view>
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

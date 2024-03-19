@@ -1,0 +1,27 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <view class="page-body">
+    <view class="page-section">
+      <movable-area>
+        <movable-view class="target" x="{{x}}" y="{{y}}" direction="all" bindchange="getNodeInfo">
+          {{t['getWXML1']}}
+        </movable-view>
+      </movable-area>
+    </view>
+
+    <view class="page-section">
+      <view class="metric">
+        <view wx:for="{{ metrics }}" wx:key="{{item.key}}">
+          <text class="b">{{ item.key }}</text>
+          <text class="span">{{ item.val }}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

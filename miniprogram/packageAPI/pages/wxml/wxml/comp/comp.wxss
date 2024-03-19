@@ -1,0 +1,13 @@
+.demo {
+  width: 250px;
+  height: 80px;
+  border: 1px solid #07c160;
+  margin: 20px auto;
+  line-height: 80px;
+  text-align: center;
+  color: #07c160;
+}
+
+.desc {
+  text-align: center;
+}

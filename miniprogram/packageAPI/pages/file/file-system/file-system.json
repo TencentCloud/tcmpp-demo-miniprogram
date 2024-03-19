@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "Forward",
+  "usingComponents": {
+    "input-dialog": "../../base/dialog/input-dialog"
+  }
+}

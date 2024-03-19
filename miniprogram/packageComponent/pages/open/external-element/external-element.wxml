@@ -1,0 +1,29 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+<view class="container page">
+  <template is="head" data="{{title: 'external-element'}}" />
+  <view class="page-body">
+    <view class="page-section">
+      <view class="weui-cells__title">{{t['external0']}}</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <external-element bindexternalelementevent="eventHandle" id="comp1" type="maTestView" _insert2WebLayer style="width: 200px;height: 100px;"></external-element>
+        </view>
+      </view>
+      <!-- <button bindtap="initCtx">{{t['external1']}}</button> -->
+      <button bindtap="opt">{{t['external2']}}</button>
+    </view>
+    <view class="page-section">
+      <view class="weui-cells__title">{{t['external3']}}</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <external-element bindexternalelementevent="eventHandle2" type="maTestView" style="width: 200px;height: 100px;" id="comp2"></external-element>
+        </view>
+      </view>
+      <button bindtap="opt2">{{t['external4']}}</button>
+    </view>
+  </view>
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

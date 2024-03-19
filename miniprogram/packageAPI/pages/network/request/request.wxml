@@ -1,0 +1,40 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <view class="page-body">
+    <view class="page-body-wording">
+      <text class="page-body-text">
+        {{t['request8']}}
+      </text>
+    </view>
+    <view class="weui-cell weui-cell_switch">
+      <view class="weui-cell__bd">{{t['request9']}}</view>
+      <view class="weui-cell__ft">
+        <switch bindchange="toggleAbort" checked="{{isAbort}}" />
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_switch">
+      <view class="weui-cell__bd">{{t['request10']}}</view>
+      <view class="weui-cell__ft">
+        <switch bindchange="toggleHeader" checked="{{isListenHeader}}" />
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_switch">
+      <view class="weui-cell__bd">{{t['request11']}}</view>
+      <view class="weui-cell__ft">
+        <switch bindchange="toggleChunk" checked="{{isListenChunk}}" />
+      </view>
+    </view>
+    <view class="btn-area">
+      <button bindtap="makeRequest" type="primary" disabled="{{buttonDisabled}}" loading="{{loading}}">{{t['request12']}}</button>
+      <!-- <button bindtap="abortRequest" type="default">abort</button> -->
+      <!-- <button bindtap="listenHeader" type="default">{{ isListenHeader ? "Cancel" : "" }}monitor Response Header event</button>
+      <button bindtap="listenChunk" type="default">{{ isListenChunk ? "Cancel" : "" }}monitor Transfer-Encoding Chunk Received event</button> -->
+    </view>
+  </view>
+
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

@@ -1,0 +1,25 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <template is="head" data="{{title: t['base3']}}"/>
+
+  <view class="page-body">
+  <view class="page-section">
+    <view class="desc">{{t['base4']}}： {{savedFilePath}}</view>
+    <view class="desc">{{t['base5']}}： {{fileSize}}</view>
+    <view class="desc">{{t['base6']}}： {{fileDigest}}</view>
+    <button type="primary" bindtap="saveFile">{{t['base7']}} saveFile</button>
+    <view class="desc">{{t['base8']}}： {{savedFileSize}}</view>
+    <view class="desc">{{t['base9']}}： {{savedFileCreateTime}}</view>
+    <button type="primary" bindtap="getSavedFileInfo">{{t['base10']}} getSavedFileInfo</button>
+    <view class="desc">{{t['base11']}}： {{fileList.length}}</view>
+    <button type="primary" bindtap="getStorageFile">{{t['base12']}} getSavedFileList</button>
+    <button type="default" bindtap="removeFile">{{t['base13']}} removeSavedFile</button>
+    <button type="primary" bindtap="openDoc">{{t['base14']}} openDocument</button>
+  </view>
+  </view>
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

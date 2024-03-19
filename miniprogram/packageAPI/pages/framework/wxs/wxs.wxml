@@ -1,0 +1,25 @@
+<import src="../../../../common/head.wxml"/>
+<import src="../../../../common/foot.wxml"/>
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <template is="head" data="{{title: 'WXS'}}"/>
+
+  <view class="page-body">
+    <view class="page-section">
+    <view class="btn-area">
+      <button type="primary" data-nav="movable" bind:tap="handleNavChange">movable</button>
+    </view>
+    <!-- <view class="btn-area"></view>
+    <button type="primary" data-nav="sidebar" bind:tap="handleNavChange">Show the sidebar on the right sliding</button>
+    <view class="btn-area"></view>
+      <button type="primary" data-nav="stick-top" bind:tap="handleNavChange">Rolling menu bar sticker top</button> -->
+    <view class="btn-area">
+      <button type="primary" data-nav="nearby" bind:tap="handleNavChange">follow swiper Image switch</button>   
+    </view>
+    </view>
+  </view>
+
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

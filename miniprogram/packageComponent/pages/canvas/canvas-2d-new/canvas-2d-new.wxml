@@ -1,0 +1,24 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+<view class="container page">
+  <template is="head" data="{{title: 'canvas2d-new'}}" />
+  <view class="page-body">
+    <block wx:if="{{canIUse}}">
+      <view class="page-section">
+        <view class="page-section-spacing">
+          <view class="page-body-wrapper">
+            <canvas type="2d" id="mycanvas" class="canvas"></canvas>
+            <picker id="testpicker" bindchange="runtest" value="{{testMethodIndex}}" range="{{testMethods}}">
+              <view class="picker">{{t['canvasComponent1']}}：{{testMethods[testMethodIndex]}}</view>
+            </picker>
+            <button type="primary" bindtap="runtest">{{t['canvasComponent2']}}</button>
+          </view>
+        </view>
+      </view>
+    </block>
+    <view wx:else style="margin: 15px; text-align:center">{{t['canvasComponent0']}}</view>
+  </view>
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

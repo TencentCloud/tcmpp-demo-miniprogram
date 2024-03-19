@@ -1,0 +1,55 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <template is="head" data="{{title: 'wxml'}}"/>
+
+  <view class="page-body">
+    <view class="page-section">
+      <view id="demo1" class="demo">demo1</view>
+      <view class="desc">boundingClientRect {{t['wxml5']}}：{{height}}，{{t['wxml6']}}{{width}}</view>
+      <button type="primary" bindtap="selectQuery">{{t['wxml7']}} demo1 {{t['wxml8']}}</button>
+
+      <view class="desc">
+        createIntersectionObserver observe {{t['wxml9']}}
+        <text wx:if="{{appear}}">
+          {{t['wxml10']}}
+        </text>
+        <text wx:else>
+          {{t['wxml11']}}
+        </text>
+      </view>
+
+      <scroll-view class="scroll-view" scroll-y>
+        <view class="scroll-area" style="{{appear ? 'background: #ccc' : ''}}">
+          <text class="notice">{{t['wxml12']}}</text>
+          <view class="filling"></view>
+          <view class="ball"></view>
+        </view>
+      </scroll-view>
+
+      <comp></comp>
+      <!-- <view class="desc">scrollLeft：{{scrollLeft}}</view> -->
+      <view class="desc">selectViewport {{t['wxml13']}} scrollTop：{{scrollTop}}</view>
+      <button type="primary" bindtap="getScrollOffset">{{t['wxml14']}}</button>
+      <view class="desc">demo3
+        <text wx:if="{{demo3Visible}}" class="green">{{t['wxml15']}}</text>
+        <text wx:else class="red">{{t['wxml16']}}</text>
+        {{t['wxml17']}}
+      </view>
+      <view id="demo3" class="demo" style="background: #ccc">demo3</view>
+      <view class="desc">demo3 {{t['wxml18']}}：<view class="block" style="background: {{bgColor}}"></view>{{bgColor}}</view>
+      <button type="primary" bindtap="getFields">fields {{t['wxml19']}}</button>
+
+      <canvas style="width: 100px; height: 100px; background: #ccc;margin: auto; text-align: center;" canvas-id="canvas" id="canvas">canvas</canvas>
+      <button type="primary" bindtap="getCanvas">{{t['wxml20']}}</button>
+      <button type="primary" bindtap="getContext">{{t['wxml21']}}</button>
+      <button type="primary" bindtap="registMediaQueryObserver">{{t['wxml22']}}</button>
+      <button type="primary" bindtap="unRegistMediaQueryObserver">{{t['wxml23']}}</button>
+      
+    </view>
+  </view>
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

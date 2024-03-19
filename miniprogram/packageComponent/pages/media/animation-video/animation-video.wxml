@@ -1,0 +1,72 @@
+<view class="container page">
+  <view class="wrap">
+      <view class="card-area">
+          <view class="top-description border-bottom">
+              <view>{{t['animationComponent0']}}</view>
+              <view>alpha-direction='right'</view>
+          </view>
+          <view class="video-area">
+              <animation-video
+                  path="{{rightAlphaSrcPath}}"
+                  loop="{{loop}}"
+                  resource-width="800"
+                  resource-height="400"
+                  canvas-style="width:200px;height:200px"
+                  autoplay="{{autoplay}}"
+                  bindstarted="onStarted"
+                  bindended="onEnded"
+                  alpha-direction='right'
+              ></animation-video>
+          </view>
+      </view>
+
+      <view class="card-area">
+          <view class="top-description border-bottom">
+              <view>{{t['animationComponent1']}}</view>
+              <view>alpha-direction='left'</view>
+          </view>
+          <view class="video-area">
+              <animation-video
+                  path="{{leftAlphaSrcPath}}"
+                  loop="{{loop}}"
+                  resource-width="800"
+                  resource-height="400"
+                  canvas-style="width:200px;height:200px"
+                  autoplay="{{autoplay}}"
+                  bindstarted="onStarted"
+                  bindended="onEnded"
+                  alpha-direction='left'
+              ></animation-video>
+          </view>
+      </view>
+
+      <view class="card-area">
+          <view class="top-description border-bottom">
+              <view>{{t['animationComponent2']}}</view>
+              <view>play pause seek</view>
+          </view>
+          <view class="video-area">
+              <animation-video
+                  id="myAnimationVideo"
+                  path="{{leftAlphaSrcPath}}"
+                  loop="{{loop}}"
+                  resource-width="800"
+                  resource-height="400"
+                  canvas-style="width:200px;height:200px"
+                  autoplay="{{autoplay}}"
+                  bindstarted="onStarted"
+                  bindended="onEnded"
+              ></animation-video>
+          </view>
+          <button bindtap="play">
+            {{t['animationComponent3']}}
+          </button>
+          <button bindtap="pause">
+            {{t['animationComponent4']}}
+          </button>
+          <button bindtap="seek">
+            {{t['animationComponent5']}}
+          </button>
+      </view>
+  </view>
+</view>

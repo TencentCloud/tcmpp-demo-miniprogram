@@ -1,0 +1,16 @@
+<import src="../../../../common/head.wxml"/>
+<import src="../../../../common/foot.wxml"/>
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <template is="head" data="{{title: 'startSoterAuthentication'}}"/>
+
+  <view class="page-body">
+    <view class="btn-area">
+      <button type="primary" bindtap="startAuth">{{t['soter0']}}</button>
+    </view>
+  </view>
+
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

@@ -1,0 +1,43 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <template is="head" data="{{title: 'label'}}"/>
+
+  <view class="page-body">
+    <view class="page-section page-section-gap">
+      <view class="page-section-title">{{t['label0']}}</view>
+      <checkbox-group class="group" bindchange="checkboxChange">
+        <view class="label-1" wx:for="{{checkboxItems}}" wx:key="{{item.name}}">
+          <label>
+            <checkbox value="{{item.name}}" checked="{{item.checked}}"></checkbox>
+            <text class="label-1-text">{{item.value}}</text>
+          </label>
+        </view>
+      </checkbox-group>
+    </view>
+
+    <view class="page-section page-section-gap">
+      <view class="page-section-title">{{t['label1']}}</view>
+      <radio-group class="group" bindchange="radioChange">
+        <view class="label-2" wx:for="{{radioItems}}" wx:key="{{item.name}}">
+          <radio id="{{item.name}}" value="{{item.name}}" checked="{{item.checked}}"></radio>
+          <label class="label-2-text" for="{{item.name}}"><text>{{item.name}}</text></label>
+        </view>
+      </radio-group>
+    </view>
+
+    <view class="page-section page-section-gap">
+      <view class="page-section-title">{{t['label2']}}</view>
+      <label class="label-3">
+        <checkbox class="checkbox-3">{{t['label3']}}</checkbox>
+        <checkbox class="checkbox-3">{{t['label4']}}</checkbox>
+        <view class="label-3-text">{{t['label5']}}</view>
+      </label>
+    </view>
+  </view>
+
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

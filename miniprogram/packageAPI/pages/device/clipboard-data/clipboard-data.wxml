@@ -1,0 +1,36 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <template is="head" data="{{title: 'get/set/ClipboardData'}}"/>
+
+  <view class="page-body">
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">{{t['clipboard3']}}</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input" type="text" name="key" value="{{value}}" bindinput="valueChanged"></input>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">{{t['clipboard4']}}</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input" type="text" value="{{pasted}}"></input>
+        </view>
+      </view>
+    </view>
+
+    <view class="btn-area">
+      <button type="primary" bindtap="copy">{{t['clipboard3']}}</button>
+      <button bindtap="paste">{{t['clipboard4']}}</button>
+    </view>
+  </view>
+
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

@@ -1,0 +1,36 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <template is="head" data="{{title: 'createContext'}}"/>
+
+  <view class="page-body">
+    <view class="page-section">
+      <canvas class="canvas-element" 
+        canvas-id="canvas" 
+        bindtouchstart="onStart"
+        bindtouchmove="onMove"
+        bindtouchend="onEnd"
+        bindlongtap="onLongtap"
+        binderror="onError"></canvas>
+
+      <canvas class="canvas-element" canvas-id="myCanvas" ></canvas>
+      <scroll-view class="canvas-buttons" scroll-y="true">
+        <block wx:for="{{methods}}" wx:for-item="method" wx:key="{{item}}">
+          <button class="canvas-button" bindtap="{{method}}">{{method}}</button>
+        </block>
+
+        <button class="canvas-button" bindtap="draw" type="primary">draw</button>
+        <button class="canvas-button" bindtap="draw1" type="primary">draw1</button>
+        <button class="canvas-button" bindtap="canvasGetImageData" type="primary">canvasGetImageData</button>
+        <button class="canvas-button" bindtap="canvasPutImageData" type="primary">canvasPutImageData</button>
+        <button class="canvas-button" bindtap="toTempFilePath" type="primary">toTempFilePath</button>
+        <button class="canvas-button" bindtap="createLinearGradient" type="primary">createLinearGradient</button>
+      </scroll-view>
+    </view>
+  </view>
+
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

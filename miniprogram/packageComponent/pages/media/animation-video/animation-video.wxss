@@ -1,0 +1,6 @@
+.video-area {
+    display: flex;
+    background: #343434;
+    align-items: center;
+    justify-content: center;
+}

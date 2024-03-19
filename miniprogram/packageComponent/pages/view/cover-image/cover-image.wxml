@@ -1,0 +1,21 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <template is="head" data="{{title: 'cover-iamge'}}"/>
+
+  <view class="page-body">
+    <view class="page-section page-section-gap">
+      <map
+        style="width: 100%; height: 300px;"
+        latitude="{{latitude}}"
+        longitude="{{longitude}}">
+      </map>
+      <cover-image class="cover-image" src="{{imageUrl}}" bindload="imageLoad" binderror="imageError"></cover-image>
+    </view>
+  </view>
+
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

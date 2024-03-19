@@ -1,0 +1,18 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <template is="head" data="{{title: 'encrypt'}}" />
+
+  <view class="page-body">
+    <view class="btn-area">
+      <button type="primary" bindtap="getLatestUserKey">getLatestUserKey</button>
+      <view class="view-content">{{getLatestUserKeyRes}}</view>
+      <button type="primary" bindtap="getRandomValues">getRandomValues</button>
+    </view>
+  </view>
+
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

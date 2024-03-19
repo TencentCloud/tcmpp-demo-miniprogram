@@ -1,0 +1,37 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <view class="page-section">
+    <view class="page-body-info">
+      <text class="time-big">{{formattedPlayTime}}</text>
+      <slider class="slider" min="0" max="{{durationStamp}}" step="0.3" value="{{playTime}}" bindchange="seek"></slider>
+      <view class="play-time">
+        <text>00:00:00</text>
+        <text>{{duration}}</text>
+      </view>
+    </view>
+    <view class="page-body-text tc">{{t['bg-audio1']}}</view>
+    <view class="page-body-buttons">
+      <block wx:if="{{playing === true}}">
+        <view class="page-body-button" bindtap="stop">
+          <image src="/image/stop.png"></image>
+        </view>
+        <view class="page-body-button" bindtap="pause">
+          <image src="/image/pause.png"></image>
+        </view>
+      </block>
+      <block wx:if="{{playing === false}}">
+        <view class="page-body-button"></view>
+        <view class="page-body-button" bindtap="play">
+          <image src="/image/play.png"></image>
+        </view>
+      </block>
+      <view class="page-body-button"></view>
+    </view>
+  </view>
+
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

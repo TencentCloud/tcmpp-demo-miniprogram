@@ -1,0 +1,45 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <template is="head" data="{{title: 'ad'}}"/>
+
+  <view class="page-body">
+    <view class="page-section page-section-gap">
+      <view class="page-section-title">Follow card</view>
+      <ad unit-id="adunit-demo4"></ad>
+    </view>
+    <view wx:if="{{platform === 'ios'}}" class="page-section page-section-gap">
+      <view class="page-section-title">Download card</view>
+      <ad unit-id="adunit-demo8"></ad>
+    </view>
+    <view wx:else class="page-section page-section-gap">
+      <view class="page-section-title">Download card</view>
+      <ad unit-id="adunit-demo9"></ad>
+    </view>
+    <view wx:if="{{platform === 'ios'}}" class="page-section page-section-gap">
+      <view class="page-section-title">Application promotion</view>
+      <ad unit-id="adunit-demo2"></ad>
+    </view>
+    <view wx:else class="page-section page-section-gap">
+      <view class="page-section-title">Application promotion</view>
+      <ad unit-id="adunit-demo7"></ad>
+    </view>
+    <view class="page-section page-section-gap">
+      <view class="page-section-title">Public account promotion</view>
+      <ad unit-id="adunit-demo3"></ad>
+    </view>
+    <view class="page-section page-section-gap">
+      <view class="page-section-title">Promotion activities</view>
+      <ad unit-id="adunit-demo5"></ad>
+    </view>
+    <view class="page-section page-section-gap">
+      <view class="page-section-title">Commodity promotion</view>
+      <ad unit-id="adunit-demo6"></ad>
+    </view>
+  </view>
+
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

@@ -1,0 +1,44 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <template is="head" data="{{title: 'pageScrollTo'}}"/>
+
+  <view class="page-body">
+    <view class="page-section">
+      <scroll-view scroll-y="true" 
+        style="height: 300px;" 
+        bindscrolltoupper="upper" 
+        bindscrolltolower="lower" 
+        bindscroll="scroll" 
+        scroll-into-view="{{toView}}" 
+        scroll-top="{{scrollTop}}"
+        id="scrollview"
+        enhanced="true">
+          <view id="demo1" class="scroll-view-item demo-text-1"></view>
+          <view id="demo2"  class="scroll-view-item demo-text-2"></view>
+          <view id="demo3" class="scroll-view-item demo-text-3"></view>
+        </scroll-view>
+      <view class="btn-area">
+        <button type="primary" bindtap="scrollTo">{{t['pageScroll8']}}scrollTo</button>
+        <button type="primary" bindtap="setScrollToAnimation">{{t['pageScroll9']}}({{ animated ? t['pageScroll10'] : t['pageScroll11']}}){{t['pageScroll12']}}scrollTo</button>
+        <button type="primary" bindtap="setScrollEnabled">{{scrollEnabled ? t['pageScroll13'] : t['pageScroll14']}}{{t['pageScroll15']}}scrollEnabled</button>
+        <button type="primary" bindtap="setScrollbarShow">{{showScrollbar ? t['pageScroll16'] : t['pageScroll17']}}{{t['pageScroll18']}}showScrollbar</button>
+        <button type="primary" bindtap="setPagingEnabled">{{pagingEnabled ? t['pageScroll19'] : t['pageScroll20']}}{{t['pageScroll21']}}pagingEnabled</button>
+        <button type="primary" bindtap="setBounces">{{bounces ? t['pageScroll22'] : t['pageScroll23']}}{{t['pageScroll24']}}bounces</button>
+        <button type="primary" bindtap="setFastDeceleration">{{fastDeceleration ? t['pageScroll25'] : t['pageScroll26']}}{{t['pageScroll27']}}fastDeceleration</button>
+        <button type="primary" bindtap="setDecelerationDisabled">{{decelerationDisabled ? t['pageScroll28'] : t['pageScroll29']}}{{t['pageScroll30']}}decelerationDisabled</button>
+        <button type="primary" bindtap="scrollIntoView">{{t['pageScroll31']}}scrollIntoView</button>
+        <button type="primary" bindtap="scrollToBottom">{{t['pageScroll32']}}pageScrollTo</button>
+      </view>
+      <view class="filling-area"></view>
+      <view class="btn-area">
+        <button type="primary" bindtap="scrollToTop">{{t['pageScroll33']}}pageScrollTo</button>
+      </view>
+    </view>
+  </view>
+
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

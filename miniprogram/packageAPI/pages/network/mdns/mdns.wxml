@@ -1,0 +1,41 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <template is="head" data="{{title: 'mDNS'}}"/>
+  <view class="page-body">
+    <view class="page-section">
+      <view class="btn-area">
+        <input bindinput="serviceTypeChange" value="{{serviceType}}" placeholder="{{t['mdns4']}}" />
+      </view>
+      <button type="primary" bind:tap="startDiscovery" disabled="{{isStarted}}">
+        {{t['mdns5']}} mDNS
+      </button>
+      <button type="primary" bind:tap="stopDiscovery" disabled="{{!isStarted}}">
+        {{t['mdns6']}} mDNS
+      </button>
+      <button type="default" bind:tap="offLocalService" wx:if="{{isListening}}">
+        {{t['mdns7']}}
+      </button>
+      <button type="primary" bind:tap="onLocalService" wx:else>
+        {{t['mdns8']}}
+      </button>
+      <view wx:if="{{serviceList.length}}" class="service-list">
+        {{t['mdns19']}}：
+        <view wx:for="{{serviceList}}" wx:key="{{index}}" class='row'>
+          <view>{{t['mdns110']}}：{{item.serviceName}}</view>
+          <view>{{t['mdns111']}}：{{item.ip}}:{{item.port}}</view>
+          <view>{{t['mdns112']}}：{{item.serviceType}}</view>
+        </view>
+      </view>
+      <view wx:if="{{resolveFailList.length}}"  class="service-list">
+        {{t['mdns113']}}
+        <view wx:for="{{resolveFailList}}" wx:key="{{index}}" class='row'>
+          <view>{{t['mdns114']}}：{{item.serviceName}}</view>
+          <view>{{t['mdns115']}}：{{item.serviceType}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

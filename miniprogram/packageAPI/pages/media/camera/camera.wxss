@@ -1,0 +1,4 @@
+/* packageAPI/pages/media/camera.wxss */
+camera {
+  height: 250px;
+}

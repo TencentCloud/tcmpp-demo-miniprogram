@@ -1,0 +1,5 @@
+{
+  "navigationBarTitleText": "Pull down to refresh",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "@backgroundTextStyle"
+}

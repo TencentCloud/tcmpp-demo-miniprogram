@@ -1,0 +1,66 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <input-dialog show="{{inputOptions.show}}" inputs="{{inputOptions.inputs}}" title="{{inputOptions.title}}" cancelText="{{inputOptions.cancelText}}" showCancel="{{inputOptions.showCancel}}" confirmText="{{inputOptions.confirmText}}" bindcancel="onInutCancel" bindconfirm="onInputConfirm"></input-dialog>
+  <template is="head" data="{{title: t['file-system37']}}" />
+  <view class="page-body">
+    <view class="page-section">
+      <button type="primary" bindtap="openFile">{{t['file-system38']}}</button>
+      <button type="primary" bindtap="openFileSync">{{t['file-system39']}}</button>
+      <button type="primary" bindtap="writeFileByFd" wx:if="{{ fileFD !== ''}}">{{t['file-system40']}}</button>
+      <button type="primary" bindtap="writeFileByFdSync" wx:if="{{ fileFD !== ''}}">{{t['file-system41']}}</button>
+      <button type="primary" bindtap="readFileByFd" wx:if="{{ fileFD !== ''}}">{{t['file-system42']}}</button>
+      <button type="primary" bindtap="readFileByFdSync" wx:if="{{ fileFD !== ''}}">{{t['file-system43']}}</button>
+      <button type="primary" bindtap="truncateFileByFd" wx:if="{{ fileFD !== ''}}">{{t['file-system44']}}</button>
+      <button type="primary" bindtap="truncateFileByFdSync" wx:if="{{ fileFD !== ''}}">{{t['file-system45']}}</button>
+      <button type="primary" bindtap="fileStatByFd" wx:if="{{ fileFD !== ''}}">{{t['file-system46']}}</button>
+      <button type="primary" bindtap="fileStatByFdSync" wx:if="{{ fileFD !== ''}}">{{t['file-system47']}}</button>
+      <button type="primary" bindtap="closeFileByFd" wx:if="{{ fileFD !== ''}}">{{t['file-system48']}}</button>
+      <button type="primary" bindtap="closeFileByFdSync" wx:if="{{ fileFD !== ''}}">{{t['file-system49']}}</button>
+      <button type="primary" bindtap="readBrotliFile">{{t['file-system50']}}</button>
+      <button type="primary" bindtap="readBrotliPackageFile">{{t['file-system51']}}</button>
+      <button type="primary" bindtap="readBrotliFileSync">{{t['file-system52']}}</button>
+      <button type="primary" bindtap="readZipFileContent">{{t['file-system53']}}</button>
+      <button type="primary" bindtap="writeFile">{{t['file-system54']}}</button>
+      <button type="default" bindtap="writeFileSync">{{t['file-system55']}}</button>
+      <button type="primary" bindtap="truncateFile">{{t['file-system56']}}</button>
+      <button type="primary" bindtap="truncateFileSync">{{t['file-system57']}}</button>
+      <view class="desc">{{t['file-system58']}}：{{fileSize}}</view>
+      <button type="primary" bindtap="getFileInfo">{{t['file-system59']}}</button>
+      <button type="primary" bindtap="unlinkFile">{{t['file-system60']}}</button>
+      <button type="default" bindtap="unlinkFileSync">{{t['file-system61']}}</button>
+      <button type="primary" bindtap="readFile">{{t['file-system62']}}{{fileName}}{{t['file-system63']}}</button>
+      <button type="default" bindtap="readFileSync">{{t['file-system64']}}{{fileName}}{{t['file-system65']}}</button>
+      <button type="primary" bindtap="appendFile">{{t['file-system66']}}</button>
+      <button type="default" bindtap="appendFileSync">{{t['file-system67']}}</button>
+      <button type="primary" bindtap="access">{{t['file-system68']}}{{fileName}}{{t['file-system69']}}</button>
+      <button type="default" bindtap="accessSync">{{t['file-system70']}}{{fileName}}{{t['file-system71']}}</button>
+      <button type="primary" bindtap="rename">{{fileNameOld}}{{t['file-system72']}}：{{fileNameNew}}</button>
+      <button type="default" bindtap="renameSync">{{fileNameOld}}{{t['file-system73']}}：{{fileNameNew}}{{t['file-system74']}}</button>
+      <button type="primary" bindtap="copyFile">{{t['file-system75']}}{{fileNameCopy}}</button>
+      <button type="default" bindtap="copyFileSync">{{t['file-system76']}}{{fileNameCopy}} {{t['file-system77']}}</button>
+      <button type="primary" bindtap="checkExistCopyFile">{{fileNameCopy}}{{t['file-system78']}}</button>
+      <button type="primary" bindtap="mkdir">{{t['file-system79']}}{{dir}}{{t['file-system80']}}</button>
+      <button type="default" bindtap="mkdirSync">{{t['file-system81']}}{{dir}}{{t['file-system82']}}</button>
+      <button type="primary" bindtap="rmdir">{{t['file-system83']}}{{dir}}{{t['file-system84']}}</button>
+      <button type="default" bindtap="rmdirSync">{{t['file-system85']}}{{dir}}{{t['file-system86']}}</button>
+      <button type="primary" bindtap="checkDirExist">{{t['file-system87']}}</button>
+      <button type="default" bindtap="readdir">{{t['file-system88']}}{{dir}}{{t['file-system89']}}</button>
+      <button type="primary" bindtap="readdirSync">{{t['file-system90']}}{{dir}}{{t['file-system91']}}</button>
+      <view class="desc">{{t['file-system92']}}：{{isFile}}</view>
+      <view class="desc">{{t['file-system93']}}：{{isDir}}</view>
+      <button type="primary" bindtap="isFileOrDir">{{t['file-system94']}}{{dir}}{{t['file-system95']}}</button>
+      <button type="default" bindtap="isFileOrDirSync">{{t['file-system96']}}{{dir}}{{t['file-system97']}}</button>
+      <button type="primary" bindtap="saveZipFile">{{t['file-system98']}}</button>
+      <button type="default" bindtap="saveZipFileSync">{{t['file-system99']}}</button>
+      <button type="primary" bindtap="unzip">{{t['file-system100']}}/{{zipDir}}{{t['file-system101']}}</button>
+      <view class="desc">{{t['file-system102']}}：{{fileList.length}}</view>
+      <button type="primary" bindtap="getSavedFileList">{{t['file-system103']}}</button>
+      <button type="default" bindtap="removeSavedFile">{{t['file-system104']}}</button>
+    </view>
+  </view>
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

@@ -1,0 +1,5 @@
+input {
+  border: 1px solid #06ad56;
+  margin: 3px auto;
+  width: 80%;
+}

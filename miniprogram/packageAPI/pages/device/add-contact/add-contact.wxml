@@ -1,0 +1,46 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <template is="head" data="{{title: 'addPhoneContact'}}"/>
+
+  <view class="page-body">
+    <form bindsubmit="submit">
+      <view class="page-section">
+        <view class="weui-cells__title">{{t['addContact5']}}</view>
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+            <input class="weui-input" name="lastName" />
+          </view>
+        </view>
+      </view>
+      <view class="page-section">
+        <view class="weui-cells__title">{{t['addContact6']}}</view>
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+            <input class="weui-input" name="firstName" />
+          </view>
+        </view>
+      </view>
+      <view class="page-section">
+        <view class="weui-cells__title">{{t['addContact7']}}</view>
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+            <input class="weui-input" name="mobilePhoneNumber" />
+          </view>
+        </view>
+      </view>
+      <view class="btn-area">
+        <button type="primary" formType="submit">{{t['addContact8']}}</button>
+        <button type="default" formType="reset">{{t['addContact9']}}</button>
+      </view>
+      <view class="btn-area">
+        <button type="primary" bindtap="chooseContact">{{t['addContact10']}}</button>
+      </view>
+    </form>
+  </view>
+
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

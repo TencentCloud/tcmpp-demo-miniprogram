@@ -1,0 +1,52 @@
+<!--packageAPI/pages/media/camera.wxml-->
+<view class="container page">
+  <view class="page-body">
+    <view class="page-body-wrapper">
+      <camera
+        flash="off"
+        device-position="{{position}}"
+        binderror="error"
+        bindinitdone="initdone"
+      >
+      </camera>
+      <view wx:if="{{showCanvas}}">
+        {{t['camera6']}}：{{ frameHeight }}  {{t['camera7']}}：{{ frameWidth }}
+      </view>
+       <!-- <view wx:if="{{showCanvas}}" class="info-container">
+          <view style="margin: 10px 0">Use real -time data frames in canvas Motor display</view>
+          <view>
+            Frame height：{{ frameHeight }}  Frame width：{{ frameWidth }}
+          </view>
+          <canvas
+            id="webgl"
+            type="webgl"
+            canvas-id="canvas"
+            style="width: {{width}}px; height: {{height}}px;"
+          >
+          </canvas>
+        </view> -->
+      <view class="btn-area first-btn">
+        <button bindtap="handleShowCanvas2" type="primary">{{showCanvas ? t['camera8']: t['camera9']}}</button>
+      </view>
+      <view>
+      <button type="primary" bindtap="togglePosition">{{t['camera10']}}</button>
+      </view>
+      <view>
+        <button type="primary" bindtap="setZoom">{{t['camera11']}}</button>
+      </view>
+      <view>
+        <button type="primary" bindtap="takePhoto">{{t['camera12']}}</button>
+      </view>
+      <view>
+        <button type="primary" bindtap="startRecord">{{t['camera13']}}</button>
+      </view>
+      <view>
+        <button type="primary" bindtap="stopRecord">{{t['camera14']}}</button>
+      </view>
+      <view class="preview-tips">{{t['camera15']}}</view>
+      <image wx:if="{{src}}" mode="widthFix" class="photo" src="{{src}}"></image>
+      <video wx:if="{{videoSrc}}" class="video" src="{{videoSrc}}"></video>
+    </view>
+  </view>
+</view>
+

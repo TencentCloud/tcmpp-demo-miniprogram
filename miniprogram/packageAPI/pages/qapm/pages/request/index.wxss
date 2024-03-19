@@ -1,0 +1,21 @@
+/* pages/request/index.wxss */
+
+image {
+  width: 80%;
+  margin-left: 10%;
+}
+
+button {
+  width: 250px;
+  height: 50px;
+  margin-top: 25px;
+  background-color: burlywood;
+  color: white;
+}
+text {
+  font-size: 16px;
+  margin: 25px 0 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

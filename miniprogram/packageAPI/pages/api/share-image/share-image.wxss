@@ -1,0 +1,13 @@
+.page-section {
+  width: auto;
+  margin: 15px;
+  padding: 62px 15px;
+  background-color: var(--weui-BG-2);
+  text-align: center;
+  font-size: 14px;
+}
+
+.image-preview image {
+  width: 100%;
+  height: 90px;
+}

@@ -1,0 +1,44 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+<view class="container page">
+  <template is="head" data="{{title: 'live-player'}}" />
+  <view class="page-body">
+    <view class="page-section">
+      <live-player id="player" src="{{ videoSrc }}" mode="RTC" autoplay bindstatechange="handleLivePlayerStateChange" binderror="handleLivePlayerError"></live-player>
+    </view>
+    <view class="page-section">
+      <view class="page-url">{{t['live-player0']}}:</view>
+      <input class="input" name="input" placeholder="{{t['live-player1']}}" value="{{ videoSrc }}" bindblur="handleVideoSrcInput" />
+      <button type="primary" bindtap="handleScanQRCode">{{t['live-player2']}}</button>
+    </view>
+    <view class="page-section">
+      <button bindtap="handlePlay" class="page-body-button" type="primary">
+        {{t['live-player3']}}
+      </button>
+      <button bindtap="handlePause" class="page-body-button" type="primary">
+        {{t['live-player5']}}
+      </button>
+      <button bindtap="handleStop" class="page-body-button" type="primary">
+        {{t['live-player4']}}
+      </button>
+      <button bindtap="handleResume" class="page-body-button" type="primary">
+        {{t['live-player6']}}
+      </button>
+      <button bindtap="handleMute" class="page-body-button" type="primary">
+        {{t['live-player7']}}
+      </button>
+      <button bindtap="handleRequestFullScreen" class="page-body-button" type="primary">
+        {{t['live-player8']}}
+      </button>
+      <button bindtap="handleExitFullScreen" class="page-body-button" type="primary">
+        {{t['live-player9']}}
+      </button>
+      <button bindtap="handleSnapshot" class="page-body-button" type="primary">
+        {{t['live-player10']}}
+      </button>
+    </view>
+  </view>
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

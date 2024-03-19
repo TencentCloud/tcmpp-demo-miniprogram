@@ -1,0 +1,25 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <template is="head" data="{{title: t['mini0']}}"/>
+
+  <view class="page-body">
+  <view class="page-section">
+    <button type="primary" bindtap="launchOpt">{{t['mini1']}}</button>
+    <button type="primary" bindtap="showOpt">{{t['mini2']}}</button>
+    <button type="warn" bindtap="clickPromiseError">{{t['mini3']}}</button>
+    <button type="primary" bindtap="onUnhandledRejection">{{ isListenPromise ? t['mini12'] : "" }}{{t['mini4']}}</button>
+    <button type="primary" bindtap="onThemeChange">{{ isListenTheme ? t['mini12'] : "" }}{{t['mini5']}}</button>
+    <button type="warn" bindtap="clickError">{{t['mini6']}}</button>
+    <button type="warn" bindtap="clickApiError">{{t['mini7']}}</button>
+    <button type="primary" bindtap="onError">{{ isListenError ? t['mini12'] : "" }}{{t['mini8']}}wx.onError</button>
+    <button type="warn" open-type="openSetting">{{t['mini9']}}</button>
+    <button type="primary" bindtap="onAppShow">{{ isListenShow ? t['mini12'] : "" }}{{t['mini10']}}</button>
+    <button type="primary" bindtap="onAppHide">{{ isListenHide ? t['mini12'] : "" }}{{t['mini11']}}</button>
+  </view>
+  </view>
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

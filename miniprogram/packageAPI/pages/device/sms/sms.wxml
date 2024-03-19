@@ -1,0 +1,19 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <template is="head" data="{{title: 'onUserCaptureScreen'}}"/>
+
+  <view class="page-body">
+    <view class="page-body-info">
+      <input placeholder="{{t['sms3']}}" type="text" value="{{phoneNumber}}" bindinput="phoneNumChange"/>
+      <input placeholder="{{t['sms4']}}" type="text" value="{{content}}" bindinput="contentChange"/>
+    </view>
+
+    <button type="primary" bindtap="sendSms">{{t['sms5']}}</button>
+  </view>
+
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

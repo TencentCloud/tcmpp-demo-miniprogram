@@ -1,0 +1,68 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <view class="page-body">
+    <view class="page-section">
+      <form bindsubmit="openLocation">
+        <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+              <view class="weui-label">{{t['openLocation1']}}</view>
+            </view>
+            <view class="weui-cell__bd">
+              <input class="weui-input" type="text" disabled="{{true}}"  value="google" name="type"></input>
+            </view>
+          </view>
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+              <view class="weui-label">{{t['openLocation2']}}</view>
+            </view>
+            <view class="weui-cell__bd">
+              <input class="weui-input" type="text" disabled="{{true}}"  value="113.324520" name="longitude"></input>
+            </view>
+          </view>
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+              <view class="weui-label">{{t['openLocation3']}}</view>
+            </view>
+            <view class="weui-cell__bd">
+              <input class="weui-input" type="text" disabled="{{true}}"  value="23.099994" name="latitude"></input>
+            </view>
+          </view>
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+              <view class="weui-label">{{t['openLocation4']}}</view>
+            </view>
+            <view class="weui-cell__bd">
+              <input class="weui-input" type="text" disabled="{{true}}"  value="15" name="scale"></input>
+            </view>
+          </view>
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+              <view class="weui-label">{{t['openLocation5']}}</view>
+            </view>
+            <view class="weui-cell__bd">
+              <input class="weui-input" type="text" disabled="{{true}}"  value="T.I.T Creative Park" name="name"></input>
+            </view>
+          </view>
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+              <view class="weui-label">{{t['openLocation6']}}</view>
+            </view>
+            <view class="weui-cell__bd">
+              <input class="weui-input" type="text" disabled="{{true}}"  value="Xingang Middle Road, Haizhu District, Guangzhou 397 Number" name="address"></input>
+            </view>
+          </view>
+        </view>
+        <view class="btn-area">
+          <button type="primary" formType="submit">{{t['openLocation7']}}</button>
+        </view>
+      </form>
+    </view>
+  </view>
+
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

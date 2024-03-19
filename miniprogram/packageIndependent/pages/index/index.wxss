@@ -1,0 +1,44 @@
+@import '../common.wxss';
+
+.demo-block {
+    padding: 10px;
+    text-algin: center;
+}
+
+.kind-list-item {
+  /* margin: 10px 0; */
+  margin: 10px 0;
+  background-color: var(--weui-BG-2);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.kind-list-item:first-child {
+  margin-top: 0;
+}
+.kind-list-text{
+  flex: 1;
+}
+.kind-list-img {
+  /* width: 30px;
+  height: 30px; */
+  width: 30px;
+  height: 30px;
+}
+.kind-list-item-hd {
+  /* padding: 15px; */
+  padding: 15px;
+  display: flex;
+  align-items: center;
+
+  transition: opacity .3s;
+}
+.kind-list-item-hd-show {
+  opacity: .2;
+}
+.kind-list-item-bd {
+  height: 0;
+  overflow: hidden;
+}
+.kind-list-item-bd-show {
+  height: auto;
+}

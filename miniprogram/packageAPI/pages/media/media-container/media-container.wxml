@@ -1,0 +1,42 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <template is="head" data="{{title: 'Audio and video synthesis'}}"/>
+
+  <view class="page-body">
+    <view class="page-section">
+      <view class="page-section-title">
+       Source video
+      </view>
+    </view>
+    <view class="page-section">
+     <button type="primary" bindtap="handleChooseVideo" data-video="one">Select source video1</button>
+     <video wx:if="{{one}}" src="{{one}}"></video>
+    </view>
+    <view class="page-section">
+      <button type="primary" bindtap="handleChooseVideo" data-video="two">Select source video2</button>
+      <video wx:if="{{two}}" src="{{two}}"></video>
+    </view>
+    <view class="btn-area">
+      <button disabled="{{!canIUse}}" type="primary" bind:tap="handleExport">synthesis</button>
+    </view> 
+    <block wx:if="{{targetSrc}}">
+      <view class="page-section">
+        <view class="page-section-title">
+           <text>Synthetic video</text>
+        </view>
+        <view class="page-section-title">
+           <text>Synthetic video track is：Source video1Video + Source video2Audio</text>
+        </view>
+      </view>
+      <view class="page-section">
+        <video src="{{targetSrc}}">
+        </video>
+      </view>
+    </block>
+  </view>
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

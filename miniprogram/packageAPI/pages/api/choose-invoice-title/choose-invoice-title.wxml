@@ -1,0 +1,86 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <template is="head" data="{{title: 'chooseInvoiceTitle'}}"/>
+
+  <view class="page-body">
+    <form>
+      <view class="page-section">
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+              <view class="weui-label">{{t['choose-invoice0']}}</view>
+            </view>
+            <view class="weui-cell__bd">
+              {{ type !== '' ? (type === '0' ? t['choose-invoice1'] : t['choose-invoice2']) : '' }}
+            </view>
+          </view>
+
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+              <view class="weui-label">{{t['choose-invoice3']}}</view>
+            </view>
+            <view class="weui-cell__bd">
+              {{ title }}
+            </view>
+          </view>
+
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+              <view class="weui-label">{{t['choose-invoice4']}}</view>
+            </view>
+            <view class="weui-cell__bd">
+              {{taxNumber}}
+            </view>
+          </view>
+
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+              <view class="weui-label">{{t['choose-invoice5']}}</view>
+            </view>
+            <view class="weui-cell__bd">
+              {{companyAddress}}
+            </view>
+          </view>
+
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+              <view class="weui-label">{{t['choose-invoice6']}}</view>
+            </view>
+            <view class="weui-cell__bd">
+              {{telephone}}
+            </view>
+          </view>
+
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+              <view class="weui-label">{{t['choose-invoice7']}}</view>
+            </view>
+            <view class="weui-cell__bd">
+              {{bankName}}
+            </view>
+          </view>
+
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+              <view class="weui-label">{{t['choose-invoice8']}}</view>
+            </view>
+            <view class="weui-cell__bd">
+              {{bankAccount}}
+            </view>
+          </view>
+
+        </view>
+      </view>
+    </form>
+
+    <view class="btn-area">
+      <button type="primary" bindtap="chooseInvoiceTitle">{{t['choose-invoice9']}}</button>
+    </view>
+  </view>
+
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

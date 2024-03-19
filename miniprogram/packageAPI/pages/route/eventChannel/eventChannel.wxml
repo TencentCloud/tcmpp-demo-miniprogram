@@ -1,0 +1,14 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <view class="page-body">
+    <view class="page-section">
+      <view>From navigateTo</view>
+      <button type="primary" bindtap="offOpenerPage" disabled="{{type === 'once'}}">{{t['eventChannel2']}}</button>
+    </view>
+  </view>
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

@@ -1,0 +1,24 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <template is="head" data="{{title: t['keyboard3']}}"/>
+
+  <view class="page-body">
+    <input placeholder="{{t['keyboard4']}}"
+    type="text"
+    class="keyborad-ipt"
+    value="{{inputValue}}" 
+    bindinput="{{dataChange}}"
+    bindfocus="onFocus"/>
+    <view class="btn-area">
+      <button disabled="{{disabled}}" type="primary" bindtap="onKeyboardHeightChange">{{t['keyboard5']}}</button>
+      <button bindtap="offKeyboardHeightChange">{{t['keyboard6']}}</button>
+      <button type="primary" bindtap="hideKeyboard">{{t['keyboard7']}}</button>
+    </view>
+  </view>
+
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

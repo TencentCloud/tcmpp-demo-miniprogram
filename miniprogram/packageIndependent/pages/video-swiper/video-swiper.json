@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "mp-video-swiper": "../../components/video-swiper/video-swiper"
+  },
+  "navigationBarTitleText": "独立分包-video-swiper"
+
+}

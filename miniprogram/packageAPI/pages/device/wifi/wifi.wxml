@@ -1,0 +1,55 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <template is="head" data="{{title: 'Wi-Fi'}}"/>
+
+  <view class="page-body">
+    <view class="page-body-info">
+      <scroll-view class="device-list" scroll-y>
+        <view class="item" wx:for="{{wifiList}}" wx:key="{{index}}">
+          <view class="list">
+            <text>{{ item.SSID }}</text>
+            <span class="wifi-icon">
+              <span class="wifi-1"></span>
+              <span class="wifi-2 {{item.strength < 2 ? 'off' : ''}}"></span>
+              <span class="wifi-3 {{item.strength < 3 ? 'off' : ''}}"></span>
+              <span class="wifi-4 {{item.strength < 4 ? 'off' : ''}}"></span>
+              <span class="lock" wx:if="{{item.secure}}"></span>
+            </span>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+
+    <view>{{t['wifi12']}}wifi: {{ wifiInfo.SSID }}</view>
+    <view style="display: flex; align-items: center; margin-left: 10px;">
+      wifi{{t['wifi13']}}: 
+      <input placeholder="{{t['wifi14']}}" 
+      value="{{password}}" 
+      bindinput="valueChanged" 
+      class="weui-input"
+      style="border: 1px solid #ddd; width:60%; padding:10px;"/>
+    </view>
+    <view class="btn-area">
+      <button type="primary" bindtap="startSearch">getWifiList</button>
+      <button bindtap="stopSearch">{{t['wifi15']}}</button>
+
+      <button type="primary" bindtap="startWifi">startWifi</button>
+      <button type="primary" bindtap="stopWifi">stopWifi</button>
+      <button type="primary" bindtap="setWifiList">setWifiList</button>
+      <button type="primary" bindtap="onGetWifiList">onGetWifiList</button>
+      <button type="primary" bindtap="offGetWifiList">offGetWifiList</button>
+      <button type="primary" bindtap="onWifiConnectedWithPartialInfo">onWifiConnectedWithPartialInfo</button>
+      <button type="primary" bindtap="offWifiConnectedWithPartialInfo">offWifiConnectedWithPartialInfo</button>
+      <button type="primary" bindtap="onWifiConnected">onWifiConnected</button>
+      <button type="primary" bindtap="offWifiConnected">offWifiConnected</button>
+      <button type="primary" bindtap="getConnectedWifi">getConnectedWifi</button>
+      <button type="primary" bindtap="connectWifi">connectWifi</button>
+    </view>
+  </view>
+
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

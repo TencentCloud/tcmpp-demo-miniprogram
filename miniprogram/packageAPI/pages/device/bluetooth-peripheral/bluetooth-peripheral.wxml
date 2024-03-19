@@ -1,0 +1,73 @@
+<!--packageAPI/pages/device/bluetooth-peripheral/bluetooth-peripheral.wxml-->
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+<view class="container page">
+  <template is="head" data="{{title: 'bluetoothPeripheralServer'}}"/>
+  <view class="devices_summary">{{t['bluetooth-peripheral28']}} {{devices.length}} {{t['bluetooth-peripheral29']}}：</view>
+  <view class="page-body">
+    <view class="page-section">
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">{{t['bluetooth-peripheral30']}}</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" type="text" disabled="{{true}}" placeholder="{{t['bluetooth-peripheral31']}}" value="{{connected ? t['bluetooth-peripheral32'] : t['bluetooth-peripheral33']}}"></input>
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">{{t['bluetooth-peripheral34']}}</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" type="text" placeholder="characteristic" value="{{characteristicValue}}" bindinput="bindKeyCharacteristic"></input>
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">{{t['bluetooth-peripheral35']}}</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" type="text" placeholder="descriptor" value="{{descriptorValue}}" bindinput="bindKeyDescriptor"></input>
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">{{t['bluetooth-peripheral36']}}</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" type="text" placeholder="service UUID" value="{{serviceId}}" bindinput="bindKeyServiceId"></input>
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">{{t['bluetooth-peripheral37']}}</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" type="text" placeholder="characteristic UUID" value="{{characteristicId}}" bindinput="bindKeyCharacteristicId"></input>
+          </view>
+        </view>
+      </view>
+
+      <view class="btn-area">
+        <button type="primary" bindtap="createBLEPeripheralServer" wx:if="{{!server}}">{{t['bluetooth-peripheral38']}}</button>
+        <view wx:if="{{server}}">
+            <button type="primary" bindtap="close">{{t['bluetooth-peripheral39']}}</button>
+            <button bindtap="addService">{{t['bluetooth-peripheral40']}}</button>
+            <button bindtap="removeService">{{t['bluetooth-peripheral41']}}</button>
+            <button bindtap="startAdvertising">{{t['bluetooth-peripheral42']}}</button>
+            <button bindtap="stopAdvertising">{{t['bluetooth-peripheral43']}}</button>
+            <button bindtap="writeCharacteristicValue">{{t['bluetooth-peripheral44']}}</button>
+            <button bindtap="offBLEPeripheralConnectionStateChanged">{{t['bluetooth-peripheral45']}}</button>
+            <button bindtap="offCharacteristicReadRequest">{{t['bluetooth-peripheral46']}}</button>
+            <button bindtap="offCharacteristicSubscribed">{{t['bluetooth-peripheral47']}}</button>
+            <button bindtap="offCharacteristicUnsubscribed">{{t['bluetooth-peripheral48']}}</button>
+            <button bindtap="offCharacteristicWriteRequest">{{t['bluetooth-peripheral49']}}</button>
+        </view>
+      </view>
+    </view>
+  </view>
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

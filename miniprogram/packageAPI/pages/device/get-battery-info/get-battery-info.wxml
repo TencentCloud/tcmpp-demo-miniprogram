@@ -1,0 +1,38 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <template is="head" data="{{title: 'getBatteryInfo'}}"/>
+
+  <view class="page-body">
+  	<view class="page-section">
+    <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">{{t['getBattery3']}}</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" type="text" disabled="{{true}}" placeholder="{{t['getBattery4']}}" value="{{level}}"></input>
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">{{t['getBattery5']}}</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" type="text" disabled="{{true}}" placeholder="{{t['getBattery6']}}" value="{{isCharging}}"></input>
+          </view>
+        </view>
+      </view>
+      <button type="primary" bind:tap="getBatteryInfo" >
+        {{t['getBattery7']}}
+      </button>
+      <button type="primary" bind:tap="getBatteryInfoSync" >
+        {{t['getBattery8']}}
+      </button>
+    </view>
+  </view>
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

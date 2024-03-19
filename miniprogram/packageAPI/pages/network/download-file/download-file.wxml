@@ -1,0 +1,26 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <view class="page-body">
+    <image wx:if="{{imageSrc}}" src="{{imageSrc}}" mode="center" />
+    <block wx:else>
+      <view class="page-body-wording">
+        <text class="page-body-text">
+          {{t['download6']}}
+        </text>
+      </view>
+      <view class="btn-area">
+        <button bindtap="downloadImage" type="primary" loading="{{loadingImage}}">{{t['download7']}}</button>
+        <button bindtap="downloadVideo" type="primary" loading="{{loadingVideo}}">{{t['download8']}}</button>
+        <button bindtap="abortDownloadFile" type="default">{{t['download9']}}</button>
+        <button bindtap="onProgressUpdate" type="default">{{ isListenProgress ? t['download12'] : "" }}{{t['download10']}}</button>
+        <button bindtap="onHeadersReceived" type="default">{{ isListenHeader ? t['download12'] : "" }}{{t['download11']}}</button>
+      </view>
+    </block>
+  </view>
+
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

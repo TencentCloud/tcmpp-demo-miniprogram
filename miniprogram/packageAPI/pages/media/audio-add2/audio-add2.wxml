@@ -1,0 +1,28 @@
+<!--packageAPI/pages/media/audio-add2/audio-add2.wxml-->
+<view>
+  <view>createDynamicsCompressor</view>
+  <view>createIIRFilter</view>
+  <view>createPanner</view>
+  <button type="primary" bindtap="createDealBefore">播放处理前的音频</button>
+  <button bindtap="suspendB">暂停</button>
+  <button bindtap="resumeB">继续</button>
+  <button bindtap="createDynamicsCompressor">{{ isAdd ? 'Remove Compressor' : 'Add Compressor' }}</button>
+  <button bindtap="createIIRFilter">{{ isFilter ? 'Remove IIRFilter' : 'Add IIRFilter' }}</button>
+  <button bindtap="createPanner">{{ isPanner ? 'Remove Panner' : 'Add Panner' }}</button>
+  <button bindtap="moveRight">左移</button>
+  <button bindtap="moveLeft">右移</button>
+  <button bindtap="zoomIn">放大</button>
+  <button bindtap="zoomOut">缩小</button>
+  <view>createChannelSplitter</view>
+  <view>createChannelMerger</view>
+  <view>createGain</view>
+  <button type="primary" bindtap="createDealAfter">播放处理后的音频</button>
+  <button bindtap="suspend">暂停</button>
+  <button bindtap="resume">继续</button>
+  <button type="primary" bindtap="createConstantSource">createConstantSource</button>
+  <view>createDelay</view>
+  <view>createPeriodicWave</view>
+  <view>createOscillator</view>
+  <view>createWaveShaper</view>
+  <button type="primary" bindtap="createOscillator">创建音频信号</button>
+</view>

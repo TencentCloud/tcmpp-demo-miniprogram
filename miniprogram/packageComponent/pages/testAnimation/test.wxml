@@ -1,0 +1,141 @@
+<view>
+    <text class="title-text">wx.createAnimation</text>
+    <text class="body-text">Creates an animation instance, calls the instance's method to describe the animation, exports the animation data through the instance's export method, and passes the data to the animation attribute of the component.</text>
+    <text class="title-text">Sample Example</text>
+    <view class="box" animation="{{animationData}}"></view>
+    <button class="button-container bluetooth-button" bindtap="createAnimation">
+        <text class="button-text bluetooth-button-text">createAnimation</text>
+    </button>
+    <view class="box" animation="{{matrix3DAnimationData}}" />
+    <button class="button-container bluetooth-button" bindtap="matrix3DAnimation">
+        <text class="button-text bluetooth-button-text">matrix3d</text>
+    </button>
+    <view class="box" animation="{{opacityAnimationData}}" />
+    <button class="button-container bluetooth-button" bindtap="opacityAnimation">
+        <text class="button-text bluetooth-button-text">Opacity Animation</text>
+    </button>
+    <view class="box" animation="{{rotate3dAnimationData}}" />
+    <button class="button-container bluetooth-button" bindtap="rotate3dAnimation">
+        <text class="button-text bluetooth-button-text">Rotate3d Animation</text>
+    </button>
+    <view class="box" animation="{{rotateXAnimationData}}" />
+    <button class="button-container bluetooth-button" bindtap="rotateXAnimation">
+        <text class="button-text bluetooth-button-text">RotateX Animation</text>
+    </button>
+    <view class="box" animation="{{rotateYAnimationData}}" />
+    <button class="button-container bluetooth-button" bindtap="rotateYAnimation">
+        <text class="button-text bluetooth-button-text">RotateY Animation</text>
+    </button>
+    <view class="box" animation="{{rotateZAnimationData}}" />
+    <button class="button-container bluetooth-button" bindtap="rotateZAnimation">
+        <text class="button-text bluetooth-button-text">RotateZ Animation</text>
+    </button>
+    <view class="box" animation="{{scaleAnimationData}}" />
+    <button class="button-container bluetooth-button" bindtap="scaleAnimation">
+        <text class="button-text bluetooth-button-text">Scale Animation</text>
+    </button>
+    <view class="box" animation="{{scale3dAnimationData}}" />
+    <button class="button-container bluetooth-button" bindtap="scale3dAnimation">
+        <text class="button-text bluetooth-button-text">Scale3d Animation</text>
+    </button>
+    <view class="box" animation="{{scaleXAnimationData}}" />
+    <button class="button-container bluetooth-button" bindtap="scaleXAnimation">
+        <text class="button-text bluetooth-button-text">ScaleX Animation</text>
+    </button>
+    <view class="box" animation="{{scaleYAnimationData}}" />
+    <button class="button-container bluetooth-button" bindtap="scaleYAnimation">
+        <text class="button-text bluetooth-button-text">ScaleY Animation</text>
+    </button>
+
+    <!-- The change of the z-axis needs to configure the perspective attribute for the parent element of the element -->
+    <!-- scaleZ needs to be combined with translateZ to have visual effects -->
+    <view style="perspective: 100px;">
+        <view class="box" animation="{{scaleZAnimationData}}" >scaleZ(0.2)+translateZ(10)</view>
+        <view class="box" animation="{{scaleZAnimationData2}}" >translateZ(10)</view>
+    </view>
+    
+    <button class="button-container bluetooth-button" bindtap="scaleZAnimation">
+        <text class="button-text bluetooth-button-text">ScaleZ+translateZ Animation</text>
+    </button>
+    <button class="button-container bluetooth-button" bindtap="scaleZAnimation2">
+        <text class="button-text bluetooth-button-text">translateZ Animation</text>
+    </button>
+
+
+    <view class="box" animation="{{skewAnimationData}}" />
+    <button class="button-container bluetooth-button" bindtap="skewAnimation">
+        <text class="button-text bluetooth-button-text">Skew Animation</text>
+    </button>
+    <view class="box" animation="{{skewXAnimationData}}" />
+    <button class="button-container bluetooth-button" bindtap="skewXAnimation">
+        <text class="button-text bluetooth-button-text">SkewX Animation</text>
+    </button>
+    <view class="box" animation="{{skewYAnimationData}}" />
+    <button class="button-container bluetooth-button" bindtap="skewYAnimation">
+        <text class="button-text bluetooth-button-text">SkewY Animation</text>
+    </button>
+    <view class="box" animation="{{stepAnimationData}}" />
+    <button class="button-container bluetooth-button" bindtap="stepAnimation">
+        <text class="button-text bluetooth-button-text">Step Animation</text>
+    </button>
+    <view class="box" animation="{{translateAnimationData}}" />
+    <button class="button-container bluetooth-button" bindtap="translateAnimation">
+        <text class="button-text bluetooth-button-text">Translate Animation</text>
+    </button>
+    <view class="box" animation="{{translate3dAnimationData}}" />
+    <button class="button-container bluetooth-button" bindtap="translate3dAnimation">
+        <text class="button-text bluetooth-button-text">Translate3D Animation</text>
+    </button>
+    <view class="box" animation="{{translateXAnimationData}}" />
+    <button class="button-container bluetooth-button" bindtap="translateXAnimation">
+        <text class="button-text bluetooth-button-text">TranslateX Animation</text>
+    </button>
+    <view class="box" animation="{{translateYAnimationData}}" />
+    <button class="button-container bluetooth-button" bindtap="translateYAnimation">
+        <text class="button-text bluetooth-button-text">TranslateY Animation</text>
+    </button>
+
+    <!-- The change of the z-axis needs to configure the perspective attribute for the parent element of the element -->
+    <view style="perspective: 100px;">
+        <view class="box" animation="{{translateZAnimationData}}" />
+    </view>
+    <button class="button-container bluetooth-button" bindtap="translateZAnimation">
+        <text class="button-text bluetooth-button-text">TranslateZ Animation</text>
+    </button>
+
+    <view class="box" animation="{{widthAnimationData}}" />
+    <button class="button-container bluetooth-button" bindtap="widthAnimation">
+        <text class="button-text bluetooth-button-text">Width Animation</text>
+    </button>
+    <view class="box" animation="{{heightAnimationData}}" >height:200</view>
+    <button class="button-container bluetooth-button" bindtap="heightAnimation">
+        <text class="button-text bluetooth-button-text">Height Animation</text>
+    </button>
+
+  <!-- left, right, bottom, top elements need to be positioned -->
+  <view style="position: relative;margin-bottom: 120px;">
+    <view class="box absolute" animation="{{topAnimationData}}" >top box</view>
+    <view class="box absolute" animation="{{bottomAnimationData}}">bottom box</view>
+    <view class="box absolute" animation="{{leftAnimationData}}">left box</view>
+    <view class="box absolute" animation="{{rightAnimationData}}">right box</view>
+  </view>
+    <button class="button-container bluetooth-button" bindtap="topAnimation">
+        <text class="button-text bluetooth-button-text">Top Animation</text>
+    </button>
+    <button class="button-container bluetooth-button" bindtap="bottomAnimation">
+        <text class="button-text bluetooth-button-text">Bottom Animation</text>
+    </button>
+    <button class="button-container bluetooth-button" bindtap="leftAnimation">
+        <text class="button-text bluetooth-button-text">Left Animation</text>
+    </button>
+    <button class="button-container bluetooth-button" bindtap="rightAnimation">
+        <text class="button-text bluetooth-button-text">Right Animation</text>
+    </button>
+
+
+    <view class="box" animation="{{matrixAnimationData}}" />
+    <button class="button-container bluetooth-button" bindtap="matrixAnimation">
+        <text class="button-text bluetooth-button-text">Matrix Animation</text>
+    </button>
+</view>
+

@@ -1,0 +1,15 @@
+#mycanvas {
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+}
+
+#testpicker {
+  margin: 10px auto;
+}
+
+#runtest {
+  display: block;
+  width: 100px;
+  height: 30px;
+}

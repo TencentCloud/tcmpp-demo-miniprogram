@@ -1,0 +1,9 @@
+/* packageAPI/pages/media/map/map.wxss */
+.page-section-title {
+  margin-bottom: 15px;
+}
+
+.navigator {
+  color: var(--weui-LINK);
+  display: inline-block;
+}

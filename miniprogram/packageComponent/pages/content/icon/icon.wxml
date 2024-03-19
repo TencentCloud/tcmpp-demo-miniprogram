@@ -1,0 +1,118 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <template is="head" data="{{title: 'icon'}}" />
+
+  <view class="icon-box">
+    <icon class="icon-box-img" type="success" size="93"></icon>
+    <view class="icon-box-ctn">
+      <view class="icon-box-title">{{t['icon1']}}</view>
+      <view class="icon-box-desc">{{t['icon2']}}</view>
+    </view>
+  </view>
+  <view class="icon-box">
+    <icon class="icon-box-img" type="info" size="93"></icon>
+    <view class="icon-box-ctn">
+      <view class="icon-box-title">{{t['icon3']}}</view>
+      <view class="icon-box-desc">{{t['icon4']}}</view>
+    </view>
+  </view>
+  <view class="icon-box">
+    <icon class="icon-box-img" type="warn" size="93" color="#C9C9C9"></icon>
+    <view class="icon-box-ctn">
+      <view class="icon-box-title">{{t['icon5']}}</view>
+      <view class="icon-box-desc">{{t['icon6']}}</view>
+    </view>
+  </view>
+  <view class="icon-box">
+    <icon class="icon-box-img" type="warn" size="93"></icon>
+    <view class="icon-box-ctn">
+      <view class="icon-box-title">{{t['icon7']}}</view>
+      <view class="icon-box-desc">{{t['icon8']}}</view>
+    </view>
+  </view>
+  <view class="icon-box">
+    <icon class="icon-box-img" type="waiting" size="93"></icon>
+    <view class="icon-box-ctn">
+      <view class="icon-box-title">{{t['icon9']}}</view>
+      <view class="icon-box-desc">{{t['icon10']}}</view>
+    </view>
+  </view>
+  <view class="icon-box">
+    <view class="icon-small-wrp">
+      <icon class="icon-small" type="success_no_circle" size="23"></icon>
+    </view>
+    <view class="icon-box-ctn">
+      <view class="icon-box-title">{{t['icon11']}}</view>
+      <view class="icon-box-desc">{{t['icon12']}}</view>
+    </view>
+  </view>
+  <view class="icon-box">
+    <view class="icon-small-wrp">
+      <icon class="icon-small" type="circle" size="23"></icon>
+    </view>
+    <view class="icon-box-ctn">
+      <view class="icon-box-title">{{t['icon13']}}</view>
+      <view class="icon-box-desc">{{t['icon14']}}</view>
+    </view>
+  </view>
+  <view class="icon-box">
+    <view class="icon-small-wrp">
+      <icon class="icon-small" type="warn" size="23"></icon>
+    </view>
+    <view class="icon-box-ctn">
+      <view class="icon-box-title">{{t['icon15']}}</view>
+      <view class="icon-box-desc">{{t['icon16']}}</view>
+    </view>
+  </view>
+  <view class="icon-box">
+    <view class="icon-small-wrp">
+      <icon class="icon-small" type="success" size="23"></icon>
+    </view>
+    <view class="icon-box-ctn">
+      <view class="icon-box-title">{{t['icon17']}}</view>
+      <view class="icon-box-desc">{{t['icon18']}}</view>
+    </view>
+  </view>
+  <view class="icon-box">
+    <view class="icon-small-wrp">
+      <icon class="icon-small" type="download" size="23"></icon>
+    </view>
+    <view class="icon-box-ctn">
+      <view class="icon-box-title">{{t['icon19']}}</view>
+      <view class="icon-box-desc">{{t['icon20']}}</view>
+    </view>
+  </view>
+  <view class="icon-box">
+    <view class="icon-small-wrp">
+      <icon class="icon-small" type="info_circle" size="23"></icon>
+    </view>
+    <view class="icon-box-ctn">
+      <view class="icon-box-title">{{t['icon21']}}</view>
+      <view class="icon-box-desc">{{t['icon22']}}</view>
+    </view>
+  </view>
+  <view class="icon-box">
+    <view class="icon-small-wrp">
+      <icon class="icon-small" type="cancel" size="23"></icon>
+    </view>
+    <view class="icon-box-ctn">
+      <view class="icon-box-title">{{t['icon23']}}</view>
+      <view class="icon-box-desc">{{t['icon24']}}</view>
+    </view>
+  </view>
+  <view class="icon-box">
+    <view class="icon-small-wrp">
+      <icon class="icon-small" type="search" size="14"></icon>
+    </view>
+    <view class="icon-box-ctn">
+      <view class="icon-box-title">{{t['icon25']}}</view>
+      <view class="icon-box-desc">{{t['icon26']}}</view>
+    </view>
+  </view>
+
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

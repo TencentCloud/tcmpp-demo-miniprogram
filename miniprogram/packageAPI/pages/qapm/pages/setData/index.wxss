@@ -1,0 +1,19 @@
+/* pages/setData/index.wxss */
+button {
+  width: 250px;
+  height: 50px;
+  margin-top: 25px;
+  background-color: burlywood;
+  color: white;
+}
+.articleJson {
+  margin: 25px 25px;
+  word-wrap: break-word;
+}
+text {
+  font-size: 16px;
+  margin: 25px 0 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

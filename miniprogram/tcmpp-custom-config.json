@@ -1,0 +1,18 @@
+{
+    "extApi": [{
+		"name": "testApi",
+		"sync": false,
+		"params": {
+			"url": ""
+		}
+	},
+	{
+		"name": "testApiSync",
+		"sync": true,
+		"params": {
+			"name": "",
+			"title": ""
+		}
+	}
+]
+}

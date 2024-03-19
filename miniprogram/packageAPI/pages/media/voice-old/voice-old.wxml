@@ -1,0 +1,77 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <template is="head" data="{{title: t['voiceOld0']}}"/>
+
+  <view class="page-body">
+    <view class="page-section">
+      <block wx:if="{{recording === false && playing === false && hasRecord === false && pauseRecord === false}}">
+        <view class="page-body-time">
+          <text class="time-big">{{formatedRecordTime}}</text>
+        </view>
+        <view class="page-body-buttons">
+          <view class="page-body-button"></view>
+          <view class="page-body-button" bindtap="startRecord">
+            <image src="/image/record.png"></image>
+          </view>
+          <view class="page-body-button"></view>
+        </view>
+      </block>
+
+      <block wx:if="{{recording === true}}">
+        <view class="page-body-time">
+          <text class="time-big">{{formatedRecordTime}}</text>
+        </view>
+        <view class="page-body-buttons">
+          <view class="page-body-button"></view>
+          <view class="page-body-button" bindtap="stopRecord">
+            <view class="button-stop-record"></view>
+          </view>
+          <view class="page-body-button"></view>
+        <view wx:if="{{pauseRecord === true}}" class="page-body-button" bindtap="resumeRecord">
+            <image class="button-pause-record" src="/image/play.png"></image>
+        </view>
+        </view>
+      </block>
+
+      <block wx:if="{{hasRecord === true && playing === false}}">
+        <view class="page-body-time">
+          <text class="time-big">{{formatedPlayTime}}</text>
+          <text class="time-small">{{formatedRecordTime}}</text>
+        </view>
+        <view class="page-body-buttons">
+          <view class="page-body-button"></view>
+          <view class="page-body-button" bindtap="playVoice">
+            <image src="/image/play.png"></image>
+          </view>
+          <view class="page-body-button" bindtap="clear">
+            <image src="/image/trash.png"></image>
+          </view>
+        </view>
+      </block>
+
+      <block wx:if="{{hasRecord === true && playing === true}}">
+        <view class="page-body-time">
+        <text class="time-big">{{formatedPlayTime}}</text>
+          <text class="time-small">{{formatedRecordTime}}</text>
+        </view>
+        <view class="page-body-buttons">
+          <view class="page-body-button" bindtap="stopVoice">
+            <image src="/image/stop.png"></image>
+          </view>
+          <view class="page-body-button" bindtap="pauseVoice">
+            <image src="/image/pause.png"></image>
+          </view>
+          <view class="page-body-button" bindtap="clear">
+            <image src="/image/trash.png"></image>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

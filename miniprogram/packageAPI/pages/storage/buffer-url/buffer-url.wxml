@@ -1,0 +1,20 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <view class="page-body buffer-url">
+    <view class="page-section">
+      <view class="buffer-url-preview">
+        <image wx:if="{{url && !revoked}}" src="{{url}}" />
+        <view wx:else>{{t['buffer3']}}</view>
+      </view>
+      <view class="btn-area">
+        <button type="primary" bindtap="createBufferURL">createBufferURL</button>
+        <button bindtap="revokeBufferURL">revokeBufferURL</button>
+      </view>
+    </view>
+  </view>
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

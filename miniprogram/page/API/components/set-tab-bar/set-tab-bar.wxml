@@ -1,0 +1,34 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <template is="head" data="{{title: 'tabBar'}}"/>
+
+  <view class="page-body">
+    <view class="btn-area">
+      <button bindtap="setTabBarBadge">
+        {{ !hasSetTabBarBadge ? t['setTabBar1'] : t['setTabBar2'] }}
+      </button>
+      <button bindtap="showTabBarRedDot">
+        {{ !hasShownTabBarRedDot ?  t['setTabBar3'] : t['setTabBar4']}}
+      </button>
+      <button bindtap="customStyle">
+        {{ !hasCustomedStyle ? t['setTabBar5'] : t['setTabBar6']}}
+      </button>
+      <button bindtap="customItem">
+        {{ !hasCustomedItem ? t['setTabBar7'] : t['setTabBar8'] }}
+      </button>
+      <button bindtap="hideTabBar">
+        {{ !hasHiddenTabBar ? t['setTabBar9'] : t['setTabBar10'] }}
+      </button>
+    </view>
+
+    <view class="btn-area">
+      <button type="primary" bindtap="navigateBack">{{t['setTabBar11']}}</button>
+    </view>
+  </view>
+
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

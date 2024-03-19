@@ -1,0 +1,9 @@
+/* packageAPI/pages/media/audio-add/audio-add.wxss */
+button {
+  padding: 8px 12px;
+}
+
+#mycanvas {
+  margin: 0 auto;
+  border: 1px solid;
+}

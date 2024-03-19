@@ -1,0 +1,6 @@
+.jump-weui-input {
+  margin: auto;
+  border: 1px solid #ddd;
+  padding: 10px;
+  width: 85%;
+}

@@ -1,0 +1,23 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <template is="head" data="{{title: t['debug0']}}"/>
+
+  <view class="page-body">
+  <view class="page-section">
+    <button type="primary" bindtap="setEnableDebugTrue">{{t['debug1']}}</button>
+    <button type="primary" bindtap="setEnableDebugFalse">{{t['debug2']}}</button>
+    <button type="primary" bindtap="getRealtimeLogManager">getRealtimeLogManager</button>
+    <button type="primary" wx:if="{{manager}}" bindtap="addRealtimeLog">addRealtimeLog</button>
+    <button type="primary" wx:if="{{manager}}" bindtap="getCurrentState">RealtimeLog-CurrentState</button>
+    <button type="primary" bindtap="getLogManager">getLogManager</button>
+    <button type="warn" open-type="feedback">{{t['debug3']}}</button>
+    <button type="primary" bindtap="console">{{t['debug4']}}</button>
+    <!-- <button type="primary" bindtap="getPerformance">getPerformance</button> -->
+  </view>
+  </view>
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

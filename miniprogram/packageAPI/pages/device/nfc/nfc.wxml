@@ -1,0 +1,44 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <template is="head" data="{{title: 'NFC'}}"/>
+  
+  <view class="page-body">
+    <view>
+        <view>nfcAdapter onDiscovered {{t['nfc4']}}:</view>
+        <text>{{message}}</text>
+    </view>
+    <view class="btn-area">
+      <button type="primary" bindtap="getNFCAdapter">getNFCAdapter</button>
+    </view>
+
+    <block wx:if="{{pairTech.length > 0}}">
+        <text>{{t['nfc5']}}</text>
+        <view class="handle-area">
+            <view class="sup-tag" wx:for="{{pairTech}}">{{item}}</view>
+        </view>
+    </block>
+
+    <block wx:if="{{tech.length > 0}}">
+      <text>{{t['nfc6']}}</text>
+      <button type="primary" bindtap="startDiscovery">startDiscovery</button>
+      <button type="primary" bindtap="stopDiscovery">stopDiscovery</button>
+      <text>{{t['nfc7']}}</text>
+      <view class="handle-area">
+        <button wx:for="{{tech}}" class="{{device === item ? 'target' : ''}}" data-method="{{item}}" type="primary" bindtap="newDevice">{{item}}</button>
+      </view>
+    </block>
+
+    <block wx:if="{{handleList.length > 0}}">
+        <text>{{t['nfc8']}}</text>
+        <view class="handle-area">
+            <button class="long" wx:for="{{handleList}}" data-method="{{item}}" type="primary" bindtap="doMethod">{{item}}</button>
+        </view>
+    </block>
+  </view>
+
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

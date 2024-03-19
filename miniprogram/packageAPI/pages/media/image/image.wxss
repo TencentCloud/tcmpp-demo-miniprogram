@@ -1,0 +1,33 @@
+.view-flex {
+  display: flex;
+  flex-direction: column;
+}
+
+.view-button {
+  margin-bottom: 0;
+}
+
+.view-text {
+  word-wrap: break-word;
+}
+
+.img-wrap {
+  position: relative;
+  margin-right: 36rpx;
+}
+
+.weui-uploader__bd {
+  overflow: visible;
+}
+
+.del-btn {
+  position: absolute;
+  top: -22rpx;
+  right: -45rpx;
+  width: 70rpx;
+  height: 70rpx;
+}
+
+.weui-label {
+  width: 120px;
+}

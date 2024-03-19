@@ -1,0 +1,80 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <template is="head" data="{{title: 'chooseAddress'}}"/>
+
+  <form>
+    <view class="page-section">
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">{{t['choose-address0']}}</view>
+          </view>
+          <view class="weui-cell__bd">
+            {{ addressInfo.userName }}
+          </view>
+        </view>
+
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">{{t['choose-address1']}}</view>
+          </view>
+          <view class="weui-cell__bd">
+            {{ addressInfo.postalCode }}
+          </view>
+        </view>
+
+        <view class="weui-cell weui-cell_input region">
+          <view class="weui-cell__hd">
+            <view class="weui-label">{{t['choose-address2']}}</view>
+          </view>
+          <view class="weui-cell__bd">
+            {{ addressInfo.provinceName }}
+            {{ addressInfo.cityName }}
+            {{ addressInfo.countyName }}
+          </view>
+        </view>
+
+
+        <view class="weui-cell weui-cell_input detail">
+          <view class="weui-cell__hd">
+            <view class="weui-label">{{t['choose-address3']}}</view>
+          </view>
+          <view class="weui-cell__bd">
+            {{ addressInfo.detailInfo }}
+          </view>
+        </view>
+
+          <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">{{t['choose-address4']}}</view>
+          </view>
+          <view class="weui-cell__bd">
+            {{ addressInfo.nationalCode }}
+          </view>
+        </view>
+
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">{{t['choose-address5']}}</view>
+          </view>
+          <view class="weui-cell__bd">
+            {{ addressInfo.telNumber }}
+          </view>
+        </view>
+
+      </view>
+    </view>
+  </form>
+  
+  <view class="page-body">
+    <view class="btn-area">
+    <button type="primary" bindtap="chooseAddress">{{t['choose-address6']}}</button>
+    </view>
+  </view>
+
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

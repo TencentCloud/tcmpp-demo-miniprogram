@@ -1,0 +1,30 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <template is="head" data="{{title: 'intersectionObserver'}}"/>
+
+  <view class="page-body">
+    <view class="page-section message">
+      <text wx:if="{{appear}}">
+         {{t['intersection0']}}
+      </text>
+      <text wx:else>
+        {{t['intersection1']}}
+      </text>
+    </view>
+    <view class="page-section">
+      <scroll-view class="scroll-view" scroll-y>
+        <view class="scroll-area" style="{{appear ? 'background: #ccc' : ''}}">
+          <text class="notice"> {{t['intersection3']}}</text>
+          <view class="filling"></view>
+          <view class="ball"></view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

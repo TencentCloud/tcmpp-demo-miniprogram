@@ -1,0 +1,10 @@
+<!--pages/PageTime/index.wxml-->
+<view>
+  <text> Page load cost time Page</text>
+  <view>
+    <text>Load page about 5 seconds</text>
+  </view>
+  <view class="articleJson">
+    <text>"{{dataJson}}"</text>
+  </view>
+</view>

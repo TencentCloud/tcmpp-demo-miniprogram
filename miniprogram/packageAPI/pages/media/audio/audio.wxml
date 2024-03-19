@@ -1,0 +1,22 @@
+<view>
+  <button bindtap="destroy" wx:if="{{audioCtx}}">{{t['audio1']}}</button>
+  <button type="primary" bindtap="createInnerAudioContext" wx:else>{{t['audio2']}}</button>
+  <button bindtap="setInnerAudioOption">setInnerAudioOption</button>
+  <button bindtap="getAvailableAudioSources">getAvailableAudioSources</button>
+  <button type="primary" bindtap="audioPlay">{{t['audio3']}}</button>
+  <button type="primary" bindtap="audioPause">{{t['audio4']}}</button>
+  <button type="primary" bindtap="audioStop">{{t['audio5']}}</button>
+  <button type="primary" bindtap="audioStart">{{t['audio6']}}</button>
+  <button type="primary" bindtap="seek14">{{t['audio7']}}</button>
+  <button type="primary" bindtap="offCanplay">{{t['audio8']}}</button>
+  <button type="primary" bindtap="offEnded">{{t['audio9']}}</button>
+  <button type="primary" bindtap="offError">{{t['audio10']}}</button>
+  <button type="primary" bindtap="offPause">{{t['audio11']}}</button>
+  <button type="primary" bindtap="offPlay">{{t['audio12']}}</button>
+  <button type="primary" bindtap="offSeeked">{{t['audio13']}}</button>
+  <button type="primary" bindtap="offSeeking">{{t['audio14']}}</button>
+  <button type="primary" bindtap="offStop">{{t['audio15']}}</button>
+  <button type="primary" bindtap="offTimeUpdate">{{t['audio16']}}</button>
+  <button type="primary" bindtap="offWaiting">{{t['audio17']}}</button>
+  <button bindtap="gotoAudioOldVersion">{{t['audio18']}}</button>
+</view>

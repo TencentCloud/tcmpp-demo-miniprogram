@@ -1,0 +1,44 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+<view class="container page">
+  <template is="head" data="{{title: 'video'}}" />
+  <view class="page-body">
+    <view class="page-section tc">
+      <video id="myVideo" src="{{src}}" binderror="videoErrorCallback" danmu-list="{{danmuList}}" enable-danmu danmu-btn show-casting-button show-screen-lock-button show-center-play-btn='{{false}}' show-play-btn="{{true}}" muted="{{true}}" show-mute-btn="{{true}}" controls picture-in-picture-mode="{{['push', 'pop']}}" bindenterpictureinpicture='bindVideoEnterPictureInPicture' bindleavepictureinpicture='bindVideoLeavePictureInPicture' enable-auto-rotation="{{enableAutoRotation}}"></video>
+      <view class="auto-rotate-container">
+        <view>{{t['videoComponent0']}}</view>
+        <view>
+          <switch model:checked="{{ enableAutoRotation }}" bindchange="handleSwitchChange" />
+        </view>
+      </view>
+      <view class="weui-cells">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">{{t['videoComponent1']}}</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input bindblur="bindInputBlur" class="weui-input" type="text" placeholder="{{t['videoComponent2']}}" />
+          </view>
+        </view>
+      </view>
+      <view class="btn-area">
+        <button bindtap="bindSendDanmu" class="page-body-button" type="primary" formType="submit">
+          {{t['videoComponent3']}}
+        </button>
+        <button bindtap="changeSrc" class="page-body-button" type="primary">
+          {{t['videoComponent4']}}
+        </button>
+      </view>
+      <view class="btn-area">
+        <navigator url="picture-in-picture" hover-class="other-navigator-hover">
+          <button type="primary" class="page-body-button" bindtap="bindPlayVideo">
+            {{t['videoComponent5']}}
+          </button>
+        </navigator>
+      </view>
+    </view>
+  </view>
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

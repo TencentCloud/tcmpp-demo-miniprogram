@@ -1,0 +1,115 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <view class="page-body">
+    <form>
+      <view class="page-section">
+
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+              <view class="weui-label">{{t['image4']}}:</view>
+            </view>
+            <view class="weui-cell__bd">
+              <picker range="{{sourceType}}" bindchange="sourceTypeChange" value="{{sourceTypeIndex}}" mode="selector">
+                <view class="weui-input">{{sourceType[sourceTypeIndex]}}</view>
+              </picker>
+            </view>
+          </view>
+
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+              <view class="weui-label">{{t['image5']}}:</view>
+            </view>
+            <view class="weui-cell__bd">
+              <picker range="{{sizeType}}" bindchange="sizeTypeChange" value="{{sizeTypeIndex}}" mode="selector">
+                <view class="weui-input">{{sizeType[sizeTypeIndex]}}</view>
+              </picker>
+            </view>
+          </view>
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+              <view class="weui-label">{{t['image6']}}</view>
+            </view>
+            <view class="weui-cell__bd">
+              <picker range="{{count}}" bindchange="countChange" value="{{countIndex}}" mode="selector">
+                <view class="weui-input">{{count[countIndex]}}</view>
+              </picker>
+            </view>
+          </view>
+        </view>
+
+        <view class="weui-cells">
+          <view class="weui-cell">
+            <view class="weui-cell__bd">
+              <view class="weui-uploader">
+                <view class="weui-uploader__hd">
+                  <view class="weui-uploader__title">{{t['image7']}}</view>
+                  <view class="weui-uploader__info">{{imageList.length}}/{{count[countIndex]}}</view>
+                </view>
+                <view class="weui-uploader__bd">
+                  <view class="weui-uploader__files">
+                    <block wx:for="{{imageList}}" wx:for-item="image" wx:for-index="index" wx:key="{{item}}">
+                      <view class="weui-uploader__file img-wrap">
+                        <image class="weui-uploader__img" mode="aspectFill" src="{{image}}" data-src="{{image}}" bindtap="previewImage"></image>
+                        <icon catchtap="delete" data-index="{{index}}" class="icon-small" type="cancel" size="23" class="del-btn"></icon>
+                      </view>
+                    </block>
+                  </view>
+                  <view class="weui-uploader__input-box" wx:if="{{imageList.length < count[countIndex]}}">
+                    <view class="weui-uploader__input" bindtap="chooseImage"></view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="view-flex">
+          <button class="view-button" size="mini" plain="true" bindtap="saveImageToPhotosAlbum">
+            saveImageToPhotosAlbum
+          </button>
+          <view class="view-text">{{saveImageToPhotosAlbumRes}}</view>
+          <button class="view-button" size="mini" plain="true" bindtap="previewMediaImage">
+            previewMedia-{{t['image8']}}
+          </button>
+          <button class="view-button" size="mini" plain="true" bindtap="previewMediaVideo">
+            previewMedia-{{t['image9']}}
+          </button>
+          <button class="view-button" size="mini" plain="true" bindtap="previewImageByUrl">
+            previewImage
+          </button>
+          <button class="view-button" size="mini" plain="true" bindtap="getImageInfo">
+            getImageInfo
+          </button>
+          <view class="view-text">{{getImageInfoRes}}</view>
+          <button class="view-button" size="mini" plain="true" bindtap="compressImage">
+            compressImage
+          </button>
+          <view class="view-text">{{compressImageRes}}</view>
+          <button class="view-button" size="mini" plain="true" data-type="all" bindtap="chooseMessageFile">
+            chooseMessageFileAll-{{t['image10']}}
+          </button>
+          <button class="view-button" size="mini" plain="true" data-type="video" bindtap="chooseMessageFile">
+            chooseMessageFileVideo-{{t['image11']}}
+          </button>
+          <button class="view-button" size="mini" plain="true" data-type="image" bindtap="chooseMessageFile">
+            chooseMessageFileImage-{{t['image12']}}
+          </button>
+          <button class="view-button" size="mini" plain="true" data-type="file" bindtap="chooseMessageFile">
+            chooseMessageFile-{{t['image13']}}
+          </button>
+          <view class="view-text">{{chooseMessageFileRes}}</view>
+          <button class="view-button" size="mini" plain="true" bindtap="chooseImage">
+            chooseImage
+          </button>
+          <view class="view-text">{{chooseImageRes}}</view>
+        </view>
+      </view>
+    </form>
+  </view>
+
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

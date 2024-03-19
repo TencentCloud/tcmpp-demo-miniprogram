@@ -1,0 +1,22 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <template is="head" data="{{title: 'on/stopPullDownRefresh'}}"/>
+
+  <view class="page-body">
+    <view class="page-section">
+      <view class="page-body-info">
+        <text class="page-body-text">{{t['pullDownRefresh1']}}</text>
+      </view>
+      <view class="btn-area">
+        <button bindtap="startPullDownRefresh">{{t['pullDownRefresh2']}}</button>
+        <button bindtap="stopPullDownRefresh">{{t['pullDownRefresh3']}}</button>
+      </view>
+    </view>
+  </view>
+
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

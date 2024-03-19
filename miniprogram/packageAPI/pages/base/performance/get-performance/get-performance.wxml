@@ -1,0 +1,34 @@
+<import src="../../../../../common/head.wxml" />
+<import src="../../../../../common/foot.wxml" />
+<import src="../../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <template is="head" data="{{title: 'getPerformance'}}"/>
+  <block wx:if="{{support}}">
+    <button type="primary" bind:tap="getPerformanceInfo">
+      {{t['performance0']}}
+    </button>
+    <button type="primary" bind:tap="startObserver">
+      {{t['performance1']}}
+    </button>
+    <button type="primary" bind:tap="stopObserver">
+      {{t['performance2']}}
+    </button>
+    
+    <view class="page-section">
+      <view wx:for="{{array}}" class="performance-list">
+        <view class="performance-item">
+          <view>{{item.entryType}}：{{item.name}}</view>
+          <view wx:if="{{item.duration}}">{{t['performance3']}}：{{item.duration}}</view>
+          <view wx:if="{{item.startTime}}">{{t['performance4']}}：{{item.startTime}}</view>
+        </view>
+      </view>
+    </view>
+  </block>
+  <view style="text-align: center" wx:else>
+    {{t['performance5']}}
+  </view>
+
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

@@ -1,0 +1,16 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <template is="head" data="{{title: 'setNaivgationBarTitle'}}"/>
+
+  <view class="btn-area">
+    <text style="text-align:center;display:inline-block;width:100%;">{{t['window2']}}</text>
+    <button type="default" bindtap="onWindowResize" disabled="{{isListen}}">{{t['window3']}}</button>
+    <button type="default" bindtap="offWindowResize" disabled="{{!isListen}}">{{t['window4']}}</button>
+  </view>
+
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

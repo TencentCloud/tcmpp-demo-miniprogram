@@ -1,0 +1,4 @@
+.keyborad-ipt {
+  width: 234px;
+  margin: auto;
+}

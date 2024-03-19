@@ -1,0 +1,32 @@
+.page-body-info {
+  display: flex;
+  margin-top: 20px;
+  padding: 0;
+  height: 330px;
+  border-top: 1px solid var(--weui-FG-3);
+  border-bottom: 1px solid var(--weui-FG-3);
+  align-items: center;
+  justify-content: center;
+}
+
+.view-flex {
+  display: flex;
+  flex-direction: column;
+}
+
+.view-button {
+  margin-bottom: 0;
+}
+
+.view-text {
+  word-wrap: break-word;
+}
+
+.image-plus-vertical,
+.image-plus-horizontal {
+  background-color: gray;
+}
+
+.weui-label {
+  width: 135px;
+}

@@ -1,0 +1,26 @@
+<import src="../../../../common/head.wxml" />
+<import src="../../../../common/foot.wxml" />
+<import src="../../../../common/foot_en.wxml" />
+
+<view class="container page">
+  <template is="head" data="{{title: 'onNetworkStatusChange'}}"/>
+
+  <view class="page-body">
+    <view class="page-section">
+      <view class="page-body-info">
+        <view class="page-body-title">{{t['onNetwork3']}}</view>
+        <block wx:if="{{isConnected === false}}">
+          <text class="page-body-text">{{t['onNetwork4']}}</text>
+        </block>
+        <block wx:if="{{isConnected === true}}">
+          <text class="page-body-text-network-type">{{networkType}}</text>
+        </block>
+      </view>
+
+    <button type="primary" bindtap="onNetworkStatusChange">{{ isListenStatusChange ? t['onNetwork5'] : t['onNetwork6'] }}{{t['onNetwork7']}}</button>
+    </view>
+  </view>
+
+  <template is="foot" wx:if="{{lang==='zh_CN'}}" />
+  <template is="foot_en" wx:else />
+</view>

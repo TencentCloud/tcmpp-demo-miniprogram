@@ -1,0 +1,13 @@
+function renderResizable(status) {
+  console.log(status)
+  switch(status) {
+    case "lock":
+      return 'Lock in the screen';
+    case "unlock":
+      return "Rotating screen";
+  }
+}
+
+module.exports = {
+  renderResizable: renderResizable
+}

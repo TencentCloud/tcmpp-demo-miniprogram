@@ -1,0 +1,86 @@
+<!--packageAPI/pages/media/editor-context/editor-context.wxml-->
+<view class="my-container" style="height:{{editorHeight}}px;">
+	<editor id="editor" class="ql-container" placeholder="{{placeholder}}" bindstatuschange="onStatusChange" bindready="onEditorReady">
+	</editor>
+</view>
+
+<view class="toolbar" catchtouchend="format" hidden="{{false}}" style="bottom: {{isIOS ? keyboardHeight : 0}}px; height: {{toolBarHeight}}px;">
+    format-bold：
+	<i class="iconfont icon-zitijiacu {{formats.bold ? 'ql-active' : ''}}" data-name="bold"></i>
+    format-italic：
+	<i class="iconfont icon-zitixieti {{formats.italic ? 'ql-active' : ''}}" data-name="italic"></i>
+    format-underline：
+	<i class="iconfont icon-zitixiahuaxian {{formats.underline ? 'ql-active' : ''}}" data-name="underline"></i>
+    format-strike：
+	<i class="iconfont icon-zitishanchuxian {{formats.strike ? 'ql-active' : ''}}" data-name="strike"></i>
+    format-ins：
+	<i class="iconfont icon-zitixiahuaxian {{formats.ins ? 'ql-active' : ''}}" data-name="ins"></i>
+    format-script：
+	<i class="iconfont icon-zitixiabiao {{formats.script === 'sub' ? 'ql-active' : ''}}" data-name="script" data-value="sub"></i>
+	<i class="iconfont icon-zitishangbiao {{formats.script === 'super' ? 'ql-active' : ''}}" data-name="script" data-value="super"></i>
+    format-header：
+    <i class="iconfont icon-format-header-1 {{formats.header === 1 ? 'ql-active' : ''}}" data-name="header" data-value="{{1}}"></i>
+    <i class="iconfont icon-format-header-2 {{formats.header === 2 ? 'ql-active' : ''}}" data-name="header" data-value="{{2}}"></i>
+    <i class="iconfont icon-format-header-3 {{formats.header === 3 ? 'ql-active' : ''}}" data-name="header" data-value="{{3}}"></i>
+    <i class="iconfont icon-format-header-4 {{formats.header === 4 ? 'ql-active' : ''}}" data-name="header" data-value="{{4}}"></i>
+	<i class="iconfont icon-format-header-5 {{formats.header === 5 ? 'ql-active' : ''}}" data-name="header" data-value="{{5}}"></i>
+	<i class="iconfont icon-format-header-6 {{formats.header === 6 ? 'ql-active' : ''}}" data-name="header" data-value="{{6}}"></i>
+    format-align：
+    <i class="iconfont icon-zuoduiqi {{formats.align === 'left' ? 'ql-active' : ''}}" data-name="align" data-value="left"></i>
+    <i class="iconfont icon-juzhongduiqi {{formats.align === 'center' ? 'ql-active' : ''}}" data-name="align" data-value="center"></i>
+    <i class="iconfont icon-youduiqi {{formats.align === 'right' ? 'ql-active' : ''}}" data-name="align" data-value="right"></i>
+    <i class="iconfont icon-zuoyouduiqi {{formats.align === 'justify' ? 'ql-active' : ''}}" data-name="align" data-value="justify"></i>
+    format-direction：
+    <i class="iconfont icon-direction-rtl {{formats.direction === 'rtl' ? 'ql-active' : ''}}" data-name="direction" data-value="rtl"></i>
+    format-indent：
+    <i class="iconfont icon-outdent" data-name="indent" data-value="-1"></i>
+    <i class="iconfont icon-indent" data-name="indent" data-value="+1"></i>
+    format-list：
+	<i class="iconfont icon--checklist" data-name="list" data-value="check"></i>
+	<i class="iconfont icon-youxupailie {{formats.list === 'ordered' ? 'ql-active' : ''}}" data-name="list" data-value="ordered"></i>
+	<i class="iconfont icon-wuxupailie {{formats.list === 'bullet' ? 'ql-active' : ''}}" data-name="list" data-value="bullet"></i>
+    format-color：
+	<i class="iconfont icon-text_color {{formats.color === '#f54260' ? 'ql-active' : ''}}" data-name="color" data-value="#f54260"></i>
+    format-backgroundColor	：
+	<i class="iconfont icon-fontbgcolor {{formats.backgroundColor === '#f2d791' ? 'ql-active' : ''}}" data-name="backgroundColor" data-value="#f2d791"></i>
+    format-margin/Top/Bottom/Left/Right：
+	<i class="iconfont icon-quanping {{formats.margin === '10px' ? 'ql-active' : ''}}" data-name="margin" data-value="10px"></i>
+	<i class="iconfont icon-quanping {{formats.marginTop === '10px' ? 'ql-active' : ''}}" data-name="marginTop" data-value="10px"></i>
+	<i class="iconfont icon-quanping {{formats.marginBottom === '10px' ? 'ql-active' : ''}}" data-name="marginBottom" data-value="10px"></i>
+	<i class="iconfont icon-quanping {{formats.marginLeft === '10px' ? 'ql-active' : ''}}" data-name="marginLeft" data-value="10px"></i>
+	<i class="iconfont icon-quanping {{formats.marginRight === '10px' ? 'ql-active' : ''}}" data-name="marginRight" data-value="10px"></i>
+    format-padding/Top/Bottom/Left/Right：
+	<i class="iconfont icon-quanping {{formats.padding === '10px' ? 'ql-active' : ''}}" data-name="padding" data-value="10px"></i>
+	<i class="iconfont icon-quanping {{formats.paddingTop === '10px' ? 'ql-active' : ''}}" data-name="paddingTop" data-value="10px"></i>
+	<i class="iconfont icon-quanping {{formats.paddingBottom === '10px' ? 'ql-active' : ''}}" data-name="paddingBottom" data-value="10px"></i>
+	<i class="iconfont icon-quanping {{formats.paddingLeft === '10px' ? 'ql-active' : ''}}" data-name="paddingLeft" data-value="10px"></i>
+	<i class="iconfont icon-quanping {{formats.paddingRight === '10px' ? 'ql-active' : ''}}" data-name="paddingRight" data-value="10px"></i>
+    format-fontSize：
+	<i class="iconfont icon-font {{formats.fontSize === '20px' ? 'ql-active' : ''}}" data-name="fontSize" data-value="20px"></i>
+    format-lineHeight：
+	<i class="iconfont icon-line-height {{formats.lineHeight === '50px' ? 'ql-active' : ''}}" data-name="lineHeight" data-value="50px"></i>
+    format-letterSpacing：
+	<i class="iconfont icon-Character-Spacing {{formats.letterSpacing === '5px' ? 'ql-active' : ''}}" data-name="letterSpacing" data-value="5px"></i>
+    format-textDecoration：
+	<i class="iconfont icon-zitixiahuaxian {{formats.textDecoration === 'underline dotted red' ? 'ql-active' : ''}}" data-name="textDecoration" data-value="underline dotted red"></i>
+    format-textIndent：
+	<i class="iconfont icon-indent {{formats.textIndent === '10px' ? 'ql-active' : ''}}" data-name="textIndent" data-value="10px"></i>
+    format-wordWrap：
+	<i class="iconfont icon-font {{formats.wordWrap === 'normal' ? 'ql-active' : ''}}" data-name="wordWrap" data-value="normal"></i>
+    format-wordBreak：
+	<i class="iconfont icon-font {{formats.wordBreak === 'break-all' ? 'ql-active' : ''}}" data-name="wordBreak" data-value="break-all"></i>
+    format-whiteSpace：
+	<i class="iconfont icon-Character-Spacing {{formats.whiteSpace === 'nowrap' ? 'ql-active' : ''}}" data-name="whiteSpace" data-value="nowrap"></i>
+    <button type="primary" size="mini" catchtouchend="blur">blur</button>
+    <button type="primary" size="mini" catchtouchend="clear">clear</button>
+    <button type="primary" size="mini" catchtouchend="getContents">getContents</button>
+    <button type="primary" size="mini" catchtouchend="getSelectionText">getSelectionText</button>
+    <button type="primary" size="mini" catchtouchend="insertDivider">insertDivider</button>
+    <button type="primary" size="mini" catchtouchend="insertImage">insertImage</button>
+    <button type="primary" size="mini" catchtouchend="insertText">insertText</button>
+    <button type="primary" size="mini" catchtouchend="undo">undo</button>
+    <button type="primary" size="mini" catchtouchend="redo">redo</button>
+    <button type="primary" size="mini" catchtouchend="removeFormat">removeFormat</button>
+    <button type="primary" size="mini" catchtouchend="scrollIntoView">scrollIntoView</button>
+    <button type="primary" size="mini" catchtouchend="setContents">setContents</button>
+</view>
