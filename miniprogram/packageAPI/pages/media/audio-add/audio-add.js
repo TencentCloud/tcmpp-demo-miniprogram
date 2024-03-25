@@ -112,6 +112,8 @@ Page({
 
     const isEqual = this.areChannelsEqual(myArrayBuffer, 0, 1)
     wx.showModal({
+      confirmText: i18n['confirm'],
+      cancelText: i18n['cancel'],
       title: i18n['audio-add11'],
       content: `${i18n['audio-add12']}${isEqual ? i18n['audio-add13']: i18n['audio-add14']}`
     })
@@ -237,6 +239,8 @@ Page({
   createAnalyser() {
     if(!this.audioCtx) {
       wx.showModal({
+        confirmText: i18n['confirm'],
+        cancelText: i18n['cancel'],
         title: i18n['audio-add15'],
         content: i18n['audio-add16']
       })
@@ -291,6 +295,8 @@ Page({
   createBiquadFilter() {
     if(!this.audioCtx) {
       wx.showModal({
+        confirmText: i18n['confirm'],
+        cancelText: i18n['cancel'],
         title: i18n['audio-add17'],
         content: i18n['audio-add18']
       })
