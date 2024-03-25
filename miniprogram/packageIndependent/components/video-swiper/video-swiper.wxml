@@ -7,7 +7,7 @@
     current="1"
     duration="{{duration}}" 
     bindanimationfinish="animationfinish">
-    <!-- curQueue 循环会导致video重新插入，objectFit 不可变更 -->
+    <!-- curQueue loop will cause the video to be reinserted, and objectFit cannot be changed -->
     <swiper-item wx:for="{{curQueue}}" wx:key="*this">
       <video 
         id="video_{{index}}" 

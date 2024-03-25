@@ -1,7 +1,7 @@
-
+import { i18n } from '../../../i18n/lang'
 Component({
   /**
-   * 组件的属性列表
+   * Component attribute list
    */
   properties: {
     space: {
@@ -32,22 +32,26 @@ Component({
       })
     }
   },
-
+  attached(){
+    this.setData({
+      t: i18n
+    })
+  },
   /**
-   * 组件的初始数据
+   * Component initial data
    */
   data: {
     showToolTip: false
   },
 
   /**
-   * 组件的方法列表
+   * Component method list
    */
   methods: {
     handleLongPress() {
       if (!this.data.showCopyBtn) return
       this.setData({
-        showToolTip: true,
+        showToolTip: true
       })
     },
     handleCopy() {
@@ -55,7 +59,7 @@ Component({
         showToolTip: false
       })
       wx.setClipboardData({
-        data: this.data.value,
+        data: this.data.value
       })
       this.triggerEvent('copy', {})
     },

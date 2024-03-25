@@ -4,7 +4,7 @@ import { webViewUrl } from '../../../../config';
 Page({
   data: {
     theme: 'light',
-    src: ""
+    src: ''
   },
   onShareAppMessage() {
     return {
@@ -13,7 +13,7 @@ Page({
     }
   },
   onLoad(opt) {
-    // console.log("参数---------------", opt)
+    // console.log("parameter---------------", opt)
     this.setData({
       src: webViewUrl
     })

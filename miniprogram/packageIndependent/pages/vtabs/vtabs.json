@@ -3,6 +3,6 @@
     "mp-vtabs": "../../components/vtabs/vtabs",
     "mp-vtabs-content": "../../components/vtabs-content/vtabs-content"
   },
-  "navigationBarTitleText": "独立分包-vtabs"
+  "navigationBarTitleText": "Independent Subpackage-vtabs"
 
 }

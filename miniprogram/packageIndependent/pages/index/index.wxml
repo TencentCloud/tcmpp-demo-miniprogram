@@ -1,5 +1,5 @@
 <view class="page" data-weui-theme="{{theme}}">
-    <view class="page-title">独立分包页面</view>
+    <view class="page-title">{{t['independentPage']}}</view>
     <view bind:tap="handleTap">
       <view class="demo-block">
         <block wx:for="{{arr}}" wx:key="placement">

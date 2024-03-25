@@ -1,4 +1,5 @@
 import CustomPage from '../../base/CustomPage'
+import { i18n } from '../../../i18n/lang'
 
 const urls = [
 
@@ -18,10 +19,13 @@ CustomPage({
     }
   },
   data: {
-    videoList: [],
+    videoList: []
   },
   onLoad() {
     console.log('=====onLoad====')
+    wx.setNavigationBarTitle({
+      title: i18n['video-swiper']
+    })
 
   },
   onReady() {
@@ -36,7 +40,7 @@ CustomPage({
     }))
     console.log('videoList', videoList)
     this.setData({
-      videoList,
+      videoList
     })
   },
   onHide() {

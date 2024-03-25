@@ -273,13 +273,15 @@ Page({
       }, {
         name: i18n['Audio'],
         url: 'audio/audio'
-      }, {
-        name: i18n['Audio (newly added)'],
-        url: 'audio-add/audio-add'
-      }, {
-        name: i18n['Audio (processing)'],
-        url: 'audio-add2/audio-add2'
-      }, {
+      },
+      //  {
+      //   name: i18n['Audio (newly added)'],
+      //   url: 'audio-add/audio-add'
+      // }, {
+      //   name: i18n['Audio (processing)'],
+      //   url: 'audio-add2/audio-add2'
+      // }, 
+      {
         name: i18n['Voice'],
         url: 'voice/voice'
       }, {
