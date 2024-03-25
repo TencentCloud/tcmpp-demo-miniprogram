@@ -1,4 +1,5 @@
 import CustomPage from '../../base/CustomPage'
+import { i18n } from '../../../i18n/lang'
 
 CustomPage({
   onShareAppMessage() {
@@ -8,23 +9,31 @@ CustomPage({
     }
   },
   data: {
-    arr: [{
-      value: '长按，上侧复制',
-      placement: 'top'
-    }, {
-      value: '长按，右侧复制',
-      placement: 'right'
-    }, {
-      value: '长按，左侧复制',
-      placement: 'left'
-    }, {
-      value: '长按，下侧复制',
-      placement: 'bottom'
-    }]
+    t: i18n,
+    arr: []
   },
 
   onLoad() {
-
+    wx.setNavigationBarTitle({
+      t: i18n,
+      title: i18n['selectText5']
+    })
+    this.setData({
+      t: i18n,
+      arr: [{
+        value: i18n['selectText1'],
+        placement: 'top'
+      }, {
+        value: i18n['selectText2'],
+        placement: 'right'
+      }, {
+        value: i18n['selectText3'],
+        placement: 'left'
+      }, {
+        value: i18n['selectText4'],
+        placement: 'bottom'
+      }]
+    })
   },
 
   onCopy(e) {

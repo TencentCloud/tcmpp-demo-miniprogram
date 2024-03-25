@@ -17,6 +17,6 @@
     style="z-index: {{zIndex}};"
     catch:tap="handleCopy"
   >
-    复制
+    {{t['selectText']}}
   </view>
 </view>

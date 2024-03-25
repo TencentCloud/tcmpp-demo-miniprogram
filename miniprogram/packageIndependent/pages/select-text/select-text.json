@@ -1,7 +1,7 @@
 {
   "disableScroll": true,
 
-  "navigationBarTitleText": "独立分包-select-text",
+  "navigationBarTitleText": "independent subpackage-select-text",
   "usingComponents": {
     "mp-select-text": "../../components/select-text/select-text"
   }
