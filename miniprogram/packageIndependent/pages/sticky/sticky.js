@@ -1,4 +1,5 @@
 import CustomPage from '../../base/CustomPage'
+import { i18n } from '../../../i18n/lang'
 
 CustomPage({
   onShareAppMessage() {
@@ -7,12 +8,14 @@ CustomPage({
       path: 'packageIndependent/pages/extend/sticky/sticky'
     }
   },
-  data: {
-
-  },
 
   onLoad() {
-
+    wx.setNavigationBarTitle({
+      title: i18n['sticky']
+    })
+    this.setData({
+      t: i18n
+    })
   },
 
   onReady() {

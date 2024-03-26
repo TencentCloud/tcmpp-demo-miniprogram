@@ -26,19 +26,19 @@
     <view>【upZ】{{upZ}}</view>
   </view>
   <button type="primary" bindtap="createWebAudioContext">createWebAudioContext</button>
-  <button bindtap="suspend">suspend</button>
-  <button bindtap="resume">resume</button>
-  <button bindtap="close">close</button>
-  <button bindtap="fast">加速</button>
-  <button bindtap="slow">减速</button>
+  <button bindtap="suspend">{{t['audio-add19']}}</button>
+  <button bindtap="resume">{{t['audio-add20']}}</button>
+  <button bindtap="close">{{t['audio-add21']}}</button>
+  <button bindtap="fast">{{t['audio-add22']}}</button>
+  <button bindtap="slow">{{t['audio-add23']}}</button>
   <button bindtap="stop">BufferSourceNode.stop</button>
   <view>
     currentTime: <text>{{currentTime || "--"}}</text>
   </view>
-  <button bindtap="getCurrentTime">获取当前时间戳</button>
+  <button bindtap="getCurrentTime">{{t['audio-add24']}}</button>
   <canvas type="2d" id="mycanvas" class="canvas"></canvas>
   <button type="primary" bindtap="createAnalyser">createAnalyser</button>
-  <button bindtap="cancelRequestId">cancelAnimationFrame</button>
+  <button bindtap="cancelAnimationFrame">cancelAnimationFrame</button>
   <button type="primary" bindtap="createBiquadFilter">createBiquadFilter</button>
   <view>
     AudioBuffer:

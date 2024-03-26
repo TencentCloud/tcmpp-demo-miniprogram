@@ -1,6 +1,6 @@
 <view class="page" data-weui-theme="{{theme}}">
 
-<view class="page-title">独立分包页面select-text</view>
+<view class="page-title">{{t['selectText5']}}</view>
 <view bind:tap="handleTap">
   <view class="demo-block">
     <block wx:for="{{arr}}" wx:key="placement">
@@ -17,7 +17,7 @@
       </view>
     </block>
     <view class="list-item">
-      <mp-select-text value="默认的长按效果与浏览器一致"></mp-select-text>
+      <mp-select-text value="{{t['selectText6']}}"></mp-select-text>
     </view>
   </view>
 </view>

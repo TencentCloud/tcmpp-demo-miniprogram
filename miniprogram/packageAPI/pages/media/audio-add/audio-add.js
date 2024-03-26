@@ -55,12 +55,12 @@ Page({
     })
   },
   createBuffer() {
-    // 停掉之前mp3的音频
+    // Stop the previous mp3 audio
     this.bufferSourceNode && this.bufferSourceNode.disconnect()
     const audioCtx = wx.createWebAudioContext()
-    // 立体声
+    // Stereo
     const channels = 2;
-    // 创建一个 采样率与音频环境 (AudioContext) 相同的 时长 2 秒的 音频片段。
+    // Create an audio clip with a duration of 2 seconds, having the same sample rate as the audio context.
     const frameCount = audioCtx.sampleRate * 2.0;
 
     const audioBuffer = audioCtx.createBuffer(
@@ -76,10 +76,10 @@ Page({
       numberOfChannels: audioBuffer.numberOfChannels
     })
 
-    // 使用白噪声填充;
-    // 就是 -1.0 到 1.0 之间的随机数
+    // Fill with white noise;
+    // It's a random number between -1.0 and 1.0.
     for (let channel = 0; channel < channels; channel++) {
-      // 这允许我们读取实际音频片段 (AudioBuffer) 中包含的数据
+      // This allows us to read the data contained in the actual audio clip (AudioBuffer).
       const nowBuffering = audioBuffer.getChannelData(channel);
       for (let i = 0; i < frameCount; i++) {
         // Math.random() is in [0; 1.0]
@@ -88,20 +88,20 @@ Page({
       }
     }
 
-    // 获取一个 音频片段源节点 (AudioBufferSourceNode)。
-    // 当我们想播放音频片段时，我们会用到这个源节点。
+    // Get an audio clip source node (AudioBufferSourceNode).
+    // We'll use this source node when we want to play the audio clip.
     const source = audioCtx.createBufferSource();
-    // 把刚才生成的片段加入到 音频片段源节点 (AudioBufferSourceNode)。
+    // Add the generated clip to the audio clip source node (AudioBufferSourceNode).
     source.buffer = audioBuffer;
-    // 把 音频片段源节点 (AudioBufferSourceNode) 连接到
-    // 音频环境 (AudioContext) 的终节点，这样我们就能听到声音了。
+    // Connect the audio clip source node (AudioBufferSourceNode) to
+    // the destination node of the audio context (AudioContext), so we can hear the sound.
     source.connect(audioCtx.destination);
-    // 开始播放声源
+    // Start playing the audio source
     source.start();
   },
   copyFromToChannel() {
     const audioCtx = wx.createWebAudioContext()
-    // 创建一个 采样率与音频环境 (AudioContext) 相同的 时长 2 秒的 音频片段。
+    // Create an audio clip with a duration of 2 seconds, having the same sample rate as the audio context (AudioContext).
     const frameCount = audioCtx.sampleRate * 2.0;
     const myArrayBuffer = audioCtx.createBuffer(2, frameCount, audioCtx.sampleRate);
     const anotherArray = new Float32Array();
@@ -112,21 +112,23 @@ Page({
 
     const isEqual = this.areChannelsEqual(myArrayBuffer, 0, 1)
     wx.showModal({
-      title: '提示',
-      content: `复制后两个通道数据${isEqual ? '相同': '不相同'}`,
+      confirmText: i18n['confirm'],
+      cancelText: i18n['cancel'],
+      title: i18n['audio-add11'],
+      content: `${i18n['audio-add12']}${isEqual ? i18n['audio-add13']: i18n['audio-add14']}`
     })
   },
   areChannelsEqual(buffer, channelIndex1, channelIndex2) {
     const data1 = buffer.getChannelData(channelIndex1);
     const data2 = buffer.getChannelData(channelIndex2);
 
-    // 判断两个通道的数据是否相同
+    // Check if the data of the two channels are the same
     for (let i = 0; i < data1.length; i++) {
       if (data1[i] !== data2[i]) {
-        return false; // 只要有一个样本不相同就返回 false
+        return false; // Return false if there is at least one sample that is not the same
       }
     }
-    return true; // 所有样本都相同
+    return true; // Return true if all samples are the same
   },
   createWebAudioContext() {
     if(this.audioCtx) {
@@ -148,12 +150,12 @@ Page({
         forwardZ: audioListener.forwardZ.value,
         upX: audioListener.upX.value,
         upY: audioListener.upY.value,
-        upZ: audioListener.upZ.value,
+        upZ: audioListener.upZ.value
       })
 
       this.audioCtx.onstatechange = () => {
         this.setData({
-          state: this.audioCtx.state,
+          state: this.audioCtx.state
         })
       }
       this.sourceCache = new Set()
@@ -231,14 +233,16 @@ Page({
       currentTime: this.audioCtx.currentTime
     })
   },
-  cancelRequestId() {
+  cancelAnimationFrame() {
     this.canvas.cancelAnimationFrame(this.requestId);
   },
   createAnalyser() {
     if(!this.audioCtx) {
       wx.showModal({
-        title: '提示',
-        content: '请先创建WebAudioContext',
+        confirmText: i18n['confirm'],
+        cancelText: i18n['cancel'],
+        title: i18n['audio-add15'],
+        content: i18n['audio-add16']
       })
       return
     }
@@ -251,18 +255,18 @@ Page({
     const bufferLength = analyserNode.frequencyBinCount;
     const dataArray = new Uint8Array(bufferLength);
 
-     // 绘制当前音频源的波形图
+    // Draw the waveform of the current audio source
     const draw = () => {
       this.requestId = this.canvas.requestAnimationFrame(draw);
 
-      // 在每一帧中获取最新的音频数据
+      // Get the latest audio data in each frame
       analyserNode.getByteTimeDomainData(dataArray);
 
-      this.ctx.fillStyle = "rgb(200, 200, 200)";
+      this.ctx.fillStyle = 'rgb(200, 200, 200)';
       this.ctx.fillRect(0, 0, WIDTH, HEIGHT);
 
       this.ctx.lineWidth = 2;
-      this.ctx.strokeStyle = "rgb(0, 0, 0)";
+      this.ctx.strokeStyle = 'rgb(0, 0, 0)';
 
       this.ctx.beginPath();
 
@@ -291,22 +295,24 @@ Page({
   createBiquadFilter() {
     if(!this.audioCtx) {
       wx.showModal({
-        title: '提示',
-        content: '请先创建WebAudioContext',
+        confirmText: i18n['confirm'],
+        cancelText: i18n['cancel'],
+        title: i18n['audio-add17'],
+        content: i18n['audio-add18']
       })
       return
     }
     const biquadFilterNode = this.audioCtx.createBiquadFilter();
-    // 设置滤波器的类型为低频增强滤波器
+    // Set the filter type to low-frequency boost filter
     biquadFilterNode.type = 'lowshelf';
-    // 设置滤波器的截止频率为 1000 Hz
+    // Set the cutoff frequency of the filter to 1000 Hz
     biquadFilterNode.frequency.value = 1000;
-    // 表示该滤波器会对通过的信号进行 25 倍的放大(增益值的大小会影响滤波器对特定频率的信号的放大或减小程度)
+    // This indicates that the filter will amplify the passed signal by 25 times (the magnitude of the gain value affects the degree to which the filter amplifies or attenuates signals at specific frequencies)
     biquadFilterNode.gain.value = 25;
 
-    // 连接音频源和滤波器
+    // Connect the audio source and the filter
     this.bufferSourceNode.connect(biquadFilterNode);
-    // 连接滤波器和音频上下文的目标节点（输出设备）
+    // Connect the filter and the target node of the audio context (output device)
     biquadFilterNode.connect(this.audioCtx.destination)
   },
   async createMediaAudioPlayer() {

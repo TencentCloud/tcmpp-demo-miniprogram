@@ -3,26 +3,26 @@
   <view>createDynamicsCompressor</view>
   <view>createIIRFilter</view>
   <view>createPanner</view>
-  <button type="primary" bindtap="createDealBefore">播放处理前的音频</button>
-  <button bindtap="suspendB">暂停</button>
-  <button bindtap="resumeB">继续</button>
+  <button type="primary" bindtap="createDealBefore">{{t['audio-addTwo2']}}</button>
+  <button bindtap="suspendB">{{t['audio-addTwo3']}}</button>
+  <button bindtap="resumeB">{{t['audio-addTwo4']}}</button>
   <button bindtap="createDynamicsCompressor">{{ isAdd ? 'Remove Compressor' : 'Add Compressor' }}</button>
   <button bindtap="createIIRFilter">{{ isFilter ? 'Remove IIRFilter' : 'Add IIRFilter' }}</button>
   <button bindtap="createPanner">{{ isPanner ? 'Remove Panner' : 'Add Panner' }}</button>
-  <button bindtap="moveRight">左移</button>
-  <button bindtap="moveLeft">右移</button>
-  <button bindtap="zoomIn">放大</button>
-  <button bindtap="zoomOut">缩小</button>
+  <button bindtap="moveRight">{{t['audio-addTwo5']}}</button>
+  <button bindtap="moveLeft">{{t['audio-addTwo6']}}</button>
+  <button bindtap="zoomIn">{{t['audio-addTwo7']}}</button>
+  <button bindtap="zoomOut">{{t['audio-addTwo8']}}</button>
   <view>createChannelSplitter</view>
   <view>createChannelMerger</view>
   <view>createGain</view>
-  <button type="primary" bindtap="createDealAfter">播放处理后的音频</button>
-  <button bindtap="suspend">暂停</button>
-  <button bindtap="resume">继续</button>
+  <button type="primary" bindtap="createDealAfter">{{t['audio-addTwo9']}}</button>
+  <button bindtap="suspend">{{t['audio-addTwo10']}}</button>
+  <button bindtap="resume">{{t['audio-addTwo11']}}</button>
   <button type="primary" bindtap="createConstantSource">createConstantSource</button>
   <view>createDelay</view>
   <view>createPeriodicWave</view>
   <view>createOscillator</view>
   <view>createWaveShaper</view>
-  <button type="primary" bindtap="createOscillator">创建音频信号</button>
+  <button type="primary" bindtap="createOscillator">{{t['audio-addTwo12']}}</button>
 </view>

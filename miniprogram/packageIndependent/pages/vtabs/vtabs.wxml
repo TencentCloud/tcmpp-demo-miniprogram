@@ -1,5 +1,5 @@
 <view class="page" data-weui-theme="{{theme}}">
-<!-- <view class="page-title">独立分包页面vtabs</view> -->
+<!-- <view class="page-title">{{t['independent']}}-vtabs</view> -->
 <mp-vtabs 
   vtabs="{{vtabs}}" 
   activeTab="{{activeTab}}" 

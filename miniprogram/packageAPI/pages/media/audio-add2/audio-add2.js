@@ -1,20 +1,22 @@
 // packageAPI/pages/media/audio-add2/audio-add2.js
+import { i18n } from '../../../../i18n/lang'
 Page({
 
   /**
-   * 页面的初始数据
+   * Initial data of the page
    */
   data: {
+    t: i18n,
     isAdd: false,
     isFilter: false,
-    isPanner: false,
+    isPanner: false
   },
   createDealBefore() {
     this.audioCtxB = wx.createWebAudioContext()
 
     this.audioCtxB.onstatechange = () => {
       this.setData({
-        state: this.audioCtxB.state,
+        state: this.audioCtxB.state
       })
     }
     this.sourceCacheB = new Set()
@@ -26,13 +28,13 @@ Page({
       this.bufferSourceNodeB.buffer = buffer
 
       this.bufferSourceNodeB.connect(this.audioCtxB.destination)
-      this.sourceCacheB.add(this.bufferSourceNodeB) // Tips：缓存住 source，防止被GC掉，GC掉的话音频会中断
+      this.sourceCacheB.add(this.bufferSourceNodeB) // Tips: Cache the source to prevent it from being GC'd. If it's GC'd, the audio will be interrupted.
       this.bufferSourceNodeB.onended = () => {
-        this.sourceCacheB.delete(this.bufferSourceNodeB) // Tips：播放完之后，再清掉source缓存
+        this.sourceCacheB.delete(this.bufferSourceNodeB) // Tips: After playback, clear the source cache.
       }
       this.bufferSourceNodeB.start()
       wx.showToast({
-        title: 'Audio开始播放',
+        title: i18n['audio-addTwo1'],
         icon: 'success'
       })  
     }).catch((err) => {
@@ -121,8 +123,8 @@ Page({
       const listener = this.audioCtxB.listener;
       this.panner = this.audioCtxB.createPanner();
 
-      this.panner.panningModel = "HRTF";
-      this.panner.distanceModel = "inverse";
+      this.panner.panningModel = 'HRTF';
+      this.panner.distanceModel = 'inverse';
       this.panner.refDistance = 1;
       this.panner.maxDistance = 10000;
       this.panner.rolloffFactor = 1;
@@ -245,7 +247,7 @@ Page({
 
     this.audioCtx.onstatechange = () => {
       this.setData({
-        state: this.audioCtx.state,
+        state: this.audioCtx.state
       })
     }
     this.sourceCache = new Set()
@@ -282,7 +284,7 @@ Page({
       this.bufferSourceNode.connect(channelSplitterNode);
       const channelMergerNode = this.audioCtx.createChannelMerger(2);
 
-       // Reduce the volume of the left channel only
+      // Reduce the volume of the left channel only
       const gainNode = this.audioCtx.createGain();
       gainNode.gain.value = 0.1;
       channelSplitterNode.connect(gainNode, 0);
@@ -293,13 +295,13 @@ Page({
       channelSplitterNode.connect(channelMergerNode, 1, 0);
 
       channelMergerNode.connect(this.audioCtx.destination)
-      this.sourceCache.add(this.bufferSourceNode) // Tips：缓存住 source，防止被GC掉，GC掉的话音频会中断
+      this.sourceCache.add(this.bufferSourceNode) // Tips: Cache the source to prevent it from being GC'd. If it's GC'd, the audio will be interrupted.
       this.bufferSourceNode.onended = () => {
-        this.sourceCache.delete(this.bufferSourceNode) // Tips：播放完之后，再清掉source缓存
+        this.sourceCache.delete(this.bufferSourceNode) // Tips: After playback, clear the source cache.
       }
       this.bufferSourceNode.start()
       wx.showToast({
-        title: 'Audio开始播放',
+        title: i18n['audio-addTwo1'],
         icon: 'success'
       }) 
     }).catch((err) => {
@@ -314,74 +316,74 @@ Page({
   },
   createConstantSource() {
     this.audioCtxC = wx.createWebAudioContext()
-    // 创建 ConstantSourceNode
+    // Create a ConstantSourceNode
     const constantSourceNode = this.audioCtxC.createConstantSource();
 
-    // 设置音频信号的值
-    constantSourceNode.offset.value = 0.5; // 设置为 0.5，可以根据需要调整
+    // Set the value of the audio signal
+    constantSourceNode.offset.value = 0.5; // Set to 0.5, adjust as needed
 
-    // 连接到目标（这里连接到音频目标，实际应用中可以连接到其他音频节点）
+    // Connect to the target (here connected to the audio destination, can be connected to other audio nodes in actual application)
     constantSourceNode.connect(this.audioCtxC.destination);
 
-    // 启动 ConstantSourceNode
+    // Start ConstantSourceNode
     constantSourceNode.start();
 
-    // 在一定时间后停止音频
+    // Stop audio after a certain time
     setTimeout(() => {
       constantSourceNode.stop();
-    }, 3000); // 停止音频播放
+    }, 3000); // Stop audio playback
   },
   createOscillator() {
     this.audioCtxD = wx.createWebAudioContext()
 
-    // 定义周期波形的样本点
+    // Define sample points of periodic waveform
     const real = [0, 0.2, 0.4, 0.6, 0.8, 1, 0.8, 0.6, 0.4, 0.2];
     const imag = new Float32Array(real.length).fill(0);
 
-    // 创建周期波形
+    // Create a periodic waveform
     const periodicWave = this.audioCtxD.createPeriodicWave(real, imag);
 
-    // 创建 OscillatorNode
+    // Create an OscillatorNode
     const oscillator = this.audioCtxD.createOscillator();
 
     oscillator.setPeriodicWave(periodicWave);
 
-    // 创建波形整形器节点
+    // Create a wave shaper node
     const waveShaper = this.audioCtxD.createWaveShaper();
 
-    // 设置波形曲线
+    // Set the waveform curve
     const curve = new Float32Array([0, 0.25, 0.5, 0.75, 1]);
     waveShaper.curve = curve;
 
-    // 创建 DelayNode
+    // Create a DelayNode
     const delay = this.audioCtxD.createDelay();
 
-    // 设置波形类型（这里选择正弦波）
+    // Set waveform type (here choose sine wave)
     // oscillator.type = 'sine';
 
-    // 设置频率和音量
-    oscillator.frequency.value = 440; // 设置频率为 440 Hz，可以调整
-    oscillator.detune.value = 0; // 设置音调偏移
+    // Set frequency and volume
+    oscillator.frequency.value = 440; // Set frequency to 440 Hz, adjust as needed
+    oscillator.detune.value = 0; // Set pitch offset
 
-    // 设置延迟时间
-    delay.delayTime.value = 0.5; // 0.5 秒的延迟，可以调整
+    // Set delay time
+    delay.delayTime.value = 0.5; // 0.5 seconds delay, adjust as needed
 
-    // 连接节点
+    // Connect nodes
     oscillator.connect(waveShaper);
-    // 连接振荡器节点到波形整形器节点
+    // Connect oscillator node to wave shaper node
     waveShaper.connect(delay);
-    delay.connect(this.audioCtxD.destination); // 连接到音频目标
+    delay.connect(this.audioCtxD.destination); // Connect to audio destination
 
-    // 启动 OscillatorNode
+    // Start OscillatorNode
     oscillator.start();
 
-    // 在一定时间后停止音频
+    // Stop audio after a certain time
     setTimeout(() => {
       oscillator.stop();
-    }, 3000); // 停止音频播放
+    }, 3000); // Stop audio playback
   },
   /**
-   * 生命周期函数--监听页面加载
+   * Page lifecycle--on page load
    */
   onLoad(options) {
     const WIDTH = 1450;
@@ -395,52 +397,56 @@ Page({
     this.xIterator = WIDTH / 150;
     this.leftBound = 50 - this.xPos;
     this.rightBound = this.xPos - 50;
+    
+    this.setData({
+      t: i18n
+    })
   },
 
   /**
-   * 生命周期函数--监听页面初次渲染完成
+   * Page lifecycle--on initial rendering completion
    */
   onReady() {
 
   },
 
   /**
-   * 生命周期函数--监听页面显示
+   * Page lifecycle--on page display
    */
   onShow() {
 
   },
 
   /**
-   * 生命周期函数--监听页面隐藏
+   * Page lifecycle--on page hide
    */
   onHide() {
 
   },
 
   /**
-   * 生命周期函数--监听页面卸载
+   * Page lifecycle--on page unload
    */
   onUnload() {
 
   },
 
   /**
-   * 页面相关事件处理函数--监听用户下拉动作
+   * Page-related event handling functions--listen for user pull-down actions
    */
   onPullDownRefresh() {
 
   },
 
   /**
-   * 页面上拉触底事件的处理函数
+   * Page-related event handling functions--handle page bottom pull-up events
    */
   onReachBottom() {
 
   },
 
   /**
-   * 用户点击右上角分享
+   * User clicks on the top right corner to share
    */
   onShareAppMessage() {
 
