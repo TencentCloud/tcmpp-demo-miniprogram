@@ -129,6 +129,9 @@ Page({
   },
   onLoad() {
     this.init();
+    this.setData({
+      theme: wx.getSystemInfoSync().theme || 'light'
+    })
     if (wx.onThemeChange) {
       wx.onThemeChange(({ theme }) => {
         this.setData({ theme })

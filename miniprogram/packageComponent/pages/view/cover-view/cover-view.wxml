@@ -12,16 +12,15 @@
         latitude="{{latitude}}"
         longitude="{{longitude}}"
       >
-        <view class="cover-view">
-          <view class="container">
-            <view class="flex-wrp" style="flex-direction:row;">
-              <view class="flex-item demo-text-1"></view>
-              <view class="flex-item demo-text-2"></view>
-              <view class="flex-item demo-text-3"></view>
-            </view>
-          </view>
-        </view>
-        <cover-image class="cover-image" src="{{imageUrl}}" bindload="imageLoad" binderror="imageError"></cover-image>
+        <cover-view class="cover-view">
+          <cover-view class="container">
+            <cover-view class="flex-wrp" style="flex-direction:row;">
+              <cover-view class="flex-item demo-text-1"></cover-view>
+              <cover-view class="flex-item demo-text-2"></cover-view>
+              <cover-view class="flex-item demo-text-3"></cover-view>
+            </cover-view>
+          </cover-view>
+        </cover-view>
       </map>
     </view>
   </view>

@@ -12,7 +12,11 @@ Page({
     theme: 'light',
     latitude: 23.099994,
     longitude: 113.324520,
-    imageUrl: 'https://dss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/topnav/newyinyue-03ecd1e9b9.png'
+  },
+  onUnload() {
+    if (wx.offThemeChange) {
+      wx.offThemeChange()
+    }
   },
   onLoad() {
     this.setData({
