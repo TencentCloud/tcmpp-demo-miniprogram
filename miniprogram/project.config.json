@@ -39,13 +39,35 @@
 	},
 	"libVersion": "3.0.0",
 	"appid": "wx582fd5a0920beb62",
-	"TCMPPappid": "mpukcz463eb7god2",
+	"TCMPPappid": "mptbdgmafkv38ico",
 	"scripts": {
 		"beforeCompile": "",
 		"beforePreview": "",
 		"beforeUpload": ""
 	},
-	"TCMPPLibVersion": "1.5.40",
+	"TCMPPLibVersion": "1.5.42",
+	"mockConfig": {
+		"globalOpen": true,
+		"rules": [
+			{
+				"ruleName": "test",
+				"ruleId": "442e4edd-8d88-4f65-a03a-c2d0589df186",
+				"apiName": "invokeNativePlugin",
+				"enable": true,
+				"mockType": "API",
+				"returnType": "fail",
+				"resStr": "{\n    \"errMsg\":\"VVV\"\n}",
+				"filterList": [
+					{
+						"propName": "",
+						"propRegString": "",
+						"matchType": "string"
+					}
+				],
+				"verifyFail": false
+			}
+		]
+	},
 	"condition": {
 		"plugin": {
 			"current": -1,
@@ -66,6 +88,13 @@
 					"id": 0,
 					"name": "tab3",
 					"pathName": "page/extend/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "invoke-native",
+					"pathName": "packageComponent/pages/open/invoke-native-plugin/invoke-native-plugin",
 					"query": "",
 					"scene": null
 				}

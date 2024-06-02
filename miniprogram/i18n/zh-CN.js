@@ -542,7 +542,7 @@ export default {
   external4: '操作',
   external5: '自定义组件',
   invoke0: '触发testState',
-  invoke1: '触发requestPayment',
+  invoke1: '触发myRequestPayment',
   scroll0: '纵向滚动',
   scroll1: '横向滚动',
   base0: '保存成功',
@@ -1297,8 +1297,8 @@ export default {
   'audio-add21': '关闭',
   'audio-add22': '加速',
   'audio-add23': '减速',
-  'audio-add24': '获取当前时间戳', 
-  'audio-addTwo1': 'Audio开始播放', 
+  'audio-add24': '获取当前时间戳',
+  'audio-addTwo1': 'Audio开始播放',
   'audio-addTwo2': '播放处理前的音频',
   'audio-addTwo3': '暂停',
   'audio-addTwo4': '继续',
@@ -1309,7 +1309,7 @@ export default {
   'audio-addTwo9': '播放处理后的音频',
   'audio-addTwo10': '暂停',
   'audio-addTwo11': '继续',
-  'audio-addTwo12': '创建音频信号', 
+  'audio-addTwo12': '创建音频信号',
   voice0: '录音',
   voice1: '录音/音频',
   voiceOld0: '录音旧版',
@@ -1543,5 +1543,5 @@ export default {
   vtabs12: '本课程共四节，将分阶段为开发者展示如何开通流量主功能、如何接入广告组件、不同类型小程序接入的建议。',
   vtabs13: '高校大赛',
   vtabs14: '2020中国高校计算机大赛',
-  vtabs15: '微信小程序应用开发赛' 
+  vtabs15: '微信小程序应用开发赛'
 };

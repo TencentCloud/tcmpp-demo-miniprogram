@@ -34,32 +34,53 @@ Page({
       },
       success: (res) => {
         log('===success[invokeNativePlugin testState]===', res);
+        wx.showToast({ title: "testState:ok" });
       },
       fail: (err) => {
         log('===err[invokeNativePlugin testState]===', err);
+        const { errMsg = "" } = err;
+        wx.showToast({
+          title: `${errMsg}`,
+          icon: "error"
+        });
       },
       progress: (res) => {
         log('===progress[invokeNativePlugin testState]===', res);
+        wx.showToast({
+          title: "testState:progress",
+          icon: "loading"
+        });
       }
     })
   },
   handler2() {
     wx.invokeNativePlugin({
-      api_name: 'requestPayment',
+      api_name: 'myRequestPayment',
       data: {
-        type: 'test'
+        type: 'test',
+        amount: 189
       },
       complete(res) {
         log('===complete===', res);
       },
       success: (res) => {
+        wx.showToast({ title: "myRequestPayment:ok" });
         log('===success===', res);
       },
       fail: (err) => {
         log('===err===', err);
+        const { errMsg = "" } = err;
+        wx.showToast({
+          title: `${errMsg}`,
+          icon: "error"
+        });
       },
       progress: (res) => {
         log('===progress===', res);
+        wx.showToast({
+          title: "myRequestPayment:progress",
+          icon: "loading"
+        });
       }
     })
   }

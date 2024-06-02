@@ -558,7 +558,7 @@ export default {
   external4: 'Operation',
   external5: 'Custom component',
   invoke0: 'Trigger testState',
-  invoke1: 'Trigger requestPayment',
+  invoke1: 'Trigger myRequestPayment',
   scroll0: 'Vertical scroll',
   scroll1: 'Horizontal scroll',
   base0: 'Save successful',
