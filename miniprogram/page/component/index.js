@@ -31,8 +31,7 @@ Page({
         name: i18n['viewBox'],
         open: false,
         pages: [
-          'view', 'scroll-view', 'swiper', 'movable-view', 'cover-image'
-          // 'cover-view', 
+          'view', 'scroll-view', 'swiper', 'movable-view', 'cover-image', 'cover-view', 
         ]
       }, {
         id: 'content',
