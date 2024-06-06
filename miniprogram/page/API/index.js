@@ -311,14 +311,14 @@ Page({
         name: i18n['Rich text'],
         url: 'editor-context/editor-context'
       },
-      {
-        name: i18n['Screen recording device'],
-        url: 'media-recorder/media-recorder'
-      }
-        // {
-        //   name: i18n['Video decoder'],
-        //   url: 'video-decoder/video-decoder'
-        // }
+      // {
+      //   name: i18n['Screen recording device'],
+      //   url: 'media-recorder/media-recorder'
+      // },
+      // {
+      //   name: i18n['Video decoder'],
+      //   url: 'video-decoder/video-decoder'
+      // }
       ]
     }, {
       id: 'location',
