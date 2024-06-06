@@ -25,6 +25,16 @@
         </button>
       </view>
       <view class="btn-area">
+        <button type="primary" bind:tap="handleConnect">
+          {{t['udp16']}} 
+        </button>
+      </view>
+      <view class="btn-area">
+        <button type="primary" bind:tap="handleWriteMessage">
+          {{t['udp17']}} 
+        </button>
+      </view>
+      <view class="btn-area">
         <button type="primary" bind:tap="changeMode">
           {{t['udp18']}}
         </button>
@@ -36,7 +46,24 @@
             {{t['udp20']}}
           </button>
         </view>
+        <input placeholder="{{t['udp21']}} " bindinput="handleInputPortChange"></input>
+        <view class="btn-area">
+          <button type="primary" bind:tap="handleConnectRemote">
+            {{t['udp22']}}
+          </button>
+        </view>
+        <view class="btn-area">
+          <button type="primary" bind:tap="handleWriteRemoteMessage">
+            {{t['udp23']}}
+          </button>
+        </view>
       </block>
+      <input placeholder="{{t['udp24']}}" type="number" bindinput="handleTTLChange"></input>
+      <view class="btn-area">
+        <button type="primary" bind:tap="handleSetTTL">
+          {{t['udp25']}}
+        </button>
+      </view>
       <view class="btn-area">
         <button bind:tap="toggleMessage" type="{{isOnMessage ? 'default' : 'primary'}}">
           {{isOnMessage ? t['udp26'] : t['udp27']}}{{t['udp28']}}

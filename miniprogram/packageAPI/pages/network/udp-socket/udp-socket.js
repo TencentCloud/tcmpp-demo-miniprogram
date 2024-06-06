@@ -177,6 +177,19 @@ Page({
       message: `port[${this.port}] ${i18n['udp1']} remote-port[${this.remote_port}] ${i18n['udp2']}: Hello Wechat!`
     })
   },
+  handleConnectRemote() {
+    if (!this.data.remoteConnectPort) {
+      wx.showToast({
+        icon: 'none',
+        title: i18n['udp3']
+      })
+      return;
+    }
+    this.remoteUDPSocket.connect({
+      address: this.data.address || 'localhost', // It can be any IP and domain name
+      port: this.data.remoteConnectPort
+    })
+  },
   changeMode() {
     this.setData({
       mode: 'remote'
@@ -199,9 +212,33 @@ Page({
       message: `port[${this.port}] ${i18n['udp4']} remote-port[${this.remote_port}] ${i18n['udp5']}: Hello Wechat!`
     })
   },
+  handleConnect() {
+    this.UDPSocket.connect({
+      address: 'localhost',
+      port: this.remote_port
+    })
+  },
+  handleWriteMessage() {
+    this.UDPSocket.write({
+      address: 'localhost',
+      port: this.remote_port,
+      message: `port[${this.port}] ${i18n['udp6']} remote-port[${this.remote_port}] ${i18n['udp7']}: Hello Wechat!`
+    })
+  },
+  handleWriteRemoteMessage() {
+    this.remoteUDPSocket.write({
+      address: 'localhost',
+      port: this.data.remoteConnectPort,
+      message: `port[${this.port}] ${i18n['udp8']} remote-port[${this.data.remoteConnectPort}] ${i18n['udp9']}: Hello Wechat!`
+    })
+  },
   handleTTLChange(e) {
     this.setData({
       ttl: e.detail.value
     })
+  },
+  handleSetTTL() {
+    console.log('===ttl', this.data.ttl)
+    this.UDPSocket.setTTL(this.data.ttl)
   }
 })
