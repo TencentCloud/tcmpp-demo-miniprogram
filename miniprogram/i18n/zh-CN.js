@@ -46,7 +46,7 @@ export default {
   Interaction: '交互',
   'Navigation Bar': '导航栏',
   background: '背景',
-  Tab: 'Tab',
+  Tab: '设置TabBar',
   Font: '字体',
   'Pull down to refresh': '下拉刷新',
   scroll: '滚动',

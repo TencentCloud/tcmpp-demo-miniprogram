@@ -46,7 +46,7 @@ export default {
   Interaction: 'Interaction',
   'Navigation Bar': 'Navigation Bar',
   background: 'Background',
-  Tab: 'Tab',
+  Tab: 'Setup TabBar',
   Font: 'Font',
   'Pull down to refresh': 'Pull Down to Refresh',
   scroll: 'Scroll',
