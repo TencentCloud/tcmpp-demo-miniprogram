@@ -1,4 +1,6 @@
 {
     "navigationBarTitleText": "Application interface ability display",
-    "usingComponents": {}
+    "usingComponents": {
+        "set-tab-bar": "components/set-tab-bar/set-tab-bar"
+    }
 }
