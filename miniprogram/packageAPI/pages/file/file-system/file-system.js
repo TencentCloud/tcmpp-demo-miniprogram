@@ -57,7 +57,7 @@ Page({
   },
   onLoad() {
     wx.setNavigationBarTitle({
-      title: i18n['Forward']
+      title: i18n['document']
     })
     this.setData({
       t: i18n,
