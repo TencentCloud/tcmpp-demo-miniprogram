@@ -41,6 +41,12 @@ Page({
     wx.hideNavigationBarLoading()
   },
 
+  hideHomeButton() {
+    wx.reLaunch({
+      url: '/packageAPI/pages/page/navigation-bar/homeButton/homeButton'
+    })
+  },
+
   onLoad() {
     wx.setNavigationBarTitle({
       title: i18n['navigation']

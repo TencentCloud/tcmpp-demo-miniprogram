@@ -25,6 +25,9 @@
       <button bindtap="hideNavigationBarLoading">{{t['navigation4']}}</button>
       <button bindtap="setNavigationBarColor">{{t['navigation5']}}</button>
     </view>
+    <view class="btn-area">
+      <button class="modal" bindtap="hideHomeButton" style="margin-top: 20px;">wx.hideHomeButton</button>
+    </view>
   </form>
 
   <template is="foot" wx:if="{{lang==='zh_CN'}}" />

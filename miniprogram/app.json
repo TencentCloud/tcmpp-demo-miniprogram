@@ -110,6 +110,7 @@
         "pages/media/voice-old/voice-old",
         "pages/media/file/file",
         "pages/media/background-audio/background-audio",
+        "pages/media/background-audio-old/background-audio-old",
         "pages/media/map/map",
         "pages/media/video/video",
         "pages/media/camera/camera",
