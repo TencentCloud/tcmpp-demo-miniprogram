@@ -41,7 +41,7 @@ Page({
     })
 
     requestTask = wx.request({
-      url: 'https://http-cookie-demo.netlify.app',
+      url: requestUrl,
       data: {
         theme: 'light',
         noncestr: Date.now()
