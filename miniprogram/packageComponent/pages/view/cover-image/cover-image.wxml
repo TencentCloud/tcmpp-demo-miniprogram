@@ -3,7 +3,7 @@
 <import src="../../../../common/foot_en.wxml" />
 
 <view class="container page">
-  <template is="head" data="{{title: 'cover-iamge'}}"/>
+  <template is="head" data="{{title: 'cover-image'}}"/>
 
   <view class="page-body">
     <view class="page-section page-section-gap">
