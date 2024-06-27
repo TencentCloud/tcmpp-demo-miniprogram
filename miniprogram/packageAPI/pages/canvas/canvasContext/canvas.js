@@ -46,10 +46,10 @@ Page({
   onShow() {
     const ctx = wx.createCanvasContext('myCanvas');
     wx.getImageInfo({
-      src: 'https://main.qcloudimg.com/raw/cf516e7b725dc06cbedef8eaeaed294d.svg',
+      src: 'https://res.wx.qq.com/wxdoc/dist/assets/img/0.4cb08bb4.jpg',
       success: function (res) {
         console.log('=======image res', res)
-        ctx.drawImage(res.path, 0, 0, 240, 380)
+        ctx.drawImage(res.path, 0, 0, 200, 150)
         ctx.draw()
       },
       fail: err => {
@@ -186,7 +186,7 @@ Page({
 
   canvasGetImageData() {
     wx.canvasGetImageData({
-      canvasId: 'canvas',
+      canvasId: 'myCanvas',
       x: 0,
       y: 0,
       width: 100,

@@ -49,18 +49,18 @@ Page({
   },
   onLoad() {
     texts = [
-      i18n['text1'],
-      i18n['text2'],
-      i18n['text3'],
-      i18n['text4'],
-      i18n['text5'],
-      i18n['text6'],
-      i18n['text7'],
-      i18n['text8'],
-      i18n['text9'],
-      i18n['text10'],
-      i18n['text11'],
-      i18n['text12'],
+      'lin1: text1',
+      'lin2: text2',
+      'lin3: text3',
+      'lin4: text4',
+      'lin5: text5',
+      'lin6: text6',
+      'lin7: text7',
+      'lin8: text8',
+      'lin9: text9',
+      'lin10: text10',
+      'lin11: text11',
+      'lin12: text12',
       '......'
     ]
     this.setData({
