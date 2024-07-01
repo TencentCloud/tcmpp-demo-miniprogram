@@ -382,11 +382,11 @@ Page({
       {
         name: i18n['CanvasRenderingContext2D'],
         url: 'canvasRenderingContext2D/canvas'
+      },
+      {
+        name: i18n['OffscreenCanvas'],
+        url: 'offscreenCanvas/canvas'
       }
-        // {
-        //   name: i18n['OffscreenCanvas'],
-        //   url: 'offscreenCanvas/canvas'
-        // }
       ]
     },
     // {
