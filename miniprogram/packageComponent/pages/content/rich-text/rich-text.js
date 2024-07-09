@@ -46,7 +46,7 @@ Page({
       name: 'div',
       attrs: {
         class: 'div_class',
-        style: 'line-height: 60px; color: #1AAD19;'
+        style: 'line-height: 60px; color: red;'
       },
       children: [{
         type: 'text',
