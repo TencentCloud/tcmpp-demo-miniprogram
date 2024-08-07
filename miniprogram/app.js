@@ -1,3 +1,6 @@
+console.log('QAPM_DEVICE_ID', wx.getStorageSync("QAPM_DEVICE_ID"));
+typeof __wxConfig.qapmSetField==="function" && __wxConfig.qapmSetField("logLevel",5)
+
 import { i18n, lang } from './i18n/lang'
 import { log } from './util/util'
 
