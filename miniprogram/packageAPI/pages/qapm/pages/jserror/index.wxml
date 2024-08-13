@@ -1,28 +1,29 @@
 <!--pages/jserror/index.wxml-->
 <view class="jserror_container">
   <text>JSerror Page</text>
-  <view >
-    <button bindtap="SyntaxErrorFunc">SyntaxError</button>
+  <view>Click the button to trigger different types of js errors</view>
+  <view class="btn-box">
+    <view class="qapm-btn" bindtap="SyntaxErrorFunc">SyntaxError</view>
   </view>
-  <view >
-    <button bindtap="ReferenceErrorFunc">Uncaught ReferenceError</button>
+  <view class="btn-box">
+    <view class="qapm-btn" bindtap="ReferenceErrorFunc">ReferenceError</view>
   </view>
-  <view >
-    <button bindtap="RangeErrorFunc">RangeError</button>
+  <view class="btn-box">
+    <view class="qapm-btn" bindtap="RangeErrorFunc">RangeError</view>
   </view>
-  <view >
-    <button bindtap="TypeErrorFunc">TypeError</button>
+  <view class="btn-box">
+    <view class="qapm-btn" bindtap="TypeErrorFunc">TypeError</view>
   </view>
-  <view >
-    <button bindtap="URIErrorFunc">URIError</button>
+  <view class="btn-box">
+    <view class="qapm-btn" bindtap="URIErrorFunc">URIError</view>
   </view>
-  <view >
-    <button bindtap="EvalErrorFunc">EvalError</button>
+  <view class="btn-box">
+    <view class="qapm-btn" bindtap="EvalErrorFunc">EvalError</view>
   </view>  
-  <view >
-    <button bindtap="UnhandleRejection">UnhandleRejection</button>
+  <view class="btn-box">
+    <view class="qapm-btn" bindtap="UnhandleRejection">UnhandleRejection</view>
   </view>  
   <view>
-    <button bindtap="GoBack">go back</button>
+    <view class="qapm-btn" bindtap="GoBack">go back</view>
   </view>
 </view>

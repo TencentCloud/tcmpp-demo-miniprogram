@@ -1,12 +1,18 @@
 <!--pages/request/index.wxml-->
 <view>
   <text>Reqeust Page</text>
-
-  <view>
-    <button bindtap="slowRequest">slow request</button>
+  <view>Clicking these two buttons can trigger some requests. </view>
+  <view>---------------------</view>
+  <view>Normal requests include www.tencentcloud.com/, https://www.nasa.gov/, https://www.google.com/, https://y. qq.com/, https://v.qq.com/, https://www.apple.com/, https://docs.qq.com/desktop, https://qapm.qq.com, https ://www.amazon.com/, https://mook.co.kr/, https://www.van-mook.nl/</view>
+  <view>---------------------</view>
+  <view>Abnormal requests include http://localhost:3000/me, https: //www.nasa.go/</view>
+  <view>---------------------</view>
+  <view>You can add these requested domain names to the legal domain names</view>
+  <view class="btn-box">
+    <view class="qapm-btn" bindtap="slowRequest">normal request</view>
   </view>
 
-  <view>
-    <button bindtap="requestError">error request</button>
+  <view class="btn-box">
+    <view class="qapm-btn" bindtap="requestError">abnormal request</view>
   </view>
 </view>

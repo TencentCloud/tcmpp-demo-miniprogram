@@ -170,6 +170,7 @@
         "pages/qapm/pages/request/index",
         "pages/qapm/pages/setData/index",
         "pages/qapm/pages/pageTime/index",
+        "pages/qapm/pages/crash/index",
         "pages/media/audio-add/audio-add",
         "pages/media/video-decoder/video-decoder",
         "pages/media/audio-add2/audio-add2"
