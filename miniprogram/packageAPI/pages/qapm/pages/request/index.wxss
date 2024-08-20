@@ -5,13 +5,24 @@ image {
   margin-left: 10%;
 }
 
-button {
-  width: 250px;
-  height: 50px;
-  margin-top: 25px;
-  background-color: burlywood;
-  color: white;
+.btn-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
+
+.qapm-btn {
+  justify-content: center;
+  height: 50px;
+  text-align: center;
+  margin-top: 25px;
+  width: 50%;
+  line-height: 50px;
+  margin-left: 25%;
+  border: 1px gray solid;
+  border-radius: 4px;
+}
+
 text {
   font-size: 16px;
   margin: 25px 0 0 0;

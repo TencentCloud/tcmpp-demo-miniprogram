@@ -1,7 +1,10 @@
 <!--pages/setData/index.wxml-->
 <view>
   <text>SetData Page</text>
-  <button bindtap="getArticleJson">set data</button>
+  <view class="btn-box">
+    <view class="qapm-btn" bindtap="getArticleJson">set data</view>
+  </view>
+
   <view class="articleJson">
     <text>"{{articleJson}}"</text>
   </view>

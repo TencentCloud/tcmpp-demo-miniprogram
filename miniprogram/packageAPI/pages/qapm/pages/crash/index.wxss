@@ -1,4 +1,6 @@
-/* pages/setData/index.wxss */
+.qapm-container {
+  margin: 0px 0 100px 0;
+}
 .btn-box {
   width: 100%;
   display: flex;
@@ -17,10 +19,6 @@
   border-radius: 4px;
 }
 
-.articleJson {
-  margin: 25px 25px;
-  word-wrap: break-word;
-}
 text {
   font-size: 16px;
   margin: 25px 0 0 0;
@@ -28,3 +26,4 @@ text {
   align-items: center;
   justify-content: center;
 }
+

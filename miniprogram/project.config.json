@@ -1,104 +1,84 @@
 {
-	"projectid": "1108100302_88",
-	"setting": {
-		"urlCheck": false,
-		"es6": true,
-		"postcss": false,
-		"minified": true,
-		"newFeature": true,
-		"autoAudits": false,
-		"nodeModules": true,
-		"uploadWithSourceMap": true,
-		"uglifyFileName": true,
-		"remoteDebugLogEnable": false,
-		"prefetch": false,
-		"babelSetting": {
-			"ignore": [],
-			"disablePlugins": [],
-			"outputPath": ""
-		},
-		"coverView": false,
-		"enhance": false,
-		"showShadowRootInWxmlPanel": false,
-		"packNpmRelationList": [],
-		"ignoreUploadUnusedFiles": true,
-		"condition": false
-	},
-	"compileType": "miniprogram",
-	"createTime": 1679652660742,
-	"accessTime": 1679652660742,
-	"TMFappid": "1108100302",
-	"packOptions": {
-		"ignore": [],
-		"include": []
-	},
-	"projectname": "main-demo",
-	"editorSetting": {
-		"tabIndent": "insertSpaces",
-		"tabSize": 2
-	},
-	"libVersion": "3.0.0",
-	"appid": "wx582fd5a0920beb62",
-	"TCMPPappid": "mptbdgmafkv38ico",
-	"scripts": {
-		"beforeCompile": "",
-		"beforePreview": "",
-		"beforeUpload": ""
-	},
-	"TCMPPLibVersion": "1.5.42",
-	"mockConfig": {
-		"globalOpen": true,
-		"rules": [
-			{
-				"ruleName": "test",
-				"ruleId": "442e4edd-8d88-4f65-a03a-c2d0589df186",
-				"apiName": "invokeNativePlugin",
-				"enable": true,
-				"mockType": "API",
-				"returnType": "fail",
-				"resStr": "{\n    \"errMsg\":\"VVV\"\n}",
-				"filterList": [
-					{
-						"propName": "",
-						"propRegString": "",
-						"matchType": "string"
-					}
-				],
-				"verifyFail": false
-			}
-		]
-	},
-	"condition": {
-		"plugin": {
-			"current": -1,
-			"list": []
-		},
-		"game": {
-			"current": -1,
-			"list": []
-		},
-		"gamePlugin": {
-			"current": -1,
-			"list": []
-		},
-		"miniprogram": {
-			"current": -1,
-			"list": [
-				{
-					"id": 0,
-					"name": "tab3",
-					"pathName": "page/extend/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "invoke-native",
-					"pathName": "packageComponent/pages/open/invoke-native-plugin/invoke-native-plugin",
-					"query": "",
-					"scene": null
-				}
-			]
-		}
-	}
+  "projectid": "1108100302_88",
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "postcss": false,
+    "minified": true,
+    "newFeature": true,
+    "autoAudits": false,
+    "nodeModules": true,
+    "uploadWithSourceMap": true,
+    "uglifyFileName": true,
+    "remoteDebugLogEnable": false,
+    "prefetch": false,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "coverView": false,
+    "enhance": false,
+    "showShadowRootInWxmlPanel": false,
+    "packNpmRelationList": [],
+    "ignoreUploadUnusedFiles": true,
+    "condition": false
+  },
+  "compileType": "miniprogram",
+  "createTime": 1679652660742,
+  "accessTime": 1679652660742,
+  "TMFappid": "1108100302",
+  "packOptions": {
+    "ignore": [],
+    "include": []
+  },
+  "projectname": "tcmpp-github-main-demo",
+  "editorSetting": {
+    "tabIndent": "insertSpaces",
+    "tabSize": 2
+  },
+  "libVersion": "3.0.0",
+  "appid": "wx756d95f763664a70",
+  "TCMPPappid": "mpc2vtchirtku70t",
+  "TCMPPLibVersion": "1.5.42",
+  "mockConfig": {
+    "globalOpen": true,
+    "rules": [
+      {
+        "ruleName": "test",
+        "ruleId": "442e4edd-8d88-4f65-a03a-c2d0589df186",
+        "apiName": "invokeNativePlugin",
+        "enable": true,
+        "mockType": "API",
+        "returnType": "fail",
+        "resStr": "{\n    \"errMsg\":\"VVV\"\n}",
+        "filterList": [
+          {
+            "propName": "",
+            "propRegString": "",
+            "matchType": "string"
+          }
+        ],
+        "verifyFail": false
+      }
+    ]
+  },
+  "condition": {
+    "miniprogram": {
+      "list": [
+        {
+          "name": "tab3",
+          "pathName": "page/extend/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "invoke-native",
+          "pathName": "packageComponent/pages/open/invoke-native-plugin/invoke-native-plugin",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  }
 }
