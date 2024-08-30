@@ -85,6 +85,7 @@ class I18n {
     return realText;
   }
 }
+
 let i18nInstance;
 const i18n = {
   init: () => {

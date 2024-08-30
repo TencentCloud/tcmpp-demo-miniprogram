@@ -1,5 +1,7 @@
 const USER_LOGIN = "USER_LOGIN";
-const isOffline = true;
+const { noServer = false } = getApp().globalData;
+
+
 const appid = "mpjpb3vq8du7ibcv";
 const host = "https://tcmpp.woyaojianfei.club"; // 不要以/结尾
 
@@ -16,7 +18,7 @@ const logout = () => {
 };
 
 const loginFromServer = function loginFromServer(code, success, fail) {
-  if(isOffline){
+  if(noServer){
     setTimeout(() =>{
       success?.("offlineUser");  
     }, 1000)
@@ -51,8 +53,14 @@ const loginFromServer = function loginFromServer(code, success, fail) {
  * @param {*} id
  */
 const commonPay = function commonPay({ total = 1, body, attach, id, success, fail }) {
-  if(isOffline){
-    success?();
+  if(noServer){
+    success?.({
+      package:"fake",
+      timeStamp: Math.floor(Date.now() / 1000),
+      nonceStr: "",
+      signType: "RSA",
+      paySign: "MOCK"
+    });
     return;
   }
   wx.showLoading({ title: "loading order" });

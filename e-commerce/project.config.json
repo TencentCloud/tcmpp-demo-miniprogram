@@ -69,18 +69,34 @@
 		"globalOpen": false
 	},
 	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"current": -1,
+			"list": []
+		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
 		"miniprogram": {
+			"current": 0,
 			"list": [
 				{
-					"name": "ucenter",
-					"pathName": "pages/usercenter/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"name": "order",
-					"pathName": "pages/order/order-list/index",
-					"query": "",
+					"id": 0,
+					"name": "test",
+					"pathName": "pages/home/home",
+					"query": "noServer=1",
 					"scene": null
 				}
 			]

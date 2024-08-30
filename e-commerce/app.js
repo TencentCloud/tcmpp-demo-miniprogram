@@ -9,6 +9,7 @@ App({
     updateManager();
   },
   globalData: {
-    lang: wx.getSystemInfoSync().language
+    lang: wx.getSystemInfoSync().language,
+    noServer: (wx.getEnterOptionsSync()?.extendData || "").indexOf("noServer=1") !== -1
   }
 });
