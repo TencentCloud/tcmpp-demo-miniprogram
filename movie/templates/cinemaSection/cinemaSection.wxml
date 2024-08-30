@@ -1,0 +1,30 @@
+<wxs module="i18n" src="../../i18n/index.wxs"></wxs>
+
+<template name="cinemaSection">
+  <navigator class='cinema-section' url='/pages/subPages/cinema-detail/cinema-detail?cinemaId={{cinema.id}}&movieId={{movieId}}&day={{day}}' hover-class="none">
+    <view class='name-price line-ellipsis'>{{cinema.nm || cinema.name}}
+      <text class='sell-price' wx:if='{{cinema.sellPrice}}'>
+        <!-- <text class='price'>{{cinema.sellPrice}}</text> 元起 -->
+        {{ i18n.t('{value} 元起', $language, {
+          value: cinema.sellPrice
+        })}}
+      </text>
+    </view>
+    <view class='address'>
+      <text class='line-ellipsis'>{{cinema.addr}}</text>
+      <text class='distance'>{{cinema.distance}}</text>
+    </view>
+    <view class='feature-tags'>
+      <text wx:if='{{cinema.endorse || cinema.tag.endorse}}'>{{ i18n.t('退', $language) }}</text>
+      <text wx:if='{{cinema.allowRefund || cinema.tag.allowRefund}}'>{{ i18n.t('改签', $language) }}</text>
+      <text wx:for='{{cinema.hallType || cinema.tag.hallType}}' wx:key='{{item}}'>{{item}}</text>
+      <text class='featrue' wx:if='{{cinema.snack || cinema.tag.snack}}'>{{ i18n.t('小吃', $language) }}</text>
+      <text class='featrue' wx:if='{{cinema.vipDesc ||cinema.tag.vipTag}}'>{{cinema.vipDesc ||cinema.tag.vipTag}}</text>
+    </view>
+    <view wx:if='{{!!cinema.promotion.cardPromotionTag}}'>
+      <text class='card'></text>
+      <text class='discount-label-text'>{{cinema.promotion.cardPromotionTag}}</text>
+    </view>
+    <view wx:if='{{cinema.showTimes}}' class='showTimes'>{{i18n.t('近期场次：', $language)}} {{cinema.showTimes}}</view>
+  </navigator>
+</template>

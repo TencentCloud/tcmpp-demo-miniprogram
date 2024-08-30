@@ -1,0 +1,83 @@
+<import src='../../../templates/commentSection/commentSection.wxml' />
+<wxs module="i18n" src="../../../i18n/index.wxs"></wxs>
+
+<view wx:if='{{detailMovie}}' style="background: {{detailMovie.backgroundColor}}">
+  <view class='movie-header'>
+    <view class='movie-background' style='background-image: url({{detailMovie.img}})'></view>
+    <view class='movie-mask'></view>
+    <view class='movie-content'>
+      <view class='movie-poster' style='background-image: url({{detailMovie.img}})'></view>
+      <view class='movie-info'>
+        <view class='movie-name line-ellipsis' >{{detailMovie[i18n.getMovieName($language)]}}</view>
+        <!-- <view class='movie-name line-ellipsis' wx:if="{{$language.indexOf('zh') === -1}}">{{detailMovie.enm}}</view> -->
+        <view wx:if='{{detailMovie.globalReleased}}'>
+          <view wx:if='{{detailMovie.sc}}'>
+            <view class='movie-score line-ellipsis'>
+              <image class='movie-star' wx:for='{{detailMovie.stars}}' wx:key='{{index}}' src='/assets/images/{{item}}.png'></image>
+              {{detailMovie.sc}}
+            </view>
+            <view class='score-num line-ellipsis'>({{ i18n.t('{num} 万人评分', $language, {
+              num: detailMovie.snum
+            })}})</view>
+          </view>
+          <view class='no-score' wx:else>{{ i18n.t('暂无评分', $language) }}</view>
+        </view>
+        <view wx:else class='movie-score'>{{ i18n.t('{num}人想看', $language, {
+          num: detailMovie.wish
+        })}}</view>
+        <view class='movie-category line-ellipsis'>
+          <view data-id="{{detailMovie.id + '_cat'}}">{{ i18n.t(detailMovie.id + '_cat')}}</view>
+          <view class='tag-box' wx:if='{{detailMovie.version}}'>
+            <text class='tag-d'>{{detailMovie.version[0]}}</text>
+            <text wx:if='{{detailMovie.version[1]}}' class='tag-imax'>{{detailMovie.version[1]}}</text>
+          </view>
+        </view>
+         <view class='movie-time line-ellipsis'>{{i18n.t(detailMovie.src)}} / {{ i18n.t('{minute}分钟', $language, {
+            minute: detailMovie.dur
+          })}}</view>
+        <view class='movie-time line-ellipsis'>{{i18n.t(detailMovie.id + '_pubDesc')}}</view>
+      </view>
+    </view>
+  </view>
+  <view class='movie-body'>
+    <view class='section'>
+      <view class='section-title'>{{ i18n.t('剧情简介', $language) }}</view>
+      <view class='synopsis' style='height:{{isFold?"120rpx":"auto"}}'>{{i18n.t(detailMovie.id + '_dra')}}</view>
+      <view class='iconfont icon-jiantouarrow483 {{isFold?"":"unfold"}}' bindtap='toggleFold'></view>
+    </view>
+    <view class='section'>
+      <view class='section-title'>{{ i18n.t('演职人员', $language) }}</view>
+      <scroll-view scroll-x class='scroll-view_H' style="height: 330rpx;">
+        <view wx:if="{{!celebrities && !celebrities.length}}">{{ i18n.t('暂无数据...', $language) }}</view>
+        <view wx:else class="section-celebrity-wrap">
+          <view wx:for="{{celebrities}}"  wx:key='{{item}}' class="section-celebrity">
+            <image class='photo' mode='aspectFill' data-index='{{index}}' src="{{item.avatar}}"></image>
+            <text class="name">{{ item[i18n.getRealName($language)] }}</text>
+            <text class="desc">{{item.roles ? i18n.t(detailMovie.id + '_' + item.id) : i18n.t(item.desc)}}</text>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+    <view class='section'>
+      <view class='section-title'>{{ i18n.t('媒体库', $language) }}</view>
+      <scroll-view scroll-x class='scroll-view_H'>
+        <view wx:if='{{!detailMovie.videoImg && !detailMovie.photos.length}}'>{{ i18n.t('暂无数据...', $language) }}</view>
+        <view class='videoImg-box' wx:if='{{detailMovie.videoImg}}' bindtap='toVideo'>
+          <image src='{{detailMovie.videoImg}}' class='videoImg' mode='aspectFill'></image>
+          <view class='iconfont icon-zanting'></view>
+        </view>
+        <image wx:for='{{detailMovie.photos}}' wx:key='{{item}}' src='{{item}}' class='photo' mode='aspectFill' bindtap='previewImage' data-index='{{index}}'></image>
+      </scroll-view>
+    </view>
+    <view class='section comment-section' wx:if='{{comments.total && comments.hcmts.length}}'>
+      <view class='section-title comment'>{{ i18n.t('观众评论', $language) }}</view>
+      <view>
+        <template is='commentSection' wx:for='{{comments.hcmts}}' wx:key='{{comment.id}}' wx:for-item='comment' data='{{comment, $language, movieId}}'></template>
+      </view>
+      <navigator wx:if='{{comments.total>3}}' class='total' url='../comment-page/comment-page?movieId={{detailMovie.id}}&movieName={{detailMovie.nm}}'>{{ i18n.t('查看全部{num}条短评', $language, {
+        num: comments.total
+      })}}</navigator>
+    </view>
+  </view>
+  <navigator hover-class='none' url='/pages/subPages/select-cinema/select-cinema?movieId={{detailMovie.id}}&movieName={{detailMovie.nm}}&showTime={{detailMovie.rt}}' wx:if='{{detailMovie.onSale}}' class='purchase'>{{ i18n.t('优惠购票', $language) }}</navigator>
+</view>

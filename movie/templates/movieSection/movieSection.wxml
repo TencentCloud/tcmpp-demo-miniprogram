@@ -1,0 +1,29 @@
+<wxs module="i18n" src="../../i18n/index.wxs"></wxs>
+<template name="movieSection">
+  <navigator class='movie-section' url='/pages/subPages/movie-detail/movie-detail?movieId={{movie.id}}'>
+    <image class='movie-img' src='{{movie.img}}'></image>
+    <view class='movie-info'>
+      <view class='movie-name line-ellipsis'>{{i18n.t(movie.id + '_nm')}}
+        <text class='version {{movie.version}}'></text>
+      </view>
+      <view class='movie-score line-ellipsis'>
+        <view wx:if='{{movie.globalReleased}}'>
+          <text wx:if='{{movie.sc}}'>{{i18n.t('观众评分', $language)}} <text class='grade'>{{movie.sc}}</text></text>
+          <text wx:else>{{ i18n.t('暂无评分', $language)}}</text>
+        </view>
+        <view wx:else>
+          <text class='grade'>{{ i18n.t('{num}人想看', $language, {num: movie.wish}) }}</text>
+          
+        </view>
+      </view>
+      <view class='movie-star line-ellipsis'>{{i18n.t('主演：', $language)}}{{i18n.t(movie.id + '_star')}}</view>
+      <view wx:if='{{rt}}'>{{movie.rt}} {{i18n.t('上映', $language)}}</view>
+      <view wx:else class='movie-showInfo line-ellipsis'>{{movie.showInfo}}</view>
+    </view>
+    <view class='buy-tickets'>
+      <view wx:if='{{movie.showst===3}}' class='btn'>{{ i18n.t('购票', $language)}} </view>
+      <view wx:elif='{{movie.showst===1}}' class='btn want-see'>{{ i18n.t('想看', $language)}}</view>
+      <view wx:elif='{{movie.showst===4}}' class='btn pre-sale'>{{ i18n.t('预售', $language)}}</view>
+    </view>
+  </navigator>
+</template>

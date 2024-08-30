@@ -1,0 +1,29 @@
+.login-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    justify-content:center;
+}
+.login-btn {
+    background-color:#e54847;
+    color:#fff;
+    font-size: 30rpx;
+    width: 660rpx !important;
+    border-radius:40rpx;
+    margin-top:160rpx;
+}
+
+.login-icon {
+    width: 100rpx;
+    height: 100rpx;
+}
+.login-tips {
+    font-size: 24rpx;
+    color: #bbb;
+    margin-top: 30rpx;
+    margin-bottom: 450rpx;
+    width: 660rpx;
+
+}

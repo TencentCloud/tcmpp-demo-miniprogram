@@ -1,0 +1,8 @@
+<wxs module="i18n" src="../../../i18n/index.wxs"></wxs>
+
+<view class="login-wrap">
+  <!-- 需要使用 button 来授权登录 -->
+  <image src="/assets/images/login.png" class="login-icon"/>
+  <button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" class="login-btn">{{i18n.t('授权登录', $language)}}</button>
+  <view class="login-tips">{{i18n.t('授权登录后才能继续操作，未注册的账号，登录时将自动注册。', $language)}}</view>
+</view>

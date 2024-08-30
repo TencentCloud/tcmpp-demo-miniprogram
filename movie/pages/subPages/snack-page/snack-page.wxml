@@ -1,0 +1,68 @@
+<import src='../../../templates/cinemaMap/cinemaMap.wxml' />
+<wxs module="i18n" src="../../../i18n/index.wxs"></wxs>
+
+<view class='container'>
+  <!-- 头部 -->
+  <view class='image-box'>
+    <image src='{{info.dealBrief.imageUrl}}' mode='aspectFill'></image>
+    <view class='info-box'>
+      <view class='cinema-name line-ellipsis'>{{i18n.t(cinemaId + '_nm', $language)}}</view>
+      <view class='snack-title line-ellipsis'>{{i18n.t(info.dealBrief.title, $language)}}</view>
+    </view>
+    <view class='mask'></view>
+  </view>
+  <!-- 价格 -->
+  <view class='section'>
+    <view class='price-box'>
+      <view>
+        <text class='price-num' wx:if='{{info.dealBrief.originPrice}}'>
+          <!-- {{info.dealBrief.originPrice}}<text class='yuan'>元</text> -->
+          {{ i18n.t('{value}元', $language, {
+            value: info.dealBrief.originPrice
+          }) }}
+        </text>
+        <text class='cinema-price' wx:if='{{info.dealBrief.value}}'>{{ i18n.t('影院价: {value}元', $language, {
+          value: info.dealBrief.value
+        }) }}</text>
+      </view>
+      <view class='buy-btn' bindtap='buySnack'>{{ i18n.t('立即抢购', $language) }}</view>
+    </view>
+    <view class='price-box'>
+      <view class='deal-tags-list'>
+        <text class='item' wx:if='{{info.dealBrief.refundTag.supportTimeRefund}}'><text class='text-icon'></text>{{ i18n.t('随时退', $language) }}</text>
+        <text class='item' wx:if='{{info.dealBrief.refundTag.supportExpireRefund}}'><text class='text-icon'></text>{{ i18n.t('过期退', $language) }}</text>
+      </view>
+      <view class='sold'>
+        <text class='iconfont icon-04'></text>
+        <text>{{i18n.t('已售', $language)}} {{info.dealBrief.curNumber}}</text>
+      </view>
+    </view>
+  </view>
+  <!-- 套餐详情 -->
+  <view class='section'>
+    <view class='section-title'>{{ i18n.t('套餐详情', $language) }}</view>
+    <view class='dealsets-details' wx:for='{{info.dealBrief.menus}}' wx:key='{{item}}'>
+      <view class='set-title' wx:if='{{item.title}}'>{{i18n.t(item.title, $language)}}</view>
+      <view class='detail-group' wx:for='{{item.items}}' wx:key='{{item}}'>
+        <text class='right line-ellipsis'>{{i18n.t(item.name, $language)}}</text>
+        <text class='center line-ellipsis'>{{item.amount}}</text>
+        <text class='left'>¥{{item.subtotal}}</text>
+      </view>
+    </view>
+  </view>
+  <!-- 购买须知 -->
+  <view class='purchase-notice section'>
+    <view class='section-title'>{{ i18n.t('购买须知', $language) }}</view>
+    <view class='terms'>
+      <view class='terms-item' wx:for='{{info.dealBrief.terms}}' wx:key='{{item}}'>
+        <view class='tip-title' wx:if='{{item.title}}'>{{i18n.t(item.title, $language)}}:</view>
+        <view class='tip-des'>{{i18n.t(item.content, $language)}}</view>
+      </view>
+    </view>
+  </view>
+  <!-- 影院信息 -->
+  <view class='section'>
+    <view class='section-title'>{{ i18n.t('影院信息', $language) }}</view>
+    <template is="cinemaMap" data='{{cinemaData, cinemaId, $language, nm, addr}}'/>
+  </view>
+</view>

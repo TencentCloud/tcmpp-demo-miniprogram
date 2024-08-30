@@ -1,0 +1,8 @@
+<wxs module="i18n" src="../../i18n/index.wxs"></wxs>
+
+<template name="loadingMore">
+  <view class='loadingMore'>
+    <image src='/assets/images/loading.gif' class='loading-img'></image>
+    <view class='loading-text'>{{ i18n.t('正在加载...', $language) }}</view>
+  </view>
+</template>

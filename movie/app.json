@@ -1,0 +1,59 @@
+{
+  "pages": [
+    "pages/tabBar/movie/movie",
+    "pages/tabBar/cinema/cinema",
+    "pages/tabBar/user/user",
+    "pages/subPages/city-select/city-select",
+    "pages/subPages/search-page/search-page",
+    "pages/subPages/movie-detail/movie-detail",
+    "pages/subPages/select-cinema/select-cinema",
+    "pages/subPages/cinema-detail/cinema-detail",
+    "pages/subPages/cinema-map/cinema-map",
+    "pages/subPages/comment-page/comment-page",
+    "pages/subPages/snack-page/snack-page",
+    "pages/subPages/buy-ticket/buy-ticket",
+    "pages/subPages/movie-order/movie-order",
+    "pages/subPages/movie-order-detail/movie-order-detail",
+    "pages/subPages/buy-snack/buy-snack",
+    "pages/subPages/snack-order/snack-order",
+    "pages/subPages/video-page/video-page",
+    "pages/subPages/select-seat/select-seat",
+    "pages/subPages/login/login"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#e54847",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#696969",
+    "selectedColor": "#e54847",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/tabBar/movie/movie",
+        "text": "电影",
+        "iconPath": "assets/images/movie.png",
+        "selectedIconPath": "assets/images/movieSelect.png"
+      },
+      {
+        "pagePath": "pages/tabBar/cinema/cinema",
+        "text": "影院",
+        "iconPath": "assets/images/cinema.png",
+        "selectedIconPath": "assets/images/cinemaSelect.png"
+      },
+      {
+        "pagePath": "pages/tabBar/user/user",
+        "text": "我的",
+        "iconPath": "assets/images/user.png",
+        "selectedIconPath": "assets/images/userSelect.png"
+      }
+    ]
+  },
+  "permission":{
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示",
+      "desc-en": "Obtaining your current geographic location will provide you with location-based services."
+    }
+  }
+}

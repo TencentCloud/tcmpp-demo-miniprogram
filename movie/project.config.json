@@ -1,0 +1,79 @@
+{
+  "description": "项目配置文件。",
+  "packOptions": {
+    "ignore": [],
+    "include": []
+  },
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": true,
+    "coverView": true,
+    "nodeModules": true,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "bundle": false,
+    "uglifyFileName": false,
+    "remoteDebugLogEnable": true,
+    "prefetch": false
+  },
+  "compileType": "miniprogram",
+  "libVersion": "3.4.8",
+  "appid": "wx6da87ffad4b40803",
+  "projectname": "weapp-movie",
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "editorSetting": {
+    "tabIndent": "insertSpaces",
+    "tabSize": 2
+  },
+  "TCMPPappid": "mpw83p27h5m3r7xq",
+  "mockConfig": {
+    "globalOpen": false,
+    "rules": [
+      {
+        "ruleName": "未命名规则",
+        "ruleId": "d939db0a-ae04-4b7a-8382-79ea0c607161",
+        "apiName": "getUserInfo",
+        "enable": true,
+        "mockType": "API",
+        "returnType": "succ",
+        "resStr": "{\n   \"userInfo\": {\n        \"nickName\": \"123\"\n   }\n}",
+        "filterList": [
+          {
+            "propName": "",
+            "propRegString": "",
+            "matchType": "string"
+          }
+        ],
+        "verifyFail": false
+      }
+    ]
+  },
+  "TCMPPLibVersion": "0.0.0",
+  "condition": {
+    "miniprogram": {
+      "list": [
+        {
+          "name": "seat",
+          "pathName": "pages/subPages/select-seat/select-seat",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  }
+}
