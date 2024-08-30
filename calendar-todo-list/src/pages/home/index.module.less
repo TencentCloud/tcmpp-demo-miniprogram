@@ -1,0 +1,81 @@
+@import url('@/assets/color.less');
+
+.header {
+  padding: 0 @space;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: sticky;
+  top: 0;
+  background: @primary;
+  z-index: 2;
+
+  .operate:extend(.fc) {
+    justify-content: space-between;
+    height: @p40;
+    color: #ffffff;
+
+    .typeSwitch:extend(.fc) {
+      height: 100%;
+
+      .icon {
+        margin-left: @p8;
+        margin-top: @p * -2;
+      }
+
+      .text {
+        font-weight: bold;
+      }
+    }
+
+    .dateSwitch:extend(.fc) {
+      justify-content: space-between;
+      margin-right: -@space;
+
+      .button {
+        padding: @space;
+      }
+
+      .date {
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+}
+
+.calendar {
+  padding: @space;
+  z-index: 1;
+  position: relative;
+}
+
+.footerContent {
+  padding: 0 @space @space @space;
+  z-index: 1;
+  position: relative;
+
+  .action {
+    display: flex;
+    justify-content:flex-end;
+    color: @primary;
+
+    .bt {
+      padding: @space 0;
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+
+.modalTitle {
+  width: 100%;
+  font-weight: bold;
+  text-align: center;
+  padding: @space*0.5 0 @space*1.5 0;
+}
+
+.modalContent {
+  line-height: @p24;
+  text-align: justify;
+}

@@ -1,0 +1,43 @@
+@import url('@/assets/color.less');
+
+.colorInput {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .input {
+    flex: 1;
+  }
+
+  .colorSelect {
+    padding: @space;
+    position: relative;
+    color: @pink;
+  }
+}
+
+.colorContent {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  .colorLi {
+    width: @p*40;
+    height: @p*40;
+    border-radius: 50%;
+    margin: @p10;
+  }
+  .selected {
+    border: @p2 solid @primary;
+    box-sizing: border-box;
+  }
+}
+
+.footer {
+  position: sticky;
+  bottom: 0;
+  background: #fff;
+  padding: @space;
+  width: 100%;
+  z-index: 10;
+  box-sizing: border-box;
+}

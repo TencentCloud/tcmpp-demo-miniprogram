@@ -1,0 +1,101 @@
+@import url('@/assets/color.less');
+
+.modal {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background: #00000080;
+
+  .modalContent {
+    background: #ffffff;
+    width: 90%;
+    margin: 0 auto;
+    height: 75%;
+    padding: @space;
+    overflow: auto;
+    box-sizing: border-box;
+    border-radius: @p8;
+    display: flex;
+    flex-direction: column;
+
+    .title:extend(.fc) {
+      height: @p32;
+      color: @primary;
+      font-weight: bold;
+    }
+
+    .list {
+      flex: 1;
+      overflow: auto;
+      margin-top: @space;
+
+      .li {
+        border: @p*0.5 solid @primary;
+        border-radius: @p4;
+        padding: @space;
+        position: relative;
+
+        & + .li {
+          margin-top: @space;
+        }
+
+        .icon {
+          color: @primary;
+          padding: @space;
+          position: absolute;
+          right: 0;
+          top: 0;
+        }
+
+        .name {
+          color: @primary;
+          flex: 1;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          margin-right: @p48;
+        }
+
+        .text {
+          margin-top: @space;
+          text-indent: @p*32;
+          line-height: @p24;
+        }
+      }
+
+      .empty:extend(.fc) {
+        width: 100%;
+        height: 100%;
+        color: @tipColor;
+      }
+    }
+
+    .tip {
+      margin-top: @space;
+      color: @primary;
+      font-size: @p12;
+    }
+
+    .add:extend(.fc) {
+      margin-top: @space;
+      height: @p40;
+      background: @primary;
+      color: #ffffff;
+      border-radius: @p4;
+    }
+  }
+
+  .footer:extend(.fc) {
+    width: 100%;
+
+    .close {
+      color: #ffffff;
+    }
+  }
+}

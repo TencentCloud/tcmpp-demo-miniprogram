@@ -1,0 +1,186 @@
+@import url('@/assets/color.less');
+
+.mask {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  overflow: hidden;
+  z-index: 100;
+  pointer-events: none;
+
+  .text:extend(.fc) {
+    width: 100%;
+    height: 100%;
+    opacity: 0.1;
+
+    .fu {
+      width: @p*168;
+      height: @p*168;
+      //transform: rotate(180deg);
+    }
+  }
+
+
+  @keyframes swing {
+
+    0%,
+    100% {
+      transform: rotate(0deg);
+    }
+
+    25% {
+      transform: rotate(5deg);
+    }
+
+    50% {
+      transform: rotate(-5deg);
+    }
+
+    75% {
+      transform: rotate(3deg);
+    }
+
+  }
+
+  .jieWrapper {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    transform-origin: 50% 0%;
+    animation: swing 8s cubic-bezier(0.42, 0, 0.58, 1) infinite;
+
+    .line {
+      height: @p*76;
+      width: @p;
+      background: #da3b23;
+    }
+
+    .jie {
+      width: @p*100;
+      height: @p*100;
+      top: @p*78;
+      //opacity: 0.1;
+    }
+  }
+}
+
+.snowflake {
+  position: absolute;
+  animation: fall linear infinite;
+  //transform-origin: left;
+  //animation-duration: 5s;
+  width: @p24;
+  height: @p24;
+  visibility: hidden;
+}
+
+@keyframes fall {
+  1% {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  90% {
+    transform: translateY(98vh) rotate(360deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(88vh) rotate(360deg);
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.bao {
+  animation: zoomIn 1s ease-in-out;
+  height: @p*40;
+  position: absolute;
+  width: @p*40;
+  opacity: 0;
+  transform: scale(0);
+}
+
+@keyframes zoomIn {
+
+  80% {
+    transform: scale(1.2);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+}
+
+.zhufu {
+  position: absolute;
+  width: 100%;
+  bottom: 12vh;
+  display: flex;
+  justify-content: space-evenly;
+  opacity: 0.1;
+
+  .lantern {
+    position: relative;
+
+    .zhufuBg {
+      width: 15vw;
+      height: 15vw;
+    }
+
+    .zhufuText {
+      position: absolute;
+      top: 43%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #f3d155;
+      font-size: @p*20;
+      font-weight: bold;
+    }
+  }
+}
+
+.spanL {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: @p*86;
+  height: @p*86;
+  opacity: 0.1;
+}
+
+.left {
+  position: absolute;
+  width: @p4;
+  top: 0;
+  left: 0;
+  bottom: @p*86;
+  background: linear-gradient(to bottom, rgba(156, 38, 50, 1), rgba(156, 38, 50, 0.1));
+}
+
+.spanR {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: @p*86;
+  height: @p*86;
+  opacity: 0.1;
+  transform: scaleX(-1);
+}
+
+.right {
+  position: absolute;
+  width: @p4;
+  top: 0;
+  right: 0;
+  bottom: @p*86;
+  background: linear-gradient(to bottom, rgba(156, 38, 50, 1), rgba(156, 38, 50, 0.1));
+}

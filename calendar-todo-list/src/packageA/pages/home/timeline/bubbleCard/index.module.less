@@ -1,0 +1,123 @@
+@import url('@/assets/color.less');
+
+@cardBg: @primary;
+
+.container {
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  width: 50%;
+  padding: @space;
+  box-sizing: border-box;
+  align-items: flex-end;
+  border-right: @p dotted @primary;
+  margin-left: @p*0.5;
+
+  .content {
+    position: relative;
+    flex: 1;
+    background-color: @cardBg;
+    color: #fff;
+    border-radius: @p*8;
+    padding: @space;
+
+    .title {
+      font-weight: bold;
+      //color: @pink;
+      word-break: break-all;
+    }
+    .desc {
+      margin-top: @space;
+      display: block;
+      word-break: break-all;
+    }
+  }
+
+  .arrow {
+    position: relative;
+    width: @p*16;
+    height: @p*16;
+    margin-bottom: @space;
+
+    &::after {
+      position: absolute;
+      left: -@p;
+      top: 0;
+      content: '';
+      width: 100%;
+      height: 100%;
+      background-color: @cardBg;
+      clip-path: polygon(0 0, 100% 85%, 100% 100%, 60% 100%, 0 85%);
+    }
+  }
+
+  .point {
+    position: absolute;
+    right: -@p12;
+    bottom: @p*8;
+    width: @p24;
+    height: @p*32;
+    background-color: #ffffff;
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: @p8;
+      height: @p8;
+      border: @p2 solid #ffffff;
+      border-radius: 50%;
+      background: @primary;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 10;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: @p16;
+      height: @p16;
+      border-radius: 50%;
+      background: @primary;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 9;
+    }
+  }
+
+  .time {
+    width: @p*80;
+    height: @p*32;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: -@p*88;
+    bottom: @p*8;
+    color: @linkColor;
+    font-size: @p12;
+  }
+}
+
+.right {
+  left: 50%;
+  border-right: none;
+  border-left: @p dotted @primary;
+  margin-left: @p*-0.5;
+
+  .arrow {
+    transform: rotateY(180deg);
+  }
+
+  .point {
+    right: auto;
+    left: -@p12;
+  }
+
+  .time {
+    right: auto;
+    left: -@p*88;
+  }
+}

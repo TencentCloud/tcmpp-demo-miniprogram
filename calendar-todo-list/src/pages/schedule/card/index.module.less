@@ -1,0 +1,173 @@
+@import url('@/assets/color.less');
+
+.container {
+  display: flex;
+  position: relative;
+  border-bottom: @p*0.5 dotted @primary;
+  margin-top: @space;
+  padding-bottom: @space;
+  position: relative;
+  margin-bottom: @space;
+
+  &::before {
+    content: "";
+    width: 40%;
+    height: @p6;
+    position: absolute;
+    bottom: -@p3;
+    left: 0;
+    background: #fff;
+  }
+
+  &::after {
+    content: "";
+    width: @p4;
+    height: @p4;
+    border-radius: 50%;
+    position: absolute;
+    bottom: -@p*2.5;
+    right: @p*8.5;
+    background: @primary;
+  }
+
+  .content {
+    position: relative;
+    flex: 1;
+    padding: @space;
+    background-image: @cardImg;
+    color: #fff;
+    border-radius: @p6 @p6 0 @p6;
+    overflow: hidden;
+    box-shadow: @p8 @p8 @p10 @borderColor;
+
+    .title {
+      display: flex;
+      align-items: center;
+
+      .checkbox {
+        width: @p*18;
+        height: @p*18;
+        background: #fff;
+        border-radius: @p4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: @green;
+        margin-right: @space*0.5;
+      }
+
+      .text {
+        flex: 1;
+        font-weight: bold;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+    }
+
+    .subTitle {
+      margin-top: @space;
+      display: block;
+      margin-left: @p*24;
+      word-break: break-all;
+    }
+
+    .timestamp {
+      margin-top: @space;
+      font-size: @p12;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .finish {
+      color: @green;
+      position: absolute;
+      right: @space;
+      bottom: 0;
+      top: 0;
+      opacity: 1;
+    }
+  }
+
+  .action {
+    position: relative;
+    margin-left: @space;
+    color: @tipColor;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &::after {
+      content: "";
+      width: 0;
+      border-right: @p*0.5 dotted @primary;
+      height: 100%;
+      position: absolute;
+      bottom: -@space*2;
+      right: @p*10;
+    }
+
+    .time {
+      display: flex;
+      align-items: center;
+      position: relative;
+
+      .icon {
+        margin-left: @space*0.5;
+        margin-top: @p2;
+      }
+
+      .text {
+        position: absolute;
+        bottom: -@p*12;
+        font-size: @p10;
+      }
+    }
+
+    .delete {
+      position: absolute;
+      bottom: 0;
+      background: #fff;
+      z-index: 10;
+      color: @primary;
+      //margin-top: 50%;
+      margin-left: 50%;
+      transform: translateX(-@space*1.5);
+    }
+  }
+
+  .tip {
+    position: absolute;
+    bottom: -@p8;
+    font-size: @p12;
+    padding-right: @space*0.5;
+    box-sizing: border-box;
+    opacity: 0.8;
+  }
+
+  .overdueFalse {
+    // 过期且未完成
+    color: @tipColor;
+    text-decoration: line-through;
+  }
+
+  .overdueTrue {
+    // 过期且已完成
+    color: @tipColor;
+    text-decoration: line-through;
+  }
+
+  .expected {
+    color: @linkColor;
+  }
+}
+
+.success {
+  color: @green;
+  opacity: 0.8;
+}
+
+.gray {
+  filter: grayscale(0.4)
+}

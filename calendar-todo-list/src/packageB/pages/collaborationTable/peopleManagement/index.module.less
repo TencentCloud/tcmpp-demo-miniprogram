@@ -1,0 +1,55 @@
+@import url('@/assets/color.less');
+
+.content {
+  padding: 0 @space;
+}
+
+.title,
+.li {
+  height: @p48;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.title {
+  color: @primary;
+}
+
+.li {
+  padding-left: @space*2;
+  border-bottom: @p*0.5 solid @borderColor;
+
+  .name {
+    flex: 1;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  .delete {
+    padding: @space;
+    color: @primary;
+  }
+}
+
+.footer {
+  position: sticky;
+  bottom: 0;
+  background: #fff;
+  padding: @space;
+}
+
+.createModal {
+  :global {
+    .at-modal__content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+.input {
+  text-align: center;
+}

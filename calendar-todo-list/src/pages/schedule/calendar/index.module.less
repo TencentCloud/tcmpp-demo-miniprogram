@@ -1,0 +1,86 @@
+@import url('@/assets/color.less');
+
+.td:extend(.fc) {
+  flex-direction: column;
+  color: #ffffff;
+  font-size: @p12;
+  width: 14.285714285714286%;
+  height: @p*48;
+  padding: @p2;
+  box-sizing: border-box;
+  position: relative;
+
+  .day:extend(.fc) {
+    font-weight: bold;
+    width: @p*32;
+    height: @p*32;
+    border-radius: 50%;
+  }
+
+  .cDay {
+    border: @p*0.1 solid @linkColor;
+  }
+
+  .selectedDay {
+    border: @p*0.1 solid @green;
+    background: @green;
+    color: #ffffff;
+  }
+
+  .hasData {
+    color: @linkColor;
+  }
+
+  //.hasData::after {
+  //  content: '';
+  //  background: @pink;
+  //  width: @p4;
+  //  height: @p4;
+  //  border-radius: 50%;
+  //  position: absolute;
+  //  bottom: @p10;
+  //}
+}
+
+.header {
+  display: flex;
+
+  .td {
+    border: none;
+    height: @p40;
+    font-weight: bold;
+    color: #ffffff;
+  }
+}
+
+.month {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  background: @primary;
+  z-index: 5;
+}
+
+.week {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  background: @primary;
+  z-index: 6;
+  position: absolute;
+  width: 100%;
+  top: 0;
+}
+
+.animation {
+  overflow: hidden;
+  position: relative;
+}
+
+.openTrue {
+  transition: height 0.1s;
+}
+
+.openFalse {
+  transition: height 0.1s;
+}

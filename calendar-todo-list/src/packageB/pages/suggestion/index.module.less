@@ -1,0 +1,77 @@
+@import url('@/assets/color.less');
+
+.content {
+  padding: @space;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  background: #f5f5f5;
+}
+
+.tip:extend(.tips) {
+  margin: 0;
+}
+
+.wxcode:extend(.fc) {
+  color: @primary;
+  width: 100%;
+  margin-bottom: @space;
+}
+
+.li {
+  margin: @space 0;
+  border-radius: @p4;
+  padding-top: @space;
+
+  .time {
+    width: 100%;
+    text-align: center;
+    padding-bottom: @space;
+    font-size: @p12;
+    color: @tipColor;
+    box-sizing: border-box;
+  }
+
+  .liFooter:extend(.fc) {
+    font-size: @p12;
+    justify-content: space-between;
+    color: @tipColor;
+    border-top: @p*0.1 solid @borderColor;
+
+    .action {
+      display: flex;
+      align-items: center;
+
+      .delete {
+        padding: @space*0.5 @space;
+        background: @delete;
+        color: #ffffff;
+        border-radius: @p*2;
+      }
+
+      .reply {
+        margin-left: @space;
+        padding: @space*0.5 @space;
+        background: @primary;
+        color: #ffffff;
+        border-radius: @p*2;
+      }
+    }
+
+    .timestamp {
+      padding: @space 0;
+    }
+  }
+}
+
+.myLi {
+  border: @p*0.1 solid @borderColor;
+  padding: @space @space 0 @space;
+}
+
+.footer {
+  position: sticky;
+  bottom: 0;
+  background: #fff;
+  padding: @space;
+  overflow: hidden;
+}

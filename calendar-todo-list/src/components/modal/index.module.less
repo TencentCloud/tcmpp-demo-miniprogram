@@ -1,0 +1,25 @@
+@import url('@/assets/color.less');
+
+.title:extend(.fc) {
+  margin-top: @p16;
+  font-weight: bold;
+  padding: 0 @space;
+}
+
+.modal {
+  z-index: 1020;
+  :global {
+    .at-modal {
+      z-index: 1020;
+    }
+
+    .at-modal__content {
+      min-height: auto;
+    }
+    .at-modal__footer button{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}

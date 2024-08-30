@@ -1,0 +1,48 @@
+@import url('@/assets/color.less');
+
+
+.content {
+  padding: 0 @space;
+  box-sizing: border-box;
+
+  :global {
+    .at-input__title {
+      width: @p*120;
+      text-align: justify;
+      text-align-last: justify;
+    }
+  }
+}
+
+.footer {
+  position: sticky;
+  bottom: 0;
+  background: #fff;
+  padding: @space;
+  width: 100%;
+  z-index: 10;
+  box-sizing: border-box;
+}
+
+.imgList {
+  margin: 0 -@space;
+  display: flex;
+  flex-wrap: wrap;
+
+  .imgWrapper {
+    padding: @space;
+  }
+
+  .add {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: @p64;
+    height: @p64;
+    border: 1px solid @borderColor;
+    border-radius: @p4;
+    font-size: @p12;
+    color: @tipColor;
+  }
+}
