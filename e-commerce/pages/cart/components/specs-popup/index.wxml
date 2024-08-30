@@ -1,0 +1,29 @@
+<wxs src="../../../../i18n/index.wxs" module="i18n"></wxs>
+<view>{{i18n.change(lang)}}</view>
+
+<t-popup
+  close-on-overlay-click="{{true}}"
+  visible="{{show}}"
+  placement="bottom"
+  z-index="{{zIndex}}"
+>
+	<view class="specs-popup">
+		<view>
+			<goods-card data="{{goods}}" layout="horizontal-wrap" thumb-mode="{{thumbMode}}" />
+			<view class="section">
+				<view class="title">{{i18n.t("Selected specifications")}}</view>
+				<view class="options">
+					<view
+					  wx:for="{{specs}}"
+					  wx:for-item="spec"
+					  wx:key="spec"
+					  class="option"
+					>{{spec}}
+					</view>
+				</view>
+			</view>
+		</view>
+		<view class="bottom-btn" hover-class="bottom-btn--active" bindtap="onClose">{{i18n.t("OK")}}</view>
+	</view>
+</t-popup>
+

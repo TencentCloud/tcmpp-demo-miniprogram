@@ -1,0 +1,34 @@
+var en = require('./locales/en.wxs');
+var fr = require('./locales/fr.wxs')
+var bi = require('./locales/bi.wxs')
+
+var language = {
+  en: en,
+  fr: fr,
+  bi: bi
+};
+
+var fallbackLocale = 'en';
+
+module.exports = {
+  t: function (text, params) {
+    var regex = getRegExp('\{(.+?)\}+', 'g');
+    var startRegex = getRegExp('\{');
+    var endRegex = getRegExp('\}');
+    var textArr = text.match(regex) || [];
+    var realText = language[fallbackLocale][text] || text;
+    textArr.map(function(item) {
+      var itemRegx = getRegExp(item);
+      var realKey = item.replace(startRegex, '');
+      realKey = realKey.replace(endRegex, '');
+      realText = params[realKey] ? realText.replace(itemRegx, params[realKey]) : realText;
+      return item;
+    });
+    return realText;
+  },
+  change: function(lang) {
+    if(lang) {
+      fallbackLocale = lang;
+    }
+  }
+}

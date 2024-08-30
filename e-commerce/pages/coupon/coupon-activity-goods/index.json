@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "Moving goods",
+  "usingComponents": {
+    "t-icon": "tdesign-miniprogram/icon/icon",
+    "t-popup": "tdesign-miniprogram/popup/popup",
+    "t-toast": "tdesign-miniprogram/toast/toast",
+    "goods-list": "/components/goods-list/index",
+    "floating-button": "../components/floating-button/index"
+  }
+}

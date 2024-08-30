@@ -1,0 +1,43 @@
+<wxs src="../../../i18n/index.wxs" module="i18n"></wxs>
+<view>{{i18n.change(lang)}}</view>
+
+<view class="invoice-detail">
+  <view class="invoice-detail-box">
+    <view class="invoice-detail-title">{{i18n.t("Invoice details")}}</view>
+    <view class="invoice-detail-box-row">
+      <view class="invoice-detail-box-title">{{i18n.t("Category")}}</view>
+      <view class="invoice-detail-box-value">{{invoice.invoiceType}}</view>
+    </view>
+    <view class="invoice-detail-box-row">
+      <view class="invoice-detail-box-title">{{i18n.t("Title")}}</view>
+      <view class="invoice-detail-box-value">{{invoice.buyerName}}</view>
+    </view>
+    <view class="invoice-detail-box-row">
+      <view class="invoice-detail-box-title">{{i18n.t("Taxpayer's identification number")}}</view>
+      <view class="invoice-detail-box-value">{{invoice.buyerTaxNo}}</view>
+    </view>
+    <view class="invoice-detail-box-row">
+      <view class="invoice-detail-box-title">{{i18n.t("Content")}}</view>
+      <view class="invoice-detail-box-value">{{invoice.ontentType}}</view>
+    </view>
+     <view class="invoice-detail-box-row">
+      <view class="invoice-detail-box-title">{{i18n.t("Amount")}}</view>
+      <view class="invoice-detail-box-value">{{invoice.money}}</view>
+    </view>
+  </view>
+  <view class="invoice-detail-box">
+    <view class="invoice-detail-title">{{i18n.t("Receiver Info")}}</view>
+    <view class="invoice-detail-box-row">
+      <view class="invoice-detail-box-title">{{i18n.t("E-mail")}}</view>
+      <view class="invoice-detail-box-value">{{invoice.email}}</view>
+    </view>
+    <view class="invoice-detail-box-row">
+      <view class="invoice-detail-box-title">{{i18n.t("Mobile number")}}</view>
+      <view class="invoice-detail-box-value">{{invoice.buyerPhone}}</view>
+    </view>
+    <view class="invoice-detail-box-row">
+      <view class="invoice-detail-box-title">{{i18n.t("Status")}}</view>
+      <view class="invoice-detail-box-value">{{invoice.isInvoice}}</view>
+    </view>
+  </view>
+</view>

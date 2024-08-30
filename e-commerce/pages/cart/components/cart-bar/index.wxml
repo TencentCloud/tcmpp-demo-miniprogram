@@ -1,0 +1,34 @@
+<wxs src="../../../../i18n/index.wxs" module="i18n"></wxs>
+<view>{{i18n.change(lang)}}</view>
+
+<view class="cart-bar__placeholder" wx:if="{{fixed}}" />
+<view class="cart-bar {{fixed ? 'cart-bar--fixed' : ''}} flex flex-v-center" style="bottom: {{fixed ? 'calc(' + bottomHeight + 'rpx + env(safe-area-inset-bottom))' : ''}};">
+	<t-icon
+	 size="40rpx"
+	 color="{{isAllSelected ? '#FA4126' : '#BBBBBB'}}"
+	 name="{{isAllSelected ? 'check-circle-filled' : 'circle'}}"
+	 class="cart-bar__check"
+	 catchtap="handleSelectAll"
+	/>
+	<text>{{i18n.t('Select all')}}</text>
+	<view class="cart-bar__total flex1">
+		<view>
+			<text class="cart-bar__total--bold text-padding-right">{{i18n.t('Subtotal')}}</text>
+			<price
+			 price="{{totalAmount || '0'}}"
+			 fill="{{false}}"
+			 decimalSmaller
+			 class="cart-bar__total--bold cart-bar__total--price"
+			/>
+			<text class="cart-bar__total--normal">({{i18n.t("Without shipping cost")}})</text>
+		</view>
+		<view wx:if="{{totalDiscountAmount}}">
+			<text class="cart-bar__total--normal text-padding-right">{{i18n.t("Save")}}</text>
+			<price class="cart-bar__total--normal" price="{{totalDiscountAmount || '0'}}" fill="{{false}}" />
+		</view>
+	</view>
+	<view catchtap="handleToSettle" class="{{!isDisabled ? '' : 'disabled-btn'}} account-btn" hover-class="{{!isDisabled ? '' : 'hover-btn'}}">
+		{{i18n.t("Go to checkout")}}({{totalGoodsNum}})
+	</view>
+</view>
+

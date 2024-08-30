@@ -1,0 +1,26 @@
+<wxs src="../../../../i18n/index.wxs" module="i18n"></wxs>
+<view>{{i18n.change(lang)}}</view>
+
+<view class="user-center-card">
+  <!-- 未登录的情况 -->
+  <block wx:if="{{currAuthStep === AuthStepType.ONE}}">
+    <view class="user-center-card__header">
+      <t-avatar image="{{defaultAvatarUrl}}" class="user-center-card__header__avatar"/>
+      <view class="user-center-card__header__name">{{i18n.t('Please login')}}</view>
+    </view>
+  </block>
+  
+  <!-- 已登录且已经授权用户信息的情况 -->
+  <block wx:if="{{currAuthStep === AuthStepType.TWO}}">
+    <view class="user-center-card__header" bind:tap="gotoUserEditPage">
+      <t-avatar
+        t-class="avatar"
+        mode="aspectFill"
+        class="user-center-card__header__avatar"
+        image="{{userInfo.avatarUrl || defaultAvatarUrl}}"
+      />
+      <view class="user-center-card__header__name">{{userInfo.nickName || i18n.t('Normal user')}}</view>
+    </view>
+  </block>
+
+</view>

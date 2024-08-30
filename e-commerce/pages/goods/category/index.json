@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "Category",
+  "usingComponents": {
+    "goods-category": "./components/goods-category/index"
+  }
+}

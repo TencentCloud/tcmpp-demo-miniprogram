@@ -1,0 +1,55 @@
+<wxs src="./noGood.wxs" module="order" />
+<wxs src="../../../../i18n/index.wxs" module="i18n"></wxs>
+<view>{{i18n.change(lang)}}</view>
+
+<view class="goods-fail">
+  <block wx:if="{{settleDetailData.limitGoodsList && settleDetailData.limitGoodsList.length >0}}">
+    <view class="title">{{i18n.t("Item with restricted quantity")}}</view>
+    <view class="info">{{i18n.t("The following items are restricted in quantity. Please change the quantity")}}.</view>
+  </block>
+  <block
+    wx:elif="{{settleDetailData.abnormalDeliveryGoodsList && settleDetailData.abnormalDeliveryGoodsList.length >0}}"
+  >
+    <view class="title">{{i18n.t("Shipping not supported")}}</view>
+    <view class="info">{{i18n.t("The items do not support shipping. Please change shipping address or remove the items to proceed to checkout")}}.</view>
+  </block>
+  <block wx:elif="{{order.isShowKeepPay(settleDetailData)}}">
+    <view class="title">{{i18n.t("Some items are out of stock or invalid")}}</view>
+    <view class="info">{{i18n.t("Please return to your cart to select products or proceed to checkout ignoring any insufficient or invalid items")}}.</view>
+  </block>
+  <block wx:elif="{{settleDetailData.inValidGoodsList && settleDetailData.inValidGoodsList.length > 0}}">
+    <view class="title">{{i18n.t("All items are either out of stock or invalid")}}</view>
+    <view class="info">{{i18n.t("Please go back to cart and select product")}}</view>
+  </block>
+  <scroll-view
+    scroll-y="true"
+    style="max-height: 500rpx"
+    bindscrolltoupper="upper"
+    bindscrolltolower="lower"
+    bindscroll="scroll"
+  >
+    <view class="goods-list" wx:for="{{goodsList}}" wx:for-item="goods" wx:key="index">
+      <wr-order-card wx:if="{{goods}}" order="{{goods}}">
+        <wr-order-goods-card
+          wx:for="{{goods.unSettlementGoods}}"
+          wx:key="id"
+          wx:for-item="goods"
+          wx:for-index="gIndex"
+          goods="{{goods}}"
+          no-top-line="{{gIndex === 0}}"
+        />
+      </wr-order-card>
+    </view>
+  </scroll-view>
+  <view class="goods-fail-btn">
+    <view bindtap="onCard" data-item="cart" class="btn {{order.isOnlyBack(settleDetailData) ? 'limit' : ''}}">
+      {{i18n.t("Back to cart")}}
+    </view>
+    <view wx:if="{{order.isShowChangeAddress(settleDetailData)}}" bindtap="onDelive" class="btn origin">
+      {{i18n.t("Modify shipping address")}}
+    </view>
+    <view wx:elif="{{order.isShowKeepPay(settleDetailData)}}" bindtap="onCard" data-item="orderSure" class="btn origin">
+      {{i18n.t("Proceed to checkout")}}
+    </view>
+  </view>
+</view>

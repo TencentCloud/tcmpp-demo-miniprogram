@@ -1,0 +1,75 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/usercenter/index",
+    "pages/usercenter/person-info/index",
+    "pages/usercenter/address/list/index",
+    "pages/usercenter/address/edit/index",
+    "pages/goods/list/index",
+    "pages/goods/details/index",
+    "pages/goods/category/index",
+    "pages/goods/search/index",
+    "pages/goods/result/index",
+    "pages/cart/index",
+    "pages/order/order-confirm/index",
+    "pages/order/receipt/index",
+    "pages/order/pay-result/index",
+    "pages/order/order-list/index",
+    "pages/order/order-detail/index",
+    "pages/goods/comments/index",
+    "pages/order/apply-service/index",
+    "pages/order/after-service-list/index",
+    "pages/order/after-service-detail/index",
+    "pages/goods/comments/create/index",
+    "pages/coupon/coupon-list/index",
+    "pages/coupon/coupon-detail/index",
+    "pages/coupon/coupon-activity-goods/index",
+    "pages/promotion-detail/index",
+    "pages/order/fill-tracking-no/index",
+    "pages/order/delivery-detail/index",
+    "pages/order/invoice/index",
+    "pages/usercenter/name-edit/index"
+  ],
+  "tabBar": {
+    "custom": true,
+    "color": "#666666",
+    "selectedColor": "#FF5F15",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "Home page"
+      },
+      {
+        "pagePath": "pages/goods/category/index",
+        "text": "Sort"
+      },
+      {
+        "pagePath": "pages/cart/index",
+        "text": "Shopping cart"
+      },
+      {
+        "pagePath": "pages/usercenter/index",
+        "text": "Mine"
+      }
+    ]
+  },
+  "requiredPrivateInfos": [
+    "chooseAddress"
+  ],
+  "lazyCodeLoading": "requiredComponents",
+  "usingComponents": {},
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json",
+  "permission": {
+    "scope.userLocation": {
+      "desc": "Your location information will be used to display the effects of the applets location interface"
+    }
+  }
+}

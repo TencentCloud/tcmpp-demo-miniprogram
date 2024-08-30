@@ -1,0 +1,137 @@
+<wxs src="../../../../i18n/index.wxs" module="i18n"></wxs>
+<view>{{i18n.change(lang)}}</view>
+
+<view class="address-detail">
+  <view class="divider-line" />
+  <t-location
+    title="Get WeChat shipping address "
+    isCustomStyle
+    t-class="address-detail-wx-location"
+    bind:change="getWeixinAddress"
+  >
+    <t-icon class="address-detail-wx-arrow" name="arrow_forward" prefix="wr" color="#bbb" size="32rpx" />
+  </t-location>
+  <view class="divider-line" />
+  <view class="form-address">
+    <form class="form-content">
+      <t-cell-group>
+        <t-cell class="form-cell" t-class-title="t-cell-title" title="Name" t-class-note="t-cell-note">
+          <t-input
+            class="t-input"
+            slot="note"
+            t-class="field-text"
+            borderless
+            data-item="name"
+            maxlength="20"
+            type="text"
+            value="{{locationState.name}}"
+            placeholder="Your name"
+            bind:change="onInputValue"
+          />
+        </t-cell>
+        <t-cell class="form-cell" t-class-title="t-cell-title" title="Mobile number">
+          <t-input
+            slot="note"
+            class="t-input"
+            t-class="field-text"
+            borderless
+            type="number"
+            value="{{locationState.phone}}"
+            maxlength="11"
+            placeholder="Your mobile number"
+            bind:change="onInputValue"
+            data-item="phone"
+          />
+        </t-cell>
+        <t-cell class="form-cell" t-class-title="t-cell-title" title="Region">
+          <t-input
+            slot="note"
+            class="t-input"
+            t-class="field-text"
+            borderless
+            placeholder="Province/City/District"
+            data-item="address"
+            value="{{locationState.provinceName ? locationState.provinceName+'/':'' }}{{locationState.cityName ? locationState.cityName+'/':''}}{{locationState.districtName}}"
+            catch:tap="onPickArea"
+            disabled
+          />
+          <t-icon slot="right-icon" t-class="map" prefix="wr" name="location" catch:tap="onSearchAddress" />
+        </t-cell>
+        <t-cell class="form-cell" t-class-title="t-cell-title" title="Address" bordered="{{false}}">
+          <view slot="note" class="textarea__wrapper">
+            <t-textarea
+              slot="note"
+              type="text"
+              value="{{locationState.detailAddress}}"
+              placeholder="{{i18n.t('Apt, suite, unit, building, floor, e.g., No. 1001, Building 10')}}"
+              autosize
+              bind:change="onInputValue"
+              data-item="detailAddress"
+            />
+          </view>
+        </t-cell>
+
+        <view class="divider-line" />
+        <t-cell
+          class="form-cell"
+          t-class-note="t-cell-note address__tag"
+          t-class-title="t-cell-title"
+          title="Tag"
+          bordered="{{false}}"
+        >
+          <view class="t-input address-flex-box" slot="note">
+            <t-button
+              wx:for="{{labels}}"
+              wx:for-item="label"
+              wx:key="index"
+              size="extra-small"
+              t-class="label-list {{locationState.labelIndex === index ? 'active-btn':''}}"
+              bindtap="onPickLabels"
+              data-item="{{index}}"
+            >
+              {{label.name}}
+            </t-button>
+            <t-button size="extra-small" t-class="label-list" bindtap="addLabels">
+              <t-icon name="add" size="40rpx" color="#bbb" />
+            </t-button>
+          </view>
+        </t-cell>
+        <view class="divider-line" />
+        <t-cell title="Set as Default" bordered="{{false}}">
+          <t-switch
+            value="{{locationState.isDefault}}"
+            slot="note"
+            colors="{{['#0ABF5B', '#c6c6c6']}}"
+            bind:change="onCheckDefaultAddress"
+          />
+        </t-cell>
+      </t-cell-group>
+      <view class="submit">
+        <t-button shape="round" block disabled="{{!submitActive}}" bind:tap="formSubmit"> {{i18n.t("Save")}} </t-button>
+      </view>
+    </form>
+  </view>
+  <t-cascader
+    data-item="address"
+    data-type="1"
+    visible="{{areaPickerVisible}}"
+    theme="tab"
+    options="{{areaData}}"
+    value="{{locationState.districtCode}}"
+    title="Select region"
+    bind:change="onInputValue"
+  ></t-cascader>
+</view>
+<t-dialog
+  visible="{{visible}}"
+  t-class-confirm="dialog__button-confirm"
+  t-class-cancel="dialog__button-cancel"
+  title="Enter tag name"
+  confirm-btn="OK"
+  cancel-btn="Cancel"
+  bind:confirm="confirmHandle"
+  bind:cancel="cancelHandle"
+>
+  <t-input slot="content" class="dialog__input" model:value="{{labelValue}}" placeholder="{{i18n.t('Please enter tag name')}}" borderless />
+</t-dialog>
+<t-toast id="t-toast" />

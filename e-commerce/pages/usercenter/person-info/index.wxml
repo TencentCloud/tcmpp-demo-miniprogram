@@ -1,0 +1,57 @@
+<wxs src="../../../i18n/index.wxs" module="i18n"></wxs>
+<view>{{i18n.change(lang)}}</view>
+
+<view class="person-info">
+  <t-cell-group>
+    <t-cell
+      title="Photo"
+      center="{{true}}"
+      data-type="avatarUrl"
+      bind:click="onClickCell"
+      arrow
+      t-class-left="order-group__left"
+    >
+      <t-image slot="note" src="{{personInfo.avatarUrl}}" t-class="avatarUrl" mode="aspectFill" />
+    </t-cell>
+    <t-cell
+      title="Username"
+      arrow
+      note="{{personInfo.nickName}}"
+      data-type="name"
+      bind:click="onClickCell"
+      t-class="t-cell-class"
+      t-class-left="order-group__left"
+    />
+    <t-cell
+      title="Gender"
+      arrow
+      note="{{genderMap[personInfo.gender]}}"
+      data-type="gender"
+      bind:click="onClickCell"
+      t-class="t-cell-class"
+      t-class-left="order-group__left"
+    />
+    <t-cell
+      bordered="{{false}}"
+      title="Mobile number"
+      arrow
+      note="{{personInfo.phoneNumber ? personInfo.phoneNumber : 'Bind now'}}"
+      data-type="phoneNumber"
+      bind:click="onClickCell"
+      t-class="t-cell-class"
+      t-class-left="order-group__left"
+    />
+  </t-cell-group>
+</view>
+<view class="person-info__wrapper">
+  <view class="person-info__btn" bind:tap="openUnbindConfirm"> {{i18n.t("Switch account")}} </view>
+</view>
+<t-select-picker
+  show="{{typeVisible}}"
+  picker-options="{{pickerOptions}}"
+  title="Select gende"
+  value="{{personInfo.gender}}"
+  bind:confirm="onConfirm"
+  bind:close="onClose"
+/>
+<t-toast id="t-toast" />

@@ -1,0 +1,53 @@
+<wxs src="../../../i18n/index.wxs" module="i18n"></wxs>
+<view>{{i18n.change(lang)}}</view>
+
+<!-- Coupon -->
+<view class="coupon-card-wrap">
+  <coupon-card couponDTO="{{detail}}" />
+</view>
+<!-- Notes -->
+<view class="desc-wrap">
+  <t-cell-group t-class="desc-group-wrap">
+    <t-cell
+      wx:if="{{detail && detail.desc}}"
+      t-class="t-class-cell"
+      t-class-title="t-class-title"
+      t-class-note="t-class-note"
+      title="Rules"
+      note="{{detail && detail.desc}}"
+    />
+    <t-cell
+      wx:if="{{detail && detail.timeLimit}}"
+      t-class="t-class-cell"
+      t-class-title="t-class-title"
+      t-class-note="t-class-note"
+      title="Validity"
+      note="{{detail && detail.timeLimit}}"
+    />
+    <t-cell
+      wx:if="{{detail && detail.storeAdapt}}"
+      t-class="t-class-cell"
+      t-class-title="t-class-title"
+      t-class-note="t-class-note"
+      title="Scope"
+      note="{{detail && detail.storeAdapt}}"
+    />
+    <t-cell
+      wx:if="{{detail && detail.useNotes}}"
+      t-class="t-class-cell"
+      t-class-title="t-class-title"
+      t-class-note="t-class-note"
+      title=""
+      note="{{detail && detail.useNotes}}"
+    />
+  </t-cell-group>
+
+  <!-- View applicable products -->
+  <view class="button-wrap">
+    <t-button 
+      size="small"
+      shape="round"
+      block 
+      bindtap="navGoodListHandle">{{i18n.t("View applicable products")}}</t-button>
+  </view>
+</view>

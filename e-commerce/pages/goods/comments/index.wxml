@@ -1,0 +1,54 @@
+<wxs src="../../../i18n/index.wxs" module="i18n"></wxs>
+<view>{{i18n.change(lang)}}</view>
+
+<view class="comments-header">
+	<t-tag t-class="comments-header-tag {{commentType === '' ? 'comments-header-active' : ''}}" data-commentType="" bindtap="changeTag">
+		{{i18n.t("All")}} ({{countObj.commentCount}})
+	</t-tag>
+	<t-tag
+	  t-class="comments-header-tag {{commentType === '5' ? 'comments-header-active' : ''}}"
+	  wx:if="{{countObj.uidCount !== '0'}}"
+	  data-commentType="5"
+	  bindtap="changeTag"
+	>
+		{{i18n.t("My reviews")}} ({{countObj.uidCount}})
+	</t-tag>
+	<t-tag t-class="comments-header-tag {{commentType === '4' ? 'comments-header-active' : ''}}" data-commentType="4" bindtap="changeTag">
+		{{i18n.t("With pictures")}} ({{countObj.hasImageCount}})
+	</t-tag>
+	<t-tag t-class="comments-header-tag {{commentType === '3' ? 'comments-header-active' : ''}}" data-commentType="3" bindtap="changeTag">
+		{{i18n.t("Positive reviews")}} ({{countObj.goodCount}})
+	</t-tag>
+	<t-tag t-class="comments-header-tag {{commentType === '2' ? 'comments-header-active' : ''}}" data-commentType="2" bindtap="changeTag">
+		{{i18n.t("Neutral reviews")}} ({{countObj.middleCount}})
+	</t-tag>
+	<t-tag t-class="comments-header-tag {{commentType === '1' ? 'comments-header-active' : ''}}" data-commentType="1" bindtap="changeTag">
+		{{i18n.t("Negative reviews")}} ({{countObj.badCount}})
+	</t-tag>
+</view>
+
+<view class="comments-card-list">
+	<block wx:for="{{commentList}}" wx:key="index">
+		<comments-card
+		  commentScore="{{item.commentScore}}"
+		  userName="{{item.userName}}"
+		  commentResources="{{item.commentResources || []}}"
+		  commentContent="{{item.commentContent}}"
+		  isAnonymity="{{item.isAnonymity}}"
+		  commentTime="{{item.commentTime}}"
+		  isAutoComment="{{item.isAutoComment}}"
+		  userHeadUrl="{{item.userHeadUrl}}"
+		  specInfo="{{item.specInfo}}"
+		  sellerReply="{{item.sellerReply || ''}}"
+		  goodsDetailInfo="{{item.goodsDetailInfo || ''}}"
+		/>
+	</block>
+	<t-load-more
+	  t-class="no-more"
+	  status="{{loadMoreStatus}}"
+	  no-more-text="No more"
+	  color="#BBBBBB"
+	  failedColor="#FA550F"
+	/>
+</view>
+

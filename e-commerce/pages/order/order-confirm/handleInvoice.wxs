@@ -1,0 +1,11 @@
+var handleInvoice = function (invoiceData) {
+  if (!invoiceData || invoiceData.invoiceType == 0) {
+    return 'Do not issue invoice';
+  }
+  var title = invoiceData.titleType == 2 ? 'Institution' : 'Individual';
+  var content = invoiceData.contentType == 2 ? 'Commodity category' : 'Products';
+  return invoiceData.email
+    ? 'E-invoice (' + content + ' - ' + title + ')'
+    : 'Do not need invoice';
+};
+module.exports = handleInvoice;

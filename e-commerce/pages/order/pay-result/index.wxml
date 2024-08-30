@@ -1,0 +1,25 @@
+<wxs src="../../../i18n/index.wxs" module="i18n"></wxs>
+<view>{{i18n.change(lang)}}</view>
+
+<t-navbar background="#ffffff" left-icon="slot" />
+<view class="pay-result">
+	<view class="pay-status">
+		<t-icon name="check-circle-filled" size="60rpx" color="#47D368" />
+		<text>{{i18n.t("Paid successfully")}}.</text>
+	</view>
+	<view class="pay-money">
+		{{i18n.t("WeChat Pay")}}: 
+		<price
+		 wx:if="{{totalPaid}}"
+		 price="{{totalPaid}}"
+		 wr-class="pay-money__price"
+		 decimalSmaller
+		 fill
+		/>
+	</view>
+	<view class="btn-wrapper">
+		<view class="status-btn" data-type="orderList" bindtap="onTapReturn">{{i18n.t("View orders")}}</view>
+		<view class="status-btn" data-type="home" bindtap="onTapReturn">{{i18n.t("Back to Home")}}</view>
+	</view>
+</view>
+

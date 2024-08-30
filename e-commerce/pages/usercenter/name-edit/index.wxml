@@ -1,0 +1,17 @@
+<wxs src="../../../i18n/index.wxs" module="i18n"></wxs>
+<view>{{i18n.change(lang)}}</view>
+
+<view class="name-edit">
+  <t-input
+    borderless
+    model:value="{{nameValue}}"
+    placeholder="Enter here"
+    label="Username"
+    clearable
+    bind:clear="clearContent"
+  />
+  <view class="name-edit__input--desc"> {{i18n.t("Up to 15 characters")}} </view>
+  <view class="name-edit__wrapper">
+    <t-button block shape="round" disabled="{{!nameValue}}" bind:tap="onSubmit">{{i18n.t("Save")}}</t-button>
+  </view>
+</view>

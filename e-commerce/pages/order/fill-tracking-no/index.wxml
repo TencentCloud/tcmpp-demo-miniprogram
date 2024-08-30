@@ -1,0 +1,54 @@
+<wxs src="../../../i18n/index.wxs" module="i18n"></wxs>
+<view>{{i18n.change(lang)}}</view>
+
+<view class="fill-tracking-no">
+  <view class="notice-bar">{{i18n.t("Please enter valid tracking number of returned package")}}.</view>
+  <view class="fill-tracking-no__form">
+    <t-cell-group>
+      <t-cell title="Tracking number" t-class-title="t-cell-title-width">
+        <t-input
+          slot="note"
+          borderless
+          t-class="t-cell__value"
+          type="text"
+          value="{{trackingNo}}"
+          maxlength="30"
+          placeholder="Please enter package tracking number"
+          bind:change="onInput"
+          data-key="trackingNo"
+        />
+
+        <t-icon slot="right-icon" name="scan" t-class="icon-scan" bindtap="onScanTap" />
+      </t-cell>
+      <t-cell
+        t-class-title="t-cell-title-width"
+        t-class-note="{{deliveryCompany && deliveryCompany.name ? 't-cell__value' : 't-cell__placeholder'}}"
+        title="Shipping company"
+        note="{{deliveryCompany && deliveryCompany.name || 'Please select shipping company'}}"
+        arrow
+        bindtap="onCompanyTap"
+      />
+    </t-cell-group>
+    <view class="textarea-wrapper">
+      <text>{{i18n.t("Remarks")}}</text>
+    </view>
+    <t-textarea
+      t-class="t-textarea-wrapper"
+      type="text"
+      value="{{remark}}"
+      maxlength="140"
+      autosize
+      placeholder="Optional. If there are multiple packages, please enter the shipping information."
+      bind:change="onInput"
+      data-key="remark"
+    />
+  </view>
+  <view class="fill-tracking-no__button-bar">
+    <t-button t-class="btn {{ submitActived ? 'confirmBtn' : 'disabled' }}" loading="{{submitting}}" bindtap="onSubmit">
+      {{i18n.t("Save")}}
+    </t-button>
+  </view>
+</view>
+<ui-reason-sheet id="wr-reason-sheet" />
+<t-toast id="t-toast" />
+<t-dialog id="t-dialog" />

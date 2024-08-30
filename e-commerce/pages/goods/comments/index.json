@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "All reviews",
+  "usingComponents": {
+    "t-tag": "tdesign-miniprogram/tag/tag",
+    "comments-card": "./components/comments-card/index",
+    "t-load-more": "/components/load-more/index"
+  }
+}

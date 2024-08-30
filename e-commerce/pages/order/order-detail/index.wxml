@@ -1,0 +1,162 @@
+<wxs src="../../../i18n/index.wxs" module="i18n"></wxs>
+<view>{{i18n.change(lang)}}</view>
+
+<t-pull-down-refresh id="t-pull-down-refresh" bindrefresh="onPullDownRefresh_" t-class-indicator="t-class-indicator">
+  <!-- 页面内容 -->
+  <view class="order-detail">
+    <view class="header">
+      <view class="order-detail__header">
+        <view class="title">{{_order.statusDesc}}</view>
+        <view class="desc">
+          <block wx:if="{{ order.holdStatus === 1 }}">
+            <block wx:if="{{ order.groupInfoVo.residueTime > 0 }}">
+              {{i18n.t("Group buying ends in")}}
+              <t-count-down
+                time="{{order.groupInfoVo.residueTime}}"
+                format="HH:mm:ss"
+                t-class="count-down"
+                bindfinish="onCountDownFinish"
+              />
+              <view>{{i18n.t("Cancel automatically when it ends")}}</view>
+            </block>
+          </block>
+          <block wx:elif="{{countDownTime === null}}">{{order.orderSatusRemark || ''}}</block>
+          <block wx:elif="{{countDownTime > 0}}">
+            {{i18n.t("End in")}} 
+            <t-count-down
+              time="{{countDownTime}}"
+              format="HH:mm:ss"
+              t-class="count-down"
+              bindfinish="onCountDownFinish"
+            />
+            {{i18n.t("Pay now or it will be canceled when it ends")}}.
+          </block>
+          <block wx:else>{{i18n.t("Not paid timely")}}</block>
+        </view>
+      </view>
+
+      <!-- 物流 -->
+      <view class="order-logistics" wx:if="{{logisticsNodes[0]}}" bindtap="onDeliveryClick">
+        <t-icon name="deliver" size="40rpx" class="logistics-icon" prefix="wr" />
+        <view class="logistics-content">
+          <view>{{logisticsNodes[0].desc}}</view>
+          <view class="logistics-time">{{logisticsNodes[0].date}}</view>
+        </view>
+        <t-icon class="logistics-back" name="arrow_forward" size="36rpx" prefix="wr" />
+      </view>
+      <view class="border-bottom" wx:if="{{logisticsNodes[0]}}" />
+      <!-- 收货地址 -->
+      <view class="order-logistics">
+        <t-icon name="location" size="40rpx" class="logistics-icon" prefix="wr" />
+        <view class="logistics-content">
+          <view>{{order.logisticsVO.receiverName + ' '}}{{order.logisticsVO.receiverPhone}}</view>
+          <view class="logistics-time">{{_order.receiverAddress}}</view>
+        </view>
+        <view wx:if="{{addressEditable}}" class="edit-text" bindtap="onEditAddressTap"> {{i18n.t("Modify")}} </view>
+      </view>
+    </view>
+    <!-- 店铺及商品 -->
+    <order-card order="{{_order}}" use-top-right-slot>
+      <order-goods-card
+        wx:for="{{_order.goodsList}}"
+        wx:key="id"
+        wx:for-item="goods"
+        wx:for-index="gIndex"
+        goods="{{goods}}"
+        no-top-line="{{gIndex === 0}}"
+        bindtap="onGoodsCardTap"
+        data-index="{{gIndex}}"
+      >
+        <order-button-bar
+          slot="append-card"
+          class="goods-button-bar"
+          order="{{_order}}"
+          bindrefresh="onRefresh"
+          goodsIndex="{{gIndex}}"
+        />
+      </order-goods-card>
+      <view class="pay-detail">
+        <view class="pay-item">
+          <text>{{i18n.t("Subtotal")}}</text>
+          <price fill decimalSmaller wr-class="pay-item__right font-bold" price="{{order.totalAmount || '0'}}" />
+        </view>
+        <view class="pay-item">
+          <text>{{i18n.t("Shipping")}}</text>
+          <view class="pay-item__right font-bold">
+            <block wx:if="{{order.freightFee}}">
+              +
+              <price fill decimalSmaller price="{{order.freightFee}}" />
+            </block>
+            <text wx:else>{{i18n.t("Free shipping")}}</text>
+          </view>
+        </view>
+        <view class="pay-item">
+          <text>{{i18n.t("Offers")}}</text>
+          <view class="pay-item__right primary font-bold">
+            -
+            <price fill price="{{order.discountAmount || 0}}" />
+          </view>
+        </view>
+        <view class="pay-item">
+          <text>{{i18n.t("Coupons")}}</text>
+          <view class="pay-item__right" catchtap="onOpenCoupons">
+            <block wx:if="{{order.couponAmount}}">
+              -
+              <price fill decimalSmaller price="{{order.couponAmount}}" />
+            </block>
+            <text wx:else>{{i18n.t("No applicable coupons")}}</text>
+            <!-- <t-icon name="chevron-right" size="32rpx" color="#BBBBBB" /> -->
+          </view>
+        </view>
+        <view class="pay-item">
+          <text>{{isPaid ? 'Actual amount' : 'Total amount'}}</text>
+          <price
+            fill
+            decimalSmaller
+            wr-class="pay-item__right font-bold primary max-size"
+            price="{{order.paymentAmount || '0'}}"
+          />
+        </view>
+      </view>
+    </order-card>
+    <view class="pay-detail padding-inline">
+      <view class="pay-item">
+        <text>{{i18n.t("Order number")}}</text>
+        <view class="pay-item__right" bindtap="onOrderNumCopy">
+          <text class="order-no">{{order.orderNo}}</text>
+          <view class="pay-item__right__copy">Copy</view>
+        </view>
+      </view>
+      <view class="pay-item">
+        <text>{{i18n.t("Order placed")}}</text>
+        <view class="pay-item__right">
+          <text class="order-no normal-color">{{formatCreateTime}}</text>
+        </view>
+      </view>
+      <view class="border-bottom border-bottom-margin" />
+      <view class="pay-item">
+        <text>{{i18n.t("Invoice")}}</text>
+        <view class="pay-item__right" bindtap="onOrderInvoiceView">
+          <text class="order-no normal-color">{{invoiceType}}</text>
+          <view class="pay-item__right__copy">{{i18n.t("View")}}</view>
+        </view>
+      </view>
+      <view class="pay-item">
+        <text>{{i18n.t("Remarks")}}</text>
+        <view class="pay-item__right">
+          <text class="order-no normal-color">{{order.remark || '-'}}</text>
+        </view>
+      </view>
+      <view class="border-bottom border-bottom-margin" />
+      <view class="pay-service" wx:if="{{storeDetail && storeDetail.storeTel}}" catch:tap="clickService">
+        <t-icon name="service" size="40rpx" />
+        <text decode="{{true}}">&nbsp;{{i18n.t("Contact us")}}</text>
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{_order.buttons.length > 0}}" class="bottom-bar">
+    <order-button-bar order="{{_order}}" bindrefresh="onRefresh" isBtnMax />
+  </view>
+</t-pull-down-refresh>
+<t-toast id="t-toast" />
+<t-dialog id="t-dialog" />
