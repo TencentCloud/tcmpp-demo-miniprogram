@@ -1,0 +1,33 @@
+@import url('@/assets/color.less');
+
+.container {
+  background: linear-gradient(@primary, #2e3047);
+  height: 100vh;
+  width: 100vw;
+  overflow: auto;
+  padding: @space;
+  box-sizing: border-box;
+  overflow: auto;
+  padding-bottom: 0;
+  padding-top: 0;
+  overflow-x: hidden;
+}
+.empty{
+  width: 100%;
+  height: calc(100% - @p*76);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+}
+
+.footer {
+  position: sticky;
+  bottom: 0;
+  padding: @space;
+  z-index: 10;
+  margin: 0 -@space;
+  background: linear-gradient(transparent, #2e3047);
+  box-sizing: border-box;
+  overflow: hidden;
+}

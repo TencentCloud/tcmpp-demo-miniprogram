@@ -1,0 +1,36 @@
+@import url('@/assets/color.less');
+
+.content {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  .wrapper {
+    display: flex;
+    align-items: center;
+    width: @p*54;
+    border-radius: @p*16;
+    border: @p*0.6 solid @borderColor;
+    box-sizing: border-box;
+    padding: @p*0.5 @p*0.2;
+    background: #ffffff;
+
+    .inner {
+      width: @p*30;
+      height: @p*30;
+      border-radius: 50%;
+      border: @p*0.1 solid @borderColor;
+      box-shadow: 0 0 @p6 @borderColor;
+      box-sizing: border-box;
+      background: #ffffff;
+    }
+  }
+
+  .checked {
+    justify-content: flex-end;
+    background: @primary;
+  }
+}

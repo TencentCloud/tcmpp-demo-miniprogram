@@ -1,0 +1,87 @@
+@import url('@/assets/color.less');
+
+.modal {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background: #00000088;
+
+  .modalContent {
+    background: #ffffff;
+    width: 90%;
+    margin: 0 auto;
+    max-height: 90%;
+    padding: @space;
+    overflow: auto;
+    box-sizing: border-box;
+    border-radius: @p8;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+
+    .title:extend(.fc) {
+      font-size: @p16;
+      height: @p*46;
+      color: #fff;
+      background: @primary;
+      margin: -@space -@space 0 -@space;
+    }
+
+    .list {
+      flex: 1;
+      width: 100%;
+      margin: @space 0;
+      border: @p*0.1 solid @borderColor;
+      border-radius: @p2;
+      overflow: auto;
+      padding: @space*0.5;
+      box-sizing: border-box;
+
+      .cell {
+        display: inline-flex;
+        padding: @space*0.5;
+        box-sizing: border-box;
+        width: 50%;
+
+        .text {
+          align-items: center;
+          display: flex;
+          justify-content: center;
+          overflow: hidden;
+          height: @p32;
+          border: @p*0.1 dashed @primary;
+          width: 100%;
+          border-radius: @p2;
+        }
+
+        .delRowIcon {
+          color: @delete;
+          margin-top: @p;
+          padding: @space;
+        }
+      }
+    }
+
+    .footer {
+      display: flex;
+      height: @p*46;
+      margin: 0 -@space -@space -@space;
+      border-top: @p*0.1 solid @borderColor;
+
+      .bt:extend(.fc) {
+        width: 50%;
+
+        &+.bt {
+          box-sizing: border-box;
+          border-left: @p*0.1 solid @borderColor;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,106 @@
+@import url('@/assets/color.less');
+
+.container {
+  color: @primary;
+  border: @p*0.5 solid @borderColor;
+  border-radius: @p4;
+  padding: 0 @space;
+
+  .title:extend(.fc) {
+    padding: @space 0;
+    justify-content: space-between;
+    position: relative;
+    font-weight: bold;
+    border-bottom: @p*0.5 dashed @primary;
+
+    .name:extend(.fc) {
+      .icon {
+        margin-left: @p8;
+        margin-top: @p4;
+      }
+    }
+
+    .operate {
+      position: absolute;
+      padding: @space 0 @space @space;
+      right: 0;
+      margin: 0;
+      font-weight: normal;
+      color: @pink;
+      display: flex;
+      align-items: center;
+      .icon {
+        margin-right: @p4;
+        margin-top: @p2;
+      }
+      &:active {
+        color: @green;
+      }
+    }
+  }
+
+  .close {
+    margin-bottom: 0;
+    border: none;
+  }
+
+  .content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: -@space*0.5;
+    font-size: @p*13;
+    padding: @space 0;
+
+    .td {
+      margin: @space*0.5;
+      padding: @space*0.25 @space;
+      border: @p*0.5 solid @primary;
+      border-radius: @p4;
+      word-break: break-all;
+      flex: auto;
+      text-align: center;
+    }
+
+    .selected {
+      background: @primary;
+      color: #ffffff;
+    }
+
+    .findTrue {
+      color: @green;
+    }
+
+    .space {
+      flex: 100;
+    }
+  }
+}
+
+.list {
+  :global {
+    .layout-body {
+      padding: 0;
+    }
+  }
+}
+
+.listItem {
+  width: 100%;
+  box-sizing: border-box;
+  border-bottom: @p*0.5 solid @borderColor;
+
+  .text {
+    padding: @space;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .bt:extend(.fc) {
+    background: @delete;
+    color: #ffffff;
+    width: 80px;
+    padding: 0;
+  }
+}

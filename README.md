@@ -10,6 +10,7 @@ Tencent Cloud mini program platform, derived from Tencent mini program technolog
 ````
 ./miniprogram  -- main demo, Officical demo
 ./e-commerce  -- electronic business mini program demo
+./calendar-todo-list  -- calendar todolist mini program demo
 ./README.md    -- README.md
 ````
 

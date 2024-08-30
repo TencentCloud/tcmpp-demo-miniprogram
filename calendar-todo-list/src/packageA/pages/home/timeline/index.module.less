@@ -1,0 +1,193 @@
+@import url('@/assets/color.less');
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.header {
+  padding: 0 @space @space @space;
+  position: sticky;
+  top: 0;
+  background: @primary;
+  z-index: 2;
+
+  .operate:extend(.fc) {
+    justify-content: space-between;
+    height: @p40;
+    color: #ffffff;
+
+    .typeSwitch:extend(.fc) {
+      height: 100%;
+
+      .icon {
+        margin-left: @p8;
+        margin-top: @p * -2;
+      }
+
+      .text {
+        font-weight: bold;
+      }
+    }
+
+    .dateSwitch:extend(.fc) {
+      justify-content: space-between;
+      margin-right: -@space;
+
+      .button {
+        padding: @space;
+      }
+
+      .date {
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+}
+
+.tagSelect {
+  background-color: #ffffff;
+}
+
+.tabs {
+  width: 100%;
+  height: @p48;
+  display: flex;
+  padding: 0 @space;
+  box-sizing: border-box;
+  border-bottom: @p*0.1 solid @borderColor;
+  .tab {
+    width: 50%;
+    height: calc(100% - @p);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .active {
+    border-bottom: @p solid @primary;
+    color: @primary;
+  }
+}
+
+.content {
+  padding: @space;
+  z-index: 1;
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+}
+
+.title {
+  font-weight: bold;
+  color: @primary;
+  text-align: center;
+  padding: @p12;
+  padding-top: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.empty {
+  flex: 1;
+}
+
+.modal {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background: #00000088;
+
+  .modalContent {
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    width: 90%;
+    margin: 0 auto;
+    max-height: 75%;
+    box-sizing: border-box;
+    border-radius: @p8;
+
+    .title:extend(.fc) {
+      height: @p32;
+      padding: @space;
+    }
+    .body {
+      flex: 1;
+      overflow: auto;
+      padding: 0 @space @space @space;
+    }
+  }
+
+  .footer:extend(.fc) {
+    width: 100%;
+
+    .close {
+      color: #ffffff;
+    }
+  }
+}
+.nameBolck {
+  .bolckTitle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: @space*0.5;
+    font-weight: bold;
+    .n {
+      color: @primary;
+      max-width: 60%;
+      word-break: break-all;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .subN {
+      color: @blue;
+      font-size: @p12;
+    }
+  }
+  .month {
+    display: flex;
+    flex-wrap: wrap;
+    .day {
+      width: 6.66%;
+      padding-top: 6.66%;
+      position: relative;
+      .dayInner {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #bbbbbb;
+        border: @p solid #ffffff;
+        border-radius: @p2;
+        color: #fff;
+        font-size: @p10;
+      }
+    }
+  }
+  .yearMonth {
+    .day {
+      width: 3.225%;
+      padding-top: 3.225%;
+    }
+  }
+  & + .nameBolck {
+    margin-top: @space;
+  }
+}

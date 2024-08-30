@@ -1,0 +1,79 @@
+@import url('@/assets/color.less');
+
+.container {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.content {
+  padding: 0 @space;
+  box-sizing: border-box;
+
+  :global {
+    .at-input__title {
+      width: @p*60;
+      text-align: justify;
+      text-align-last: justify;
+    }
+  }
+}
+
+.footer {
+  position: sticky;
+  bottom: 0;
+  background: #fff;
+  padding: @space;
+  z-index: 10;
+  .bt + .bt {
+    margin-top: @space;
+  }
+}
+
+.list {
+  margin-top: @space;
+  padding: @space;
+  border: @p*0.5 dashed @borderColor;
+  border-radius: @p4;
+  .li {
+    margin-bottom: @space;
+    padding-bottom: @space;
+    margin-right: @space*2;
+    border-bottom: @p*0.5 dashed @borderColor;
+    position: relative;
+
+    .name {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .text {
+      margin-top: @space;
+      text-indent: @p*32;
+      line-height: @p24;
+    }
+
+    .delete:extend(.fc) {
+      padding: @space;
+      position: absolute;
+      right: -3 * @space;
+      top: 0;
+      bottom: 0;
+      color: @pink;
+      &:active {
+        color: @green;
+      }
+    }
+  }
+  .itemBt:extend(.fc) {
+    color: @primary;
+    height: @p32;
+    border-radius: @p4;
+    border: @p*0.1 solid @primary;
+
+    .addIcon {
+      margin-right: @space;
+    }
+  }
+}

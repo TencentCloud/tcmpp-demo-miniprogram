@@ -1,0 +1,73 @@
+@import url('@/assets/color.less');
+
+.container {
+  padding: @space*2;
+  z-index: 1;
+  position: relative;
+  overflow: auto;
+}
+
+.title {
+  color: @primary;
+  position: relative;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  padding-bottom: @space*2;
+
+  &::before {
+    content: "";
+    display: block;
+    width: @p4;
+    height: @p14;
+    background: @primary;
+    margin-right: @space;
+  }
+}
+
+.content {
+  padding: @space*2;
+  background-image: @cardImg;
+  color: #fff;
+  border-radius: @p6 @p6 0 @p6;
+  overflow: hidden;
+  box-shadow: @p8 @p8 @p10 @borderColor;
+
+  &+.content {
+    margin-top: @space*2;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .icon:extend(.fc) {
+      width: @p64;
+      height: @p64;
+      background: #fff;
+      color: @primary;
+      border-radius: @p4;
+    }
+  }
+
+  .desc {
+    margin-top: @space;
+    text-indent: @p24;
+    line-height: @p24;
+  }
+
+  .time {
+    margin-top: @space;
+    width: 100%;
+    text-align: right;
+  }
+}
+
+.clickInfo {
+  margin-top: @space;
+  color: @tipColor;
+  width: 100%;
+  text-align: right;
+  font-size: @p12;
+}

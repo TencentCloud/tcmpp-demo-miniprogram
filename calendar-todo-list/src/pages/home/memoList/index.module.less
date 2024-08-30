@@ -1,0 +1,56 @@
+@import url('@/assets/color.less');
+
+.memo {
+  margin-top: @space;
+  padding: @space;
+  border-radius: @p4;
+  line-height: @p24;
+  color: @primary;
+  //border: @p*0.1 dashed @primary;
+  background: linear-gradient(to bottom right, #7c4e7a20, #ff8b9920);
+
+  .memoTitle {
+    padding-bottom: @space;
+    border-bottom: @p*0.1 dashed @primary;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .memoLi {
+    display: flex;
+    margin-top: @space;
+    .checkBox {
+      width: @p*18;
+      height: @p*18;
+      margin: @p3 @space 0 0;
+      background: #fff;
+      border-radius: @p4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: @green;
+      &:active {
+        border: @p*0.1 solid @green;
+        box-sizing: border-box;
+      }
+    }
+    .text {
+      flex: 1;
+      word-break: break-all;
+      text-align: justify;
+      &:active {
+        color: @green;
+      }
+    }
+    .lineThrough {
+      text-decoration: line-through;
+      opacity: 0.5;
+    }
+  }
+}
+
+.bt {
+  padding: @space 0;
+  display: flex;
+  align-items: center;
+}

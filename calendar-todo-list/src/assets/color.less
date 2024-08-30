@@ -1,0 +1,78 @@
+@pink: #ff8b99;
+@pink20: #ff8b9920;
+@green: #67d3cf;
+@green20: #67d3cf20;
+@yellow: #ff8a08;
+@blue: #7d94bd;
+@purple: #8f8df9;
+@delete: #ff4d4f;
+@success: #52c41a;
+
+@primary: #7c4e7a; // #7c4e7a; // 春节
+@borderColor: #d0d0d0;
+@bgColor: #f5f5f5;
+@linkColor: @pink;
+@tipColor: #cccccc;
+@cardImg: linear-gradient(to bottom right, @primary, #ab6b91);
+
+@pBase: 2rpx;
+
+@p: @pBase;
+@p2: @pBase*2;
+@p3: @pBase*3;
+@p4: @pBase*4;
+@p6: @pBase*6;
+@p8: @pBase*8;
+@p10: @pBase*10;
+@p12: @pBase*12;
+@p14: @pBase*14;
+@p16: @pBase*16;
+@p20: @pBase*20;
+@p24: @pBase*24;
+@p32: @pBase*32;
+@p40: @pBase*40;
+@p48: @pBase*48;
+@p60: @pBase*60;
+@p64: @pBase*64;
+@p80: @pBase*80;
+@p100: @pBase*100;
+
+@fz: @p14;
+@space: @p12;
+
+@shadowU:
+  0.3rem 0.3rem 0.6rem @primary,
+  -0.1rem -0.1rem 0.4rem #ffffff;
+@shadowI:
+  inset 0.1rem 0.1rem 0.2rem @primary,
+  inset -0.1rem -0.1rem 0.2rem #ffffff;
+@border: @p*0.1 solid @borderColor;
+
+.primary {
+  color: @primary;
+}
+
+.paddingLR {
+  padding-left: @space;
+  padding-right: @space;
+}
+
+.fc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.marginTop {
+  margin-top: @space;
+}
+
+.tips {
+  margin-top: @space;
+  line-height: @p24;
+  padding: @space;
+  border-radius: @p4;
+  background-color: #cccccc;
+  color: #000;
+  opacity: 0.3;
+}

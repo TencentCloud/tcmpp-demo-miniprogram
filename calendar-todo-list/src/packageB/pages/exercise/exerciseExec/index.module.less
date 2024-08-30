@@ -1,0 +1,86 @@
+@import url('@/assets/color.less');
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.container {
+  background: linear-gradient(@primary, #2e3047);
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.header:extend(.fc) {
+  width: 100%;
+  font-size: @p24;
+  font-weight: bold;
+  color: #ffffff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.title:extend(.fc) {
+  width: 100%;
+  font-size: @p16;
+  color: @tipColor;
+}
+
+.ballWrapper:extend(.fc) {
+  width: 100%;
+  padding: @p64 0;
+}
+
+.ball:extend(.fc) {
+  width: @p*250;
+  height: @p*250;
+  border-radius: 50%;
+  font-size: @p32;
+  color: #fff;
+  position: relative;
+  background: #ffffff20;
+
+  .img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    animation: rotate 1s linear infinite;
+  }
+}
+
+.icon:extend(.fc) {
+  border: @p*2 solid #ffffff50;
+  border-radius: 50%;
+  height: @p*64;
+  width: @p*64;
+  color: #ffffffaa;
+  background: @primary;
+  box-sizing: border-box;
+}
+.play {
+  padding-left: @p*5;
+}
+
+.action {
+  display: flex;
+  width: 60%;
+  margin-left: 20%;
+  justify-content: space-around;
+}
+
+.taskName:extend(.fc) {
+  width: 100%;
+  margin-top: @p40;
+  font-size: @p24;
+  color: @tipColor;
+}

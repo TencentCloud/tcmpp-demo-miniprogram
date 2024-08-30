@@ -1,0 +1,42 @@
+@import url('@/assets/color.less');
+
+.header {
+  display    : flex;
+  align-items: center;
+  background : @primary;
+  color      : #ffffff;
+  padding    : 0 @space @space @space;
+
+  image {
+    width        : @p*60;
+    height       : @p*60;
+    border-radius: @p10;
+    margin       : @space;
+    border       : @p*0.5 solid @borderColor;
+  }
+
+  .name {
+    margin-left: @space;
+    font-size  : @p*18;
+  }
+}
+
+.content {
+  .li:extend(.fc) {
+    justify-content: space-between;
+    height         : @p60;
+    border-bottom  : @p*0.5 solid @borderColor;
+    padding        : 0 @p8;
+    color          : @primary;
+
+    .title:extend(.fc) {
+      .icon {
+        margin: 0 @space;
+      }
+
+      .text {
+        color: #000;
+      }
+    }
+  }
+}
