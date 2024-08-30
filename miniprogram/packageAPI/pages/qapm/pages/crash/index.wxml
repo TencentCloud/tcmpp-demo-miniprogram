@@ -1,0 +1,8 @@
+<!--index.wxml-->
+<view class="qapm-container">
+  <text>Crash Page</text>
+  <text>Click this button and the mini program will crash within 10 seconds</text>
+  <view class="btn-box">
+    <view class="qapm-btn" bindtap="crash" >crash</view>
+  </view>
+</view>

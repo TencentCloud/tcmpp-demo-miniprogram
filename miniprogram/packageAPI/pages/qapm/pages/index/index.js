@@ -18,13 +18,4 @@ Page({
       url: e.currentTarget.dataset['pagename']
     })
   },
-  cleanLoaclStorage: function(e) {
-    wx.clearStorageSync();
-    wx.showModal({
-      confirmText: i18n['confirm'],
-      cancelText: i18n['cancel'],
-      title: 'alert',
-      content:'success'
-    })
-  }
 });

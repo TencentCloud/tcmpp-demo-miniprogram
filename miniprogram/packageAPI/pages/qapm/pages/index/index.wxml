@@ -1,23 +1,22 @@
 <!--index.wxml-->
-<view class="container">
-  <view>
-    <button bindtap="gotoPage" data-pagename="../jserror/index">js-error</button>
+<view class="qapm-container">
+  <view class="btn-box">
+    <view class="qapm-btn" bindtap="gotoPage" data-pagename="../jserror/index">js error</view>
   </view>
 
-  <view>
-    <button bindtap="gotoPage" data-pagename="../request/index">wx.request</button>
+  <view class="btn-box">
+    <view class="qapm-btn" bindtap="gotoPage" data-pagename="../request/index">request</view>
   </view>
 
-  <view>
-    <button bindtap="gotoPage" data-pagename="../setData/index">setData</button>
+  <!-- <view class="btn-box">
+    <view class="qapm-btn" bindtap="gotoPage" data-pagename="../setData/index">setData</view>
+  </view> -->
+
+  <view class="btn-box">
+    <view class="qapm-btn" bindtap="gotoPage" data-pagename="../pageTime/index">slow page</view>
   </view>
 
-  <view>
-    <button bindtap="gotoPage" data-pagename="../pageTime/index">page load cost time</button>
+    <view class="btn-box">
+    <view class="qapm-btn" bindtap="gotoPage" data-pagename="../crash/index">crash</view>
   </view>
-
-  <view>
-    <button bindtap="cleanLoaclStorage" >clean cache</button>
-  </view>
-
 </view>

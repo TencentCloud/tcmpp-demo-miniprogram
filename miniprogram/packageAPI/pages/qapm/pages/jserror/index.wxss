@@ -9,10 +9,21 @@ text {
   align-items: center;
   justify-content: center;
 }
-button {
-  width: 250px;
+
+.btn-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.qapm-btn {
+  justify-content: center;
   height: 50px;
+  text-align: center;
   margin-top: 25px;
-  background-color: burlywood;
-  color: white;
+  width: 50%;
+  line-height: 50px;
+  margin-left: 25%;
+  border: 1px gray solid;
+  border-radius: 4px;
 }
