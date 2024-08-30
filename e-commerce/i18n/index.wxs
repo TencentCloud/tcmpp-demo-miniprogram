@@ -16,7 +16,7 @@ module.exports = {
     var startRegex = getRegExp('\{');
     var endRegex = getRegExp('\}');
     var textArr = text.match(regex) || [];
-    var realText = language[fallbackLocale][text] || text;
+    var realText = language[fallbackLocale] ? language[fallbackLocale][text] : text;
     textArr.map(function(item) {
       var itemRegx = getRegExp(item);
       var realKey = item.replace(startRegex, '');
