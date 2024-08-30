@@ -1,0 +1,107 @@
+<import src='../../../templates/cinemaMap/cinemaMap.wxml' />
+<wxs module="i18n" src="../../../i18n/index.wxs"></wxs>
+
+<view wx:if='{{cinemaDetail}}'>
+  <view>
+   <template is="cinemaMap" data='{{cinemaData:cinemaDetail.cinemaData, cinemaId, nm, addr, $language}}'/>
+  </view>
+  <view>
+    <view>
+      <select-movie movies='{{movies}}' bindselectMovie='selectMovie' defaultSelectID='{{movieId}}'/>
+    </view>
+    <view class='movie-info' wx:if='{{movie}}'>
+      <view class='movie-title line-ellipsis'>
+        <text class='title'>{{i18n.t(movie.id + '_nm', $language)}} </text>
+        <text class='grade'>
+          <text wx:if='{{!movie.globalReleased}}'>
+            <!-- {{movie.wish}}<text class='small'>人想看</text> -->
+            {{ i18n.t('{num}人想看', $language, {
+              num: movie.wish
+            })}}
+          </text>
+        <text wx:elif='{{movie.sc!=="0.0"}}'>{{movie.sc}}<text class='small'>{{ i18n.t('分', $language) }}</text></text>
+        <text wx:else><text class='small'>{{ i18n.t('暂无评分', $language) }}</text></text>
+        </text>
+      </view>
+      <!-- <view class='movie-desc line-ellipsis'>{{movie.desc}}</view> -->
+      <view class='movie-desc line-ellipsis'>
+        <text>{{ i18n.t('{minute}分钟', $language, {
+          minute: movie.dur
+        })}} | </text>
+        <text>{{ i18n.t(movie.id + '_cat', $language) }} | </text>
+        <text>{{ i18n.t(movie.id + '_star', $language) }}</text>
+      </view>
+    </view>
+  </view>
+  <view>
+    <select-time days='{{days}}' bindselectDayEvent='selectDay' defaultSelect='{{day}}'></select-time>
+  </view>
+  <view>
+    <view wx:if='{{timeList.length}}'>
+      <view class='time' wx:for='{{timeList}}' wx:key='{{item.tm}}' class='item' bindtap='buyTicket' data-info='{{item}}'>
+        <view class='time-block box'>
+          <view class='begin'>{{item.tm}}</view>
+          <view class='end'>{{ i18n.t('{time}散场', $language, {
+            time: item.endTime
+          })}}</view>
+        </view>
+        <view class='info-block box'>
+          <view class="lan line-ellipsis">{{i18n.t(item.lang, $language)}} {{item.tp}}</view>
+          <view class="hall line-ellipsis">{{i18n.t(item.th, $language)}}</view>
+        </view>
+        <view class='price box'>
+          <view class='price-box line-ellipsis'>
+            <view class="sellPr">
+              <text class="stonefont">{{ i18n.t('{value}元', $language, {
+                value: (item.vipPrice && item.vipPrice*1+10) || 37
+              }) }}</text>
+              <!-- <text class="d">{{i18n.t('元')}}</text> -->
+            </view>
+            <view class="vipPrice" wx:if='{{item.vipPriceName || item.vipPriceNameNew}}'>
+              <text class="icon">{{i18n.t(item.vipPriceName || item.vipPriceNameNew, $language)}}</text>
+              <text class="num">{{item.vipPrice}}</text>
+            </view>
+          </view>
+          <view class='discount line-ellipsis' wx:if='{{item.extraDesc}}'>{{i18n.t(item.extraDesc, $language)}}</view>
+        </view>
+        <view class='button-block'>
+          <view class='button'>{{i18n.t('购票', $language)}}</view>
+        </view>
+      </view>
+    </view>
+    <view wx:else class='no-seat'>
+      <image src='/assets/images/cinema2.png'></image>
+      <text>{{movie.globalReleased ? i18n.t('今日场次已映完', $language) : i18n.t('影片未上映', $language)}}</text>
+    </view>
+  </view>
+  <view class='tuan-list' wx:if='{{divideDealList.length}}'>
+    <view class='title'>{{ i18n.t('影院超值套餐', $language) }}</view>
+    <view class='tuan-item' wx:for='{{divideDealList}}' wx:key='{{item.title}}'>
+      <view wx:for='{{item.dealList}}' wx:for-item="i" wx:key='{{i}}' class='snack-item' bindtap='goSnackPage' data-info='{{i}}'>
+        <view class="deal-left">
+          <view class="card-tag" wx:if="{{i.cardTag}}">{{i.cardTag}}</view>
+          <image src='{{i.imageUrl}}'></image>
+        </view>
+        <view class='snack-info'>
+          <view class='first-title'>
+            <text wx:if="{{i.titleTag}}" class="person-num">{{i18n.t(i.titleTag, $language)}}</text>
+            <text>{{i18n.t(i.firstTitle, $language)}}</text>
+          </view>
+          <view class='second-title line-ellipsis'>{{i18n.t(i.secondTitle, $language)}}</view>
+          <view class='snack-price'>
+            <view>
+              <text class='num'>{{ i18n.t('{value}元', $language, {
+                value: i.price
+              }) }}</text>
+              <!-- <text class='rmb'>{{ i18n.t('元')}}</text> -->
+              <text class='font'> {{ i18n.t('影院价: {value}元', $language, {
+                value: i.value
+              }) }}</text>
+            </view>
+            <view class='font'>{{i18n.t('已售', $language)}}{{i.curNumber}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

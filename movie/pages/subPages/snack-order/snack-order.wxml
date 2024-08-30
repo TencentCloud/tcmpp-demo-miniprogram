@@ -1,0 +1,32 @@
+<import src='../../../templates/nothing/nothing.wxml' />
+<wxs module="i18n" src="../../../i18n/index.wxs"></wxs>
+
+<view class='container order-list-page'>
+  <view wx:for='{{orderList}}' wx:key='{{item}}' class='order-item'>
+    <navigator class='order-title line-ellipsis' url='../cinema-detail/cinema-detail?cinemaId={{item.cinemaId}}' hover-class='none'>
+      <view class="line-ellipsis">{{i18n.t(item.cinemaId + '_nm')}}</view>
+      <view class='triangle'></view>
+    </navigator>
+     <view class='order-info'data-order='{{item}}'>
+      <image src='{{item.img}}'></image>
+      <view class='order-desc'>
+        <view class='delete-box' catchtap='deleteOrder' data-index='{{index}}'>
+          <view class='iconfont icon-del delete'></view>
+        </view>
+        <view class='snack-name line-ellipsis'>{{i18n.t(item.title, $language)}}</view>
+        <view class='amount line-ellipsis'>{{i18n.t('数量：{num}', $language, {
+          num: item.amount
+        })}}</view>
+      </view>
+    </view>
+    <view class='order-more'>
+      <view>{{ i18n.t('总价：{value}元', $language, {
+        value: item.total
+      }) }}</view>
+      <view class='status'>{{ i18n.t('已完成', $language) }}</view>
+    </view>
+  </view>
+  <view hidden='{{orderList.length}}'>
+    <template is='nothing' data='{{message: i18n.t("暂无小吃订单", $language)}}' />
+  </view>
+</view>

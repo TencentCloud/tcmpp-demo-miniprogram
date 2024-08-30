@@ -1,0 +1,13 @@
+<wxs module="i18n" src="../../i18n/index.wxs"></wxs>
+<template name="cinemaMap">
+  <view class='cinema-info'>
+    <view class='info-box'>
+      <view class='title line-ellipsis'>{{nm}}</view>
+      <view class='location'>{{addr}}</view>
+    </view>
+    <navigator url='/pages/subPages/cinema-map/cinema-map?latitude={{cinemaData.lat}}&longitude={{cinemaData.lng}}&nm={{nm}}&addr={{addr}}' class='location-icon' hover-class='none'>
+      <image src='/assets/images/location.png' mode='aspectFit'></image>
+      <view>{{ i18n.t('地图', $language) }}</view>
+    </navigator>
+  </view>
+</template>

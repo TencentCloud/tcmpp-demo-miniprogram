@@ -1,0 +1,66 @@
+var zh = require('./locales/zh.wxs');
+var en = require('./locales/en.wxs');
+var indonesia = require('./locales/indonesia.wxs')
+var language = {
+  'zh-Hans': zh, 
+  'zh-Hant': zh, 
+  'zh-CN': zh,
+  'zh_CN': zh,
+  zh: zh,
+  en: en,
+  'en-US': en,
+  indonesia: indonesia
+};
+
+var fallbackLocale = 'en';
+
+module.exports = {
+  t: function (text, locale, params) {
+    if(locale) fallbackLocale = locale;
+    var regex = getRegExp('\{(.+?)\}+', 'g');
+    var startRegex = getRegExp('\{');
+    var endRegex = getRegExp('\}');
+    var lang = locale || fallbackLocale;
+
+    var textArr = text.match(regex) || [];
+    var realText = language[lang] ? language[lang][text] : text;
+
+    if(params) {
+      textArr.map(function(item) {
+        var itemRegx = getRegExp(item);
+        var realKey = item.replace(startRegex, '');
+        realKey = realKey.replace(endRegex, '');
+        realText = params[realKey] ? realText.replace(itemRegx, params[realKey]) : realText;
+        return item;
+      });
+    }
+    
+    return realText;
+  },
+
+  change: function(lang) {
+    if(lang) {
+      fallbackLocale = lang;
+    }
+  },
+
+  getRealName: function(language) {
+    var regx = getRegExp('zh')
+    if(regx.test(language)) {
+      return 'cnm'
+    }
+    return 'enm'
+  },
+
+  getMovieName: function(language) {
+    var regx = getRegExp('zh')
+    if(regx.test(language)) {
+      return 'nm'
+    }
+    return 'enm'
+  },
+
+  getMapName: function(cinemaId, name) {
+    return cinemaId + '_' + name;
+  }
+}
