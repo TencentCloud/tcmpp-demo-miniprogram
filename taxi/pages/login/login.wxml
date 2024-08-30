@@ -1,0 +1,12 @@
+<view class="main">
+    <view class="container">
+        <view class="hd foot">
+            <button class="didi-btn login-button" bindtap="login" loading="{{isLoading}}" disabled="{{isLoading}}"
+                    style="background-color: {{nextBtnBc}};color:#fff">{{i18n["授权登录"]}}
+            </button>
+            <button class="didi-btn login-mobile" bindtap="loginMobile"
+                    style="background-color: {{nextBtnBc}};color:#fff">{{i18n["手机号登录"]}}
+            </button>
+        </view>
+    </view>
+</view>

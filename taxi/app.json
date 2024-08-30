@@ -1,0 +1,26 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/carts/carts",
+    "pages/wait/wait",
+    "pages/order/order",
+    "pages/login/login",
+    "pages/loginMobile/login",
+    "pages/orderClosed/orderClosed",
+    "pages/cancel/cancel",
+    "pages/orderService/orderService",
+    "pages/evaluation/evaluation"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#1b1b1f",
+    "navigationBarTextStyle": "white"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "获取当前地理位置将给您提供定位服务",
+      "desc-en": "Obtaining your current geographic location will provide you with location-based services."
+    }
+  }
+}

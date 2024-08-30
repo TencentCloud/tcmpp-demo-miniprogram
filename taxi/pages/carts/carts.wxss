@@ -1,0 +1,41 @@
+.main{
+    background-color: #fff;
+    width: 100%;
+    height: 100%;
+    font-size: 0;
+}
+.carts{
+   display: inline-block;
+    width: 250rpx;
+    height: 210rpx;
+    border: 1px solid #f5f5f5;
+    text-align: center;
+    font-size: 30rpx;
+    box-sizing: border-box;
+}
+.cart-image image{
+   padding: 68rpx 0 30rpx 0rpx;
+   width: 70rpx;
+   height: 30rpx;
+    
+}
+.carts .cart-name{
+    color: #000;
+}
+
+.language-wrapper{
+  height: 300rpx;
+  margin-top: 100rpx;
+}
+.check__wrapper{
+  display: flex;
+  height: 60rpx;
+  margin-left: 50rpx;
+  margin-top: 20rpx;
+}
+.cell__bd {
+  width: 260rpx;
+  text-align: left;
+  font-size: 30rpx;
+  line-height: 60rpx;
+}

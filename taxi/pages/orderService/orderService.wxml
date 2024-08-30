@@ -1,0 +1,53 @@
+<loading hidden="{{hiddenLoading}}">{{i18n['数据加载中']}}</loading>
+<view class="container">
+    <map class="didiMap" id="didiMap" latitude="{{latitude}}" 
+    longitude="{{longitude}}" 
+    scale="{{scale}}" 
+    bindregionchange="bindregionchange" 
+    polyline="{{polyline}}" markers="{{markers}}"
+    bindmarkertap="bindmarkertap"  
+    bindcontroltap="bindcontroltap"
+    include-points="{{includePoints}}"
+    >
+    <cover-view class="total">
+        <cover-view class="total-driver">
+            <cover-view class="driver-info">
+                <cover-view class="driver-img">
+                    <cover-image style="width: 150rpx;height: 150rpx;"src="{{driverImg}}"/>
+                </cover-view>
+                <cover-view class="driver-detailed" >
+                    <cover-view class="detailed-name">{{driver.name}}
+                        <cover-image class="star" style="width: 35rpx;height: 35rpx;display: inline-block;" src="../../assets/images/star.png" ></cover-image>
+                        <cover-view class="orderTotal">{{driver.stars}}</cover-view>
+                    </cover-view>
+                   
+                    <cover-view class="detailed-Cartnumber">{{driver.Cartnumber}}</cover-view>
+
+                    <cover-view class="detailed-cart">{{driver.cart}}</cover-view>
+                </cover-view>
+            </cover-view>
+            <cover-view class="driver-message">
+                    <cover-view class="mas" bindtap="sendSms">
+                            <cover-image style="width: 70rpx;height: 70rpx;" src="../../assets/images/msm.png"/>
+                        </cover-view>
+                        <cover-view class="phone" bindtap="makePhoneCall">
+                            <cover-image style="width: 70rpx;height: 70rpx;" src="../../assets/images/phone.png"/>
+                        </cover-view>
+            </cover-view>
+          
+        </cover-view>
+        <cover-view class="total-looking">
+            <cover-image class="looking-img" style="width: 30rpx;height: 30rpx;" src="../../assets/images/looking.png"  ></cover-image>
+            <cover-view class="looking-desc">{{status === "waiting" ? i18n['等待上车'] : i18n['行程进行中']}}</cover-view>
+        </cover-view>
+        <cover-view class="total-prompt">{{i18n['请在2分钟内走到上车点']}}
+        </cover-view>
+
+
+    </cover-view>
+    <cover-view class="ft">
+        <cover-view class="ft-cancel"bindtap="toCancel">{{i18n['取消订单']}}</cover-view>
+        <cover-view class="ft-help" bindtap="toEvaluation">{{status === "waiting" ? i18n['开始行程']:i18n['结束行程']}}</cover-view>
+    </cover-view>
+</map>
+</view>

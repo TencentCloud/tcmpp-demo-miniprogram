@@ -1,0 +1,16 @@
+<view class="main">
+<view class="carts" wx:for="{{navData}}" wx:key="{{item.index}}" >
+   <view class="cart-image"> <image src="{{item.url}}" bindtap="backIndex"  data-id="{{index}}"></image></view>
+   <view class="cart-name">  <text>{{item.name}}</text></view>
+</view>
+<view class="language-wrapper">
+   <radio-group bindchange="radioChange">
+      <label class="check__wrapper" wx:for="{{languages}}" wx:key="{{item.value}}">
+         <view class="cell__hd">
+         <radio value="{{item.value}}" checked="{{item.checked}}" color="#DC143C"/>
+         </view>
+         <view class="cell__bd">{{item.name}}</view>
+      </label>
+   </radio-group>
+</view>
+</view>
