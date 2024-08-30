@@ -1,0 +1,57 @@
+<import src='../../../templates/nothing/nothing.wxml' />
+<import src='../../../templates/cinemaSection/cinemaSection.wxml' />
+<wxs module="i18n" src="../../../i18n/index.wxs"></wxs>
+
+<view class='search-wrapper'>
+  <view class='search-header topbar'>
+    <input class='search-input' placeholder-class='phcolor' placeholder='{{placeholder}}' bindinput='search'></input>
+    <text class='iconfont icon-sousuo'></text>
+    <view class='cancel' bindtap='goBack'>{{ i18n.t('取消', $language) }}</view>
+  </view>
+  <view class='result-list'>
+    <view wx:if='{{movies.length}}' class='movie-box'>
+      <view class='title'>{{ i18n.t('电影/电视剧/综艺', $language) }}</view>
+      <navigator wx:for='{{movies}}' wx:for-item='movie' wx:key='{{movie.id}}' class='movie-section' url='/pages/subPages/movie-detail/movie-detail?movieId={{movie.id}}'>
+        <image class='movie-img' src='{{movie.img}}' mode="scaleToFill"></image>
+        <view class='movie-info'>
+          <view class='movie-name line-ellipsis'>{{movie.nm}}
+            <text class='version {{movie.version}}'></text>
+          </view>
+          <view class='line-ellipsis'>{{movie.enm}}</view>
+          <view class='line-ellipsis'>{{movie.cat}}</view>
+          <view class='line-ellipsis'>{{movie.rt}}</view>
+        </view>
+        <!-- <view class='score'>
+          <text class='grade' wx:if='{{movie.sc}}'>{{movie.sc}}分</text>
+          <text wx:else>暂无评分</text>
+        </view> -->
+        <view class="search-score">
+          <view class='movie-score line-ellipsis'>
+            <view wx:if='{{movie.globalReleased}}'>
+              <text wx:if='{{movie.sc}}'><text class='grade'>{{movie.sc}} {{ i18n.t('分', $language)}}</text></text>
+              <text wx:else>{{ i18n.t('暂无评分', $language) }}</text>
+            </view>
+            <block wx:elif="{{!movie.globalReleased && movie.wish}}">
+              <!-- <text class='grade'>{{movie.wish}}</text>人想看 -->
+              {{ i18n.t('{num}人想看', $language, {
+                num: movie.wish
+              })}}
+            </block>
+          </view>
+          <view class='buy-tickets'>
+            <view wx:if='{{movie.showst===3}}' class='btn'>{{ i18n.t('购票', $language) }}</view>
+            <view wx:elif='{{movie.showst===1}}' class='btn want-see'>{{ i18n.t('想看', $language) }}</view>
+            <view wx:elif='{{movie.showst===4}}' class='btn pre-sale'>{{ i18n.t('预售', $language) }}</view>
+          </view>
+        </view>
+      </navigator>
+    </view>
+    <view wx:if='{{cinemas.length}}'>
+      <view class='title'>{{ i18n.t('影院', $language) }}</view>
+      <template is="cinemaSection" wx:for='{{cinemas}}' wx:for-item='cinema' wx:key='{{cinema.id}}' data='{{cinema, $language}}' />
+    </view>
+  </view>
+  <view hidden="{{movies.length || cinemas.length || value}}">
+    <template is='nothing' data='{{message: i18n.t("没有找到相关内容", $language)}}' />
+  </view>
+</view>

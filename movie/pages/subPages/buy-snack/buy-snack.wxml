@@ -1,0 +1,30 @@
+<wxs module="i18n" src="../../../i18n/index.wxs"></wxs>
+
+<view class='container' wx:if='{{order}}'>
+  <view class='section'>
+    <view class='snack-box box'>
+      <view class='snack line-ellipsis'>{{i18n.t(order.title, $language)}}</view>
+      <view>{{i18n.t('{value}元', $language, {
+        value: order.price
+      })}}</view>
+    </view>
+    <view class='amount-box box'>
+      <view>{{ i18n.t('数量：', $language)}}</view>
+      <view class='stepper'>
+        <view class='{{order.amount>1?"red":""}}' bindtap='minus'>-</view>
+        <view class='num'>{{order.amount}}</view>
+        <view class='red' bindtap='plus'>+</view>
+      </view>
+    </view>
+    <view class='total box'>
+      <view>{{ i18n.t('总价：', $language)}}</view>
+      <view class='red'>{{i18n.t('{value}元', $language, {
+        value: order.total
+      })}}</view>
+    </view>
+  </view>
+  <view class='phone section'>
+    {{ i18n.t('手机号', $language)}} 187××××2533
+  </view>
+  <view class='payment-btn' bindtap='payment'>{{i18n.t('提交订单', $language)}}</view>
+</view>

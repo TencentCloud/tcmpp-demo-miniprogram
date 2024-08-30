@@ -1,0 +1,47 @@
+<import src='../../../templates/cinemaMap/cinemaMap.wxml' />
+<wxs module="i18n" src="../../../i18n/index.wxs"></wxs>
+
+<view class='container' wx:if='{{order}}'>
+  <view class='ticket-content'>
+    <navigator class='cinema' url='../cinema-detail/cinema-detail?cinemaId={{order.cinemaId}}' hover-class='none'>
+      <view class="line-ellipsis">{{i18n.t(order.cinemaId + '_nm', $language)}}</view>
+      <view class='triangle'></view>
+    </navigator>
+    <view class='movie-info'>
+      <view class='movie-name line-ellipsis'>{{i18n.t(order.movieId + '_nm', $language)}}</view>
+      <view class='showTime line-ellipsis'>{{order.time}} {{i18n.t(order.lang, $language)}}</view>
+      <view class='position line-ellipsis'>{{i18n.t(order.hall, $language)}}</view>
+      <view class='position line-ellipsis'>{{order.seat}}</view>
+    </view>
+    <view class='divider-box'>
+      <view class='divider'></view>
+      <image class='status' src='/assets/images/icon_paydone2.png'></image>
+    </view>
+    <view class='code-container'>
+      <view class='code-box'>
+        <view>{{i18n.t('手机号：', $language)}} 187××××2533</view>
+        <view>{{i18n.t('流水号：', $language)}} {{order.flowNumber}}</view>
+        <view>{{i18n.t('验证码：', $language)}} {{order.Vcode}}</view>
+      </view>
+      <view class='rq'>
+        <image src='/assets/images/qr.png'></image>
+      </view>
+    </view>
+  </view>
+  <view class='price-box box'>
+    <view>{{ i18n.t('订单号：', $language) }} {{order.orderId}}</view>
+    <view>{{ i18n.t('总价：{value}元', $language, {
+      value: order.price
+    }) }}</view>
+  </view>
+  <view class='map-box'>
+    <template is="cinemaMap" data='{{cinemaData:order.cinemaData, cinemaId: order.cinemaId, $language, nm, addr}}' />
+  </view>
+  <view class='maoyan box'>
+    <view>{{ i18n.t('客服电话', $language) }}</view>
+    <view class='phone-box'>
+      <view>{{i18n.t('工作时间：', $language)}} 9:00-24:00</view>
+  <view class='phone'>1010-5335</view>
+    </view>
+  </view>
+</view>

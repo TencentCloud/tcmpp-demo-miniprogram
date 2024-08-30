@@ -1,0 +1,60 @@
+<import src='../../../templates/loadingMore/loadingMore.wxml' />
+<import src='../../../templates/movieSection/movieSection.wxml' />
+<import src='../../../templates/nothing/nothing.wxml' />
+<wxs module="i18n" src="../../../i18n/index.wxs"></wxs>
+
+<!-- change:prop="{{i18n.change}}" prop="{{$language}}" -->
+<view>
+	<view class='topbar'>
+		<navigator class='city-entry' url='../../subPages/city-select/city-select'>
+			<text class='city-name'>{{city}}</text>
+			<text class='city-entry-arrow'></text>
+		</navigator>
+		<view class='switch-hot'>
+			<view class='hot-item {{switchItem===0 ? "active" :""}}' bindtap='selectItem' data-item='{{0}}'>{{ i18n.t('正在热映', $language) }}</view>
+			<view class='hot-item {{switchItem===1 ? "active" :""}}' bindtap='selectItem' data-item='{{1}}'>{{ i18n.t('即将上映', $language) }}</view>
+		</view>
+		<navigator class='search-entry' url='../../subPages/search-page/search-page?stype=-1'>
+			<text class='iconfont icon-sousuo'></text>
+		</navigator>
+	</view>
+	<view class='switch-content'>
+		<view hidden="{{switchItem===1}}">
+			<template is='movieSection' wx:for='{{movieList0}}' wx:for-item='movie' wx:key='id' data='{{movie, $language}}' />
+			<view wx:if='{{!loadComplete0 && movieList0.length}}'>
+				<template is="loadingMore" data="{{$language}}"/>
+			</view>
+			<view wx:if='{{movieList0.length===0}}'>
+				<template is='nothing' data='{{message: i18n.t("暂无影片", $language)}}' />
+			</view>
+		</view>
+		<view hidden="{{switchItem===0}}">
+			<view class='most-expected' wx:if='{{mostExpectedList.length}}'>
+				<view class='title'>{{ i18n.t('近期最受期待', $language)}}</view>
+				<scroll-view class='scroll-view_H' scroll-x bindscrolltolower='lower'>
+					<navigator url='/pages/subPages/movie-detail/movie-detail?movieId={{movie.id}}' wx:for='{{mostExpectedList}}' wx:for-item='movie' wx:key='id' class='expected-item'>
+						<image src='{{movie.img}}' class='poster'></image>
+						<view class='name line-ellipsis'>{{i18n.t(movie.id + '_nm', $language)}}</view>
+						<view class='data line-ellipsis'>{{ i18n.t('{num}人想看', $language, {
+							num: movie.wish
+						})}}</view>
+						<view class='data'>{{movie.comingTitle}}</view>
+					</navigator>
+				</scroll-view>
+			</view>
+			<block wx:for='{{movieList1}}' wx:for-item='movie' wx:key='id'>
+				<block wx:if='{{index===0||movieList1[index-1].comingTitle!==movie.comingTitle}}'>
+					<view class='title'>{{movie.comingTitle}}</view>
+					<template is='movieSection' data='{{movie:movie, rt:true, $language: $language}}' />
+				</block>
+				<template wx:else is='movieSection' data='{{movie:movie, rt:true, $language: $language}}' />
+			</block>
+			<view wx:if='{{!loadComplete1 && movieList1.length}}'>
+				<template is="loadingMore" data="{{$language: $language}}"/>
+			</view>
+			<view wx:if='{{movieList1.length===0}}'>
+				<template is='nothing' data='{{message: i18n.t("暂无影片", $language)}}' />
+			</view>
+		</view>
+	</view>
+</view>

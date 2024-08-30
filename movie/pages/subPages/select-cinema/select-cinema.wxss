@@ -1,0 +1,25 @@
+@import '/templates/cinemaSection/cinemaSection.wxss';
+
+.top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  color: #555;
+  font-size: 28rpx;
+  background: #fff;
+  z-index: 10;
+}
+.main-content {
+  padding-bottom: 30rpx;
+}
+
+.cinema-list {
+  margin-top: 100rpx;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}

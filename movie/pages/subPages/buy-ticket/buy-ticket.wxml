@@ -1,0 +1,50 @@
+<wxs module="i18n" src="../../../i18n/index.wxs"></wxs>
+
+<view class='container' wx:if='{{order}}'>
+  <view class='section'>
+    <view class='movie-box'>
+      <view class='movie-name'>{{i18n.t(order.movieId + '_nm', $language)}}</view>
+      <view class='watch-time'>{{order.time}} {{i18n.t(order.lang, $language)}}</view>
+      <view>{{i18n.t(order.cinemaId + '_nm', $language)}}</view>
+      <view>{{i18n.t(order.hall, $language)}}</view>
+      <view>{{order.seat}}</view>
+    </view>
+    <view class='price-box'>
+      <view>{{ i18n.t('票价', $language) }}</view>
+      <view class='server'>{{ i18n.t('含服务费3元/张', $language) }}
+        <text class='price-num'>
+          <!-- {{order.price}}<text class='yuan'> {{i18n.t('元')}}</text> -->
+          {{ i18n.t('{value}元', $language, {
+            value: order.price
+          })}}
+        </text>
+      </view>
+    </view>
+  </view>
+  <view class='section'>
+    <view class='section-title'>{{ i18n.t('活动和优惠券', $language) }}</view>
+    <view class='section-content'>{{ i18n.t('无可用优惠券', $language) }}</view>
+  </view>
+  <view class='section'>
+    <view class='section-title'>{{ i18n.t('退改签须知', $language) }}</view>
+    <view class='section-content'>
+      <view>{{ i18n.t('开场时间60分钟前，可免费改签、退款', $language) }}</view>
+      <view>{{ i18n.t('使用观影卡或享受票减小吃特惠时，不可改签', $language) }}</view>
+    </view>
+  </view>
+  <view class='section'>
+    <view class='section-title'>{{ i18n.t('手机号', $language) }}</view>
+    <view class='section-content'>{{ i18n.t('手机号仅用于生成订单，取票码不再以短信发送', $language) }}</view>
+  </view>
+  <view class='footer'>
+    <view class='payment'>
+      <text>{{ i18n.t('还需支付：', $language) }}</text>
+      <text class='price-num'>
+        {{i18n.t('{value}元', $language, {
+            value: order.price
+        })}}
+      </text>
+    </view>
+    <view class='payment-btn' bindtap='payment'>{{ i18n.t('确认支付', $language) }}</view>
+  </view>
+</view>

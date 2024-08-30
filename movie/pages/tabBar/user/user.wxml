@@ -1,0 +1,45 @@
+<wxs module="i18n" src="../../../i18n/index.wxs"></wxs>
+<view class='container'>
+  <view class='header'>
+    <!-- <open-data type="userAvatarUrl" class='avatar'></open-data>
+    <open-data type="userNickName" class='name'></open-data> -->
+    <view wx:if="{{!userName}}" bind:tap="toLogin">
+      <image class="avatar" src="{{avatarUrl}}"/>
+      <!-- <view class="name" bind:tap="getUserInfo">登录</view> -->
+     <view class="get-user">{{ i18n.t('点击登录', $language)}}</view>
+    </view>
+    <block wx:else>
+      <!-- <image class="avatar" src="{{avatarUrl}}"/> -->
+      <view class="avatar">
+        <text class="first-letter">{{firstLetter}}</text>
+      </view>
+      <view class="name">{{userName}}</view>
+    </block>
+    
+  </view>
+  <view>
+    <view class='order'>
+      <view class='title-box'>
+        <view class='title'>{{ i18n.t('我的订单', $language) }}</view>
+        <view class='title-line'></view>
+      </view>
+      <view class='order-list'>
+        <navigator class='order-item' url='/pages/subPages/movie-order/movie-order' hover-class='none'>
+          <image src='/assets/images/order_movie.png'></image>
+          <view>{{ i18n.t('电影', $language)}}</view>
+        </navigator>
+        <navigator class='order-item' url='/pages/subPages/snack-order/snack-order' hover-class='none'>
+          <image src='/assets/images/order_store.png'></image>
+          <view>{{ i18n.t('小吃', $language)}}</view>
+        </navigator>
+      </view>
+    </view>
+    <view class='other'>
+      <view class='share other-item'>
+        <button open-type='share' class='btn' hover-class='none'>
+          <text class='iconfont icon-fenxiang1'></text> {{i18n.t('分享给朋友', $language)}}
+        </button>
+      </view>
+    </view>
+  </view>
+</view>

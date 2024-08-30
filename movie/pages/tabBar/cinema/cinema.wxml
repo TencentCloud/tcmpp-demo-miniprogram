@@ -1,0 +1,27 @@
+<import src='../../../templates/nothing/nothing.wxml' />
+<import src='../../../templates/loadingMore/loadingMore.wxml' />
+<import src='../../../templates/cinemaSection/cinemaSection.wxml' />
+<wxs module="i18n" src="../../../i18n/index.wxs"></wxs>
+
+<view class='container' style='position:{{isShow?"fixed":""}}'>
+  <view class='topbar'>
+    <navigator class='city-entry' url='../../subPages/city-select/city-select'>
+      <text class='city-name'>{{city}}</text>
+      <text class='city-entry-arrow'></text>
+    </navigator>
+    <navigator url='../../subPages/search-page/search-page?stype=2' class='search-input'>
+      <text class='iconfont icon-sousuo'></text>{{i18n.t('搜影院', $language)}}</navigator>
+  </view>
+  <!-- <view class='nav-wrapper'>
+    <filter-nav city-cinema-info='{{cityCinemaInfo}}' bindchange='changeCondition' bindtoggleShow='toggleShow'></filter-nav>
+  </view> -->
+  <view class='cinema-list'>
+   <template is="cinemaSection" wx:for='{{cinemas}}' wx:for-item='cinema' wx:key='id' data='{{cinema, $language}}'/>
+  </view>
+  <view wx:if='{{!loadComplete && cinemas.length}}'>
+    <template is="loadingMore" data="{{$language}}"/>
+  </view>
+  <view hidden='{{!nothing}}'>
+    <template is='nothing' data='{{message: i18n.t("暂无符合条件的影院", $language)}}' />
+  </view>
+</view>

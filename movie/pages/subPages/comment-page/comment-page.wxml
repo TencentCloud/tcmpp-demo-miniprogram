@@ -1,0 +1,20 @@
+<import src='../../../templates/commentSection/commentSection.wxml' />
+<wxs module="i18n" src="../../../i18n/index.wxs"></wxs>
+
+<view>
+  <view class='hot' wx:if='{{hcmts.length}}'>
+    <view class='comment-title'>{{ i18n.t('热门评论', $language) }}</view>
+    <view>
+      <template is='commentSection' wx:for='{{hcmts}}' wx:key='{{comment.id}}' wx:for-item='comment' data='{{comment, $language, movieId}}'></template>
+    </view>
+  </view>
+  <view class='hot' wx:if='{{cmts.length}}'>
+    <view class='comment-title'>{{ i18n.t('最新评论', $language) }}</view>
+    <view>
+      <template is='commentSection' wx:for='{{cmts}}' wx:key='{{comment.id}}' wx:for-item='comment' data='{{comment, $language, movieId}}'></template>    
+    </view>
+  </view>
+  <view class='loadingMore' wx:if='{{!loadComplete && cmts.length && hcmts.length}}'>
+    <view class='loading-text'>{{ i18n.t('加载更多...', $language) }}</view>
+  </view>
+</view>
