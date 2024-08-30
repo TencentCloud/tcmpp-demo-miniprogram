@@ -1,4 +1,4 @@
-import { i18n,lang } from '../../../../i18n/lang'
+import { i18n, lang } from '../../../../i18n/lang'
 Page({
   onShareAppMessage() {
     return {

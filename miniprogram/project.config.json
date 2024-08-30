@@ -39,7 +39,7 @@
 	},
 	"libVersion": "3.0.0",
 	"appid": "wx582fd5a0920beb62",
-	"TCMPPappid": "mptbdgmafkv38ico",
+	"TCMPPappid": "touristId",
 	"scripts": {
 		"beforeCompile": "",
 		"beforePreview": "",
