@@ -1,6 +1,11 @@
 // pages/jserror/index.js
 Page({
   SyntaxErrorFunc: function () {
+    wx.showModal({
+      title: 'SyntaxError',
+      confirmText: 'confirm',
+      cancelText: 'cancel',
+    });
     wx.request({
       url: 'https://fian628.pixnet.net'
     })
@@ -19,22 +24,52 @@ Page({
     throw new SyntaxError('this is a hard-code Error');
   },
   ReferenceErrorFunc: function () {
+    wx.showModal({
+      title: 'ReferenceError',
+      confirmText: 'confirm',
+      cancelText: 'cancel',
+    })
     console.log(abc);
   },
   RangeErrorFunc: function () {
+    wx.showModal({
+      title: 'RangeError',
+      confirmText: 'confirm',
+      cancelText: 'cancel',
+    })
     var testArr = new Array(-1)
     console.log(testArr[-1])
   },
   TypeErrorFunc: function () {
+    wx.showModal({
+      title: 'TypeError',
+      confirmText: 'confirm',
+      cancelText: 'cancel',
+    })
     typeFunc();
   },
   URIErrorFunc: function () {
+    wx.showModal({
+      title: 'URIError',
+      confirmText: 'confirm',
+      cancelText: 'cancel',
+    })
     decodeURI('%%');
   },
   EvalErrorFunc: function () {
-    throw new EvalError('this is a hard code evalError')
+    wx.showModal({
+      title: 'EvalError',
+      confirmText: 'confirm',
+      cancelText: 'cancel',
+    });
+    throw new EvalError('this is a hard code evalError');
   },
   UnhandleRejection: function () {
+    wx.showModal({
+      title: 'UnhandleRejection',
+      confirmText: 'confirm',
+      cancelText: 'cancel',
+    })
     new Promise(function (resolve, reject) {
       console.log('start new Promise...');
       var timeOut = Math.random() * 2;

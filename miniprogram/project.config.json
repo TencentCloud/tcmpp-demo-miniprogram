@@ -32,15 +32,15 @@
     "ignore": [],
     "include": []
   },
-  "projectname": "tcmpp-github-main-demo",
+  "projectname": "v4-tcmpp-github-main-demo-0822",
   "editorSetting": {
     "tabIndent": "insertSpaces",
     "tabSize": 2
   },
   "libVersion": "3.0.0",
   "appid": "wx756d95f763664a70",
-  "TCMPPappid": "mpc2vtchirtku70t",
-  "TCMPPLibVersion": "1.5.42",
+  "TCMPPappid": "mp5fwkfw5je28xzy",
+  "TCMPPLibVersion": "2.0.6",
   "mockConfig": {
     "globalOpen": true,
     "rules": [
