@@ -17,6 +17,11 @@ Page({
     console.log('setdata this',this,this.setData)
   },
   getArticleJson: function () {
+    wx.showModal({
+      title: 'setData',
+      confirmText: 'confirm',
+      cancelText: 'cancel',
+    });
     var that = this;
     wx.request({
       url: 'https://xs.sogou.com/html/web/api/forcebreak.json',
