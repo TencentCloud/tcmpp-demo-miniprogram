@@ -1,9 +1,0 @@
-{
-  "miniprogramRoot": "./",
-  "projectname": "jianyunrili-html",
-  "appid": "testAppId",
-  "setting": {
-    "es6": false,
-    "minified": false
-  }
-}
