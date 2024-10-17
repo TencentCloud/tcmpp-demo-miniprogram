@@ -1,6 +1,13 @@
 console.log('QAPM_DEVICE_ID', wx.getStorageSync("QAPM_DEVICE_ID"));
 typeof __wxConfig.qapmSetField==="function" && __wxConfig.qapmSetField("logLevel",5)
 
+const performance = wx.getPerformance()
+const observer = performance.createObserver((entryList) => {
+  console.log('entryList',entryList.getEntries())
+})
+observer.observe({ entryTypes: ['render', 'script', 'navigation', 'loadPackage', 'resource'] })
+
+
 import { i18n, lang } from './i18n/lang'
 import { log } from './util/util'
 

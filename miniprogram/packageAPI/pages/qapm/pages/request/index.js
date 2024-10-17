@@ -35,6 +35,11 @@ Page({
     wx.request({
       url:"https://www.van-mook.nl/"
     })
+    wx.showModal({
+      title: 'send normal request',
+      confirmText: 'confirm',
+      cancelText: 'cancel',
+    })
   },
   requestError: function () {
     wx.request({
@@ -43,7 +48,11 @@ Page({
     wx.request({
       url: 'https://www.nasa.go/',
     })
-
+    wx.showModal({
+      title: 'send abnormal request',
+      confirmText: 'confirm',
+      cancelText: 'cancel',
+    })
   },
   onLoad: function (options) {
     console.log('onLoad')

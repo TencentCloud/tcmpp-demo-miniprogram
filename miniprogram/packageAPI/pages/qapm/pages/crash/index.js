@@ -4,6 +4,11 @@ Page({
         arr: []
     },
     crash() {
+        wx.showModal({
+            title: 'crash',
+            confirmText: 'confirm',
+            cancelText: 'cancel',
+        })
         this.setData({
             arr: [...Array(2 ** 32 - 1)].map(_ => Math.ceil(Math.random() * 111))
         })
@@ -40,6 +45,7 @@ Page({
                 }, 0);
             }, 0);
         }, 0);
+        
     }
 })
 
